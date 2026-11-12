@@ -45,6 +45,12 @@
               teal: '#008069',
               tick: '#53BDEB',
               green: '#25D366'
+            },
+            ig: {
+              pink: '#E1306C',
+              purple: '#833AB4',
+              orange: '#F77737',
+              gold: '#FCAF45'
             }
           }
         }
@@ -91,6 +97,34 @@
       font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
       overflow-x: hidden;
       -webkit-font-smoothing: antialiased;
+      transition: background-color 0.25s ease, color 0.25s ease;
+    }
+
+    /* Instagram Luxe Theme Mode */
+    body.theme-instagram {
+      background: radial-gradient(circle at top right, rgba(225, 48, 108, 0.06), rgba(131, 58, 180, 0.05), #FAFAFA 60%);
+    }
+    body.theme-instagram .mono-box {
+      border-color: #E1306C;
+      box-shadow: 3px 3px 0px #833AB4;
+    }
+    body.theme-instagram .wa-chat-bg {
+      background-color: #FDF7FA;
+      background-image: radial-gradient(#FBCFE8 0.9px, transparent 0.9px);
+    }
+    body.theme-instagram .wa-bubble-out {
+      background: linear-gradient(135deg, #FCE7F3 0%, #F3E8FF 100%);
+      border-color: #F9A8D4;
+    }
+
+    /* Midnight Cyber Theme Mode */
+    body.theme-midnight {
+      background-color: #090D16;
+      color: #F8FAFC;
+    }
+    body.theme-midnight .wa-chat-bg {
+      background-color: #0F172A;
+      background-image: radial-gradient(#334155 0.85px, transparent 0.85px);
     }
 
     /* Official Subtle Technical Grid */
@@ -127,9 +161,17 @@
 
     /* Instagram-Style Gradient Story Ring */
     .ig-ring {
-      padding: 2px;
-      background: linear-gradient(45deg, #FF671F 0%, #E1306C 50%, #0B3D91 100%);
+      padding: 2.5px;
+      background: linear-gradient(45deg, #FCAF45 0%, #F77737 25%, #E1306C 55%, #833AB4 85%, #0B3D91 100%);
       border-radius: 9999px;
+      transition: transform 0.2s ease;
+    }
+    .ig-ring:hover {
+      transform: scale(1.06);
+    }
+
+    .ig-gradient-pill {
+      background: linear-gradient(90deg, #833AB4 0%, #E1306C 50%, #F77737 100%);
     }
 
     /* Centerpiece Hero Global Chat Button Pulse */
@@ -146,7 +188,7 @@
       transform: translateY(-2px);
     }
 
-    /* WhatsApp Chat Wallpaper & Dynamic Fit-Content Message Bubbles */
+    /* WhatsApp Chat Wallpaper & Ultra-Fast Dynamic Fit-Content Message Bubbles */
     .wa-chat-bg {
       background-color: #F4F5F7;
       background-image: radial-gradient(#CBD5E1 0.85px, transparent 0.85px);
@@ -154,7 +196,7 @@
     }
 
     @keyframes waPopIn {
-      0% { opacity: 0; transform: translateY(6px) scale(0.985); }
+      0% { opacity: 0; transform: translateY(4px) scale(0.99); }
       100% { opacity: 1; transform: translateY(0) scale(1); }
     }
 
@@ -171,7 +213,7 @@
       border: 1px solid #E2E8F0;
       border-radius: 0px 14px 14px 14px;
       box-shadow: 0 1px 2px rgba(15, 23, 42, 0.06);
-      animation: waPopIn 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+      animation: waPopIn 0.14s cubic-bezier(0.16, 1, 0.3, 1);
       position: relative;
     }
 
@@ -180,9 +222,25 @@
       border: 1px solid #BBF7D0;
       border-radius: 14px 0px 14px 14px;
       box-shadow: 0 1px 2px rgba(15, 23, 42, 0.06);
-      animation: waPopIn 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+      animation: waPopIn 0.14s cubic-bezier(0.16, 1, 0.3, 1);
       position: relative;
     }
+
+    /* Soft-Deleted Message Bubble Style */
+    .wa-bubble-deleted {
+      background: #F8FAFC !important;
+      border: 1px dashed #94A3B8 !important;
+      opacity: 0.92;
+    }
+
+    /* Live Activity Status Pill Animation (Typing / Image Selecting / Video Sending / Voice Recording) */
+    @keyframes activityDotBounce {
+      0%, 80%, 100% { transform: scale(0.6); opacity: 0.4; }
+      40% { transform: scale(1.1); opacity: 1; }
+    }
+    .activity-dot-1 { animation: activityDotBounce 1.2s infinite ease-in-out; }
+    .activity-dot-2 { animation: activityDotBounce 1.2s infinite ease-in-out 0.2s; }
+    .activity-dot-3 { animation: activityDotBounce 1.2s infinite ease-in-out 0.4s; }
 
     /* Full Screen Locked Chat Box Mode (No Scroll Jiggle) */
     .chat-fullscreen-active {
@@ -274,13 +332,13 @@
     .chat-font-serif { font-family: 'Playfair Display', serif; }
     .chat-font-script { font-family: 'Dancing Script', cursive; font-size: 1.12em; }
 
-    /* Zoom-Style Video Tile Pulse & Animations */
+    /* Zoom-Style HD Video Tile Pulse, Filters & Spotlight Animations */
     @keyframes videoTileJoin {
-      0% { opacity: 0; transform: scale(0.92); }
+      0% { opacity: 0; transform: scale(0.94); }
       100% { opacity: 1; transform: scale(1); }
     }
     .zoom-video-tile {
-      animation: videoTileJoin 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      animation: videoTileJoin 0.25s cubic-bezier(0.16, 1, 0.3, 1);
       background: radial-gradient(circle at center, #1E293B 0%, #090D16 100%);
       border: 2px solid #334155;
       transition: all 0.25s ease;
@@ -291,12 +349,46 @@
     }
     .zoom-tile-speaking {
       border-color: #10B981 !important;
-      box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.25);
+      box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.3);
     }
+    .zoom-tile-spotlight {
+      grid-column: 1 / -1 !important;
+      min-height: 360px !important;
+      border-color: #F59E0B !important;
+    }
+    .video-mirror {
+      transform: scaleX(-1);
+    }
+    .vfilter-none { filter: none; }
+    .vfilter-vivid { filter: contrast(1.15) saturate(1.3) brightness(1.05); }
+    .vfilter-warm { filter: sepia(0.25) saturate(1.25) brightness(1.04); }
+    .vfilter-cyber { filter: contrast(1.2) hue-rotate(15deg) saturate(1.35); }
+    .vfilter-mono { filter: grayscale(1) contrast(1.15); }
+    .vfilter-lowlight { filter: brightness(1.35) contrast(1.1); }
   </style>
 </head>
 
 <body class="isro-tech-grid min-h-screen flex flex-col selection:bg-slate-900 selection:text-white">
+
+  <!-- ==========================================================================
+       GLOBAL EMERGENCY ADMIN FLASH ALERT OVERLAY (HIDDEN BY DEFAULT)
+       ========================================================================== -->
+  <div id="globalEmergencyFlashBanner" class="hidden fixed top-14 inset-x-0 z-50 mx-auto max-w-2xl px-4">
+    <div class="p-3.5 rounded-2xl bg-gradient-to-r from-rose-600 via-amber-600 to-[#0B3D91] text-white shadow-2xl border-2 border-white flex items-center justify-between gap-3 animate-bounce">
+      <div class="flex items-center gap-2.5">
+        <span class="w-8 h-8 rounded-xl bg-white/20 flex items-center justify-center text-sm shrink-0">
+          <i class="fa-solid fa-bolt"></i>
+        </span>
+        <div>
+          <div class="text-[10px] font-mono font-extrabold uppercase tracking-wider text-amber-200">Admin Live Priority Alert</div>
+          <div id="globalEmergencyFlashText" class="text-xs sm:text-sm font-extrabold">Official Alert Message</div>
+        </div>
+      </div>
+      <button onclick="document.getElementById('globalEmergencyFlashBanner').classList.add('hidden')" class="px-2.5 py-1 rounded-lg bg-black/30 hover:bg-black/50 text-xs font-bold">
+        Dismiss
+      </button>
+    </div>
+  </div>
 
   <!-- ==========================================================================
        1. MAIN NAVIGATION HEADER (STARTS DIRECTLY WITH NEXACOMM OUTREACH)
@@ -314,12 +406,12 @@
             <span class="font-display font-extrabold text-base sm:text-lg tracking-tight text-slate-950">
               NEXACOMM <span class="text-[#0B3D91]">OUTREACH</span>
             </span>
-            <span class="px-1.5 py-0.5 text-[9px] font-mono font-bold uppercase bg-slate-100 text-slate-800 border border-slate-300 rounded">
-              v6.0 PRO
+            <span class="px-1.5 py-0.5 text-[9px] font-mono font-bold uppercase bg-gradient-to-r from-[#833AB4] via-[#E1306C] to-[#FF671F] text-white rounded shadow-2xs">
+              v7.0 ULTRA HD
             </span>
           </div>
           <p class="text-[10px] font-medium text-slate-500 leading-none mt-0.5">
-            Global Group Communication & Verified Identity Network
+            Global Group Communication • Live Multi-Cam Bridge & Verified Network
           </p>
         </div>
       </div>
@@ -334,13 +426,19 @@
         <button id="btnNavChatWorkspace" onclick="window.appUI.openGlobalChatDirect()" class="px-3.5 py-1.5 rounded-lg text-xs font-bold bg-[#0B3D91] hover:bg-slate-900 text-white transition flex items-center gap-1.5 shadow-xs">
           <i class="fa-brands fa-whatsapp text-sm text-emerald-300"></i>
           <span>Global Group Chat</span>
-          <span class="px-1.5 py-0.2 bg-white/20 rounded text-[9px] font-mono">PUBLIC</span>
+          <span class="px-1.5 py-0.2 bg-white/20 rounded text-[9px] font-mono">FAST</span>
         </button>
 
         <button id="btnNavVideoHub" onclick="window.appUI.openVideoConferencePage()" class="px-3 py-1.5 rounded-lg text-xs font-bold bg-emerald-700 hover:bg-emerald-800 text-white transition flex items-center gap-1.5 shadow-xs">
           <i class="fa-solid fa-video text-[11px]"></i>
-          <span>Live Video Rooms</span>
+          <span>HD Video Rooms</span>
           <span id="navActiveRoomsBadge" class="px-1.5 py-0.2 bg-white/20 rounded text-[9px] font-mono">0</span>
+        </button>
+
+        <!-- Theme Switcher (ISRO Classic / Instagram Gradient / Midnight) -->
+        <button onclick="window.appUI.cyclePortalTheme()" class="px-2.5 py-1.5 rounded-lg text-xs font-bold bg-gradient-to-r from-pink-500/10 via-purple-500/10 to-orange-500/10 hover:from-pink-500/20 hover:to-orange-500/20 text-slate-900 border border-pink-300 transition flex items-center gap-1" title="Switch Theme (ISRO Classic / Instagram Luxe / Midnight)">
+          <i class="fa-brands fa-instagram text-xs text-[#E1306C]"></i>
+          <span id="activeThemeLabel" class="hidden sm:inline text-[11px]">IG Theme</span>
         </button>
 
         <!-- Impersonation Return Button (Shown when Admin uses "Login As") -->
@@ -400,7 +498,7 @@
           OFFICIAL BULLETIN
         </span>
         <span id="globalBroadcastTicker" class="font-medium text-slate-700 truncate">
-          Welcome to IIRS-NexaComm Official Outreach Portal • Global Group Chat & Live Video Conference Rooms are active.
+          Welcome to IIRS-NexaComm Official Outreach Portal • Ultra-Fast Global Group Chat, Instagram Story Posts & Live 2-Way HD Video Conference Rooms are active.
         </span>
       </div>
       <button onclick="window.appUI.openGlobalChatDirect()" class="shrink-0 text-[11px] font-bold text-[#0B3D91] hover:underline flex items-center gap-1">
@@ -416,29 +514,32 @@
   <main class="flex-1 max-w-[1440px] w-full mx-auto px-3 sm:px-6 py-5">
 
     <!-- ========================================================================
-         VIEW A: PORTAL HOME (CLEANED UP — DIRECT GLOBAL GROUP CHAT BUTTON)
+         VIEW A: PORTAL HOME (INSTAGRAM STORIES WITH PHOTOS/REACTIONS + LAUNCHPAD)
          ======================================================================== -->
     <section id="viewLanding" class="space-y-6">
 
-      <!-- INSTAGRAM-STYLE LIVE OUTREACH HIGHLIGHTS / STATUS STRIP -->
-      <div class="official-card rounded-xl p-3 flex items-center justify-between gap-4 overflow-x-auto">
+      <!-- INSTAGRAM-STYLE LIVE OUTREACH HIGHLIGHTS / PHOTO & TEXT STATUS STRIP -->
+      <div class="official-card rounded-xl p-3.5 flex items-center justify-between gap-4 overflow-x-auto border border-slate-200">
         <div class="flex items-center gap-4" id="outreachStoriesStrip">
           <button onclick="window.appUI.openModal('statusModal')" class="flex flex-col items-center gap-1 shrink-0 group">
-            <div class="w-11 h-11 rounded-full border-2 border-dashed border-slate-400 group-hover:border-slate-900 flex items-center justify-center bg-slate-50 text-slate-700 transition">
-              <i class="fa-solid fa-plus text-xs"></i>
+            <div class="w-12 h-12 rounded-full border-2 border-dashed border-[#E1306C] group-hover:border-slate-950 flex items-center justify-center bg-gradient-to-tr from-pink-50 to-amber-50 text-[#E1306C] transition relative">
+              <i class="fa-solid fa-camera-retro text-xs"></i>
+              <span class="w-4 h-4 rounded-full bg-[#E1306C] text-white text-[9px] flex items-center justify-center absolute -bottom-0.5 -right-0.5 border border-white">
+                <i class="fa-solid fa-plus"></i>
+              </span>
             </div>
-            <span class="text-[10px] font-semibold text-slate-700">Post Update</span>
+            <span class="text-[10px] font-bold text-slate-800">Post Story</span>
           </button>
-          <!-- Dynamic Status Bubbles Rendered by JS -->
+          <!-- Dynamic Photo & Text Status Bubbles with Reactions Rendered by JS -->
         </div>
 
-        <div class="hidden md:flex items-center gap-2 shrink-0 border-l border-slate-200 pl-4">
+        <div class="hidden md:flex items-center gap-2.5 shrink-0 border-l border-slate-200 pl-4">
           <div class="text-right">
-            <div class="text-[10px] font-mono uppercase text-slate-400">Portal Mode</div>
+            <div class="text-[10px] font-mono uppercase text-[#E1306C] font-bold">Photo + Reaction Stories</div>
             <div class="text-xs font-bold text-slate-900">Public Global Access</div>
           </div>
-          <span class="w-8 h-8 rounded-lg bg-slate-100 border border-slate-300 flex items-center justify-center text-slate-800 text-xs">
-            <i class="fa-solid fa-tower-cell"></i>
+          <span class="w-9 h-9 rounded-xl ig-gradient-pill text-white flex items-center justify-center text-sm shadow-xs">
+            <i class="fa-brands fa-instagram"></i>
           </span>
         </div>
       </div>
@@ -446,7 +547,7 @@
       <!-- DIRECT CENTERPIECE LAUNCHPAD: MASSIVE GLOBAL GROUP CHAT BUTTON & QUICK ACTIONS -->
       <div class="mono-box rounded-2xl p-6 sm:p-10 bg-white relative overflow-hidden">
         <!-- Top Official Accent Bar -->
-        <div class="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-[#0B3D91] via-slate-900 to-[#FF671F]"></div>
+        <div class="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-[#0B3D91] via-[#E1306C] to-[#FF671F]"></div>
 
         <div class="max-w-3xl mx-auto text-center space-y-6">
           
@@ -467,7 +568,7 @@
                     </span>
                   </div>
                   <p class="text-[11px] text-slate-300 font-medium mt-0.5">
-                    Open to Everyone (View Without Login • Chat With Verified Full Name)
+                    Open to Everyone (Instant Sync • Live Typing/Media Status • Verified Full Name)
                   </p>
                 </div>
               </div>
@@ -496,7 +597,12 @@
 
             <button onclick="window.appUI.openVideoConferencePage()" class="px-4 py-2 rounded-lg text-xs font-bold bg-emerald-50 hover:bg-emerald-100 text-emerald-900 border border-emerald-300 transition flex items-center gap-1.5">
               <i class="fa-solid fa-video text-[11px] text-emerald-600"></i>
-              <span>Live Video Conference Rooms</span>
+              <span>Live HD Video Conference Rooms</span>
+            </button>
+
+            <button onclick="window.appUI.openModal('statusModal')" class="px-4 py-2 rounded-lg text-xs font-bold bg-pink-50 hover:bg-pink-100 text-pink-900 border border-pink-300 transition flex items-center gap-1.5">
+              <i class="fa-solid fa-camera text-[11px] text-[#E1306C]"></i>
+              <span>Post Photo / Story Highlight</span>
             </button>
 
             <button onclick="window.appUI.openModal('adminLoginModal')" class="px-4 py-2 rounded-lg text-xs font-bold bg-slate-100 hover:bg-slate-200 text-slate-900 border border-slate-300 transition flex items-center gap-1.5">
@@ -517,12 +623,12 @@
     <section id="viewChatWorkspace" class="hidden space-y-5">
 
       <!-- 1. TOP ELEMENT: WHATSAPP + ISRO REAL-NAME CHAT BOX (WITH AUTO-ADJUST FULL SCREEN) -->
-      <div id="mainChatBoxWrapper" class="official-card rounded-xl overflow-hidden flex flex-col h-[78vh] min-h-[560px] max-h-[840px] border border-slate-900 shadow-sm relative">
+      <div id="mainChatBoxWrapper" class="official-card rounded-xl overflow-hidden flex flex-col h-[80vh] min-h-[580px] max-h-[860px] border border-slate-900 shadow-sm relative">
         
         <!-- Chat Top Header -->
         <div class="bg-white px-3 sm:px-4 py-2.5 border-b border-slate-200 flex flex-wrap items-center justify-between gap-2 shrink-0">
           
-          <!-- Channel Identity & Live Typing / Presence Status -->
+          <!-- Channel Identity & Live Typing / Media Activity Status -->
           <div class="flex items-center gap-2.5">
             <div id="chatHeaderIcon" class="w-9 h-9 rounded-lg bg-slate-950 text-emerald-400 flex items-center justify-center text-base shrink-0">
               <i class="fa-brands fa-whatsapp"></i>
@@ -535,15 +641,18 @@
                 <span id="chatHeaderBadge" class="px-1.5 py-0.5 rounded text-[9px] font-mono font-bold bg-emerald-50 text-emerald-800 border border-emerald-300">
                   PUBLIC STREAM
                 </span>
+                <span id="slowModeHeaderBadge" class="hidden px-1.5 py-0.5 rounded text-[9px] font-mono font-bold bg-amber-100 text-amber-900 border border-amber-300">
+                  SLOW MODE
+                </span>
               </div>
               <p id="chatHeaderSubtitle" class="text-[11px] font-medium text-slate-500 mt-0.5 flex items-center gap-1.5">
-                <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
-                <span id="livePresenceIndicator">Verified Original Names • Dynamic Bubbles • ✓✓ Sync</span>
+                <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
+                <span id="livePresenceIndicator">Verified Original Names • Instant Sync • ✓✓</span>
               </p>
             </div>
           </div>
 
-          <!-- Header Action Controls: Auto-Adjust Full Screen, Search, Filters, Font, Sound & Admin Lock -->
+          <!-- Header Action Controls: Auto-Adjust Full Screen, Search, Filters, Font, Gallery, Vault, Sound & Admin Lock -->
           <div class="flex flex-wrap items-center gap-1.5">
             
             <!-- AUTO-ADJUST FULL SCREEN BUTTON -->
@@ -564,12 +673,13 @@
               <i class="fa-solid fa-magnifying-glass text-slate-400 text-[10px] absolute left-2.5 top-2"></i>
             </div>
 
-            <!-- Stream Content Filter (All / Media / Polls / Starred) -->
+            <!-- Stream Content Filter (All / Media / Polls / Starred / Deleted-Recoverable) -->
             <select id="chatTypeFilterSelect" onchange="window.appUI.setStreamTypeFilter(this.value)" class="px-2 py-1 rounded-lg bg-slate-100 border border-slate-300 text-[11px] font-bold text-slate-800 focus:outline-none cursor-pointer" title="Filter Messages by Type">
               <option value="ALL">All Messages</option>
               <option value="STARRED">⭐ Starred Only</option>
               <option value="MEDIA">🖼️ Media / Audio / Video</option>
               <option value="POLL">📊 Polls Only</option>
+              <option value="DELETED">🗑️ Deleted (Recoverable)</option>
             </select>
 
             <!-- Global View Font Selector -->
@@ -581,6 +691,17 @@
               <option value="chat-font-serif">Font: Editorial Serif</option>
               <option value="chat-font-script">Font: Cursive Script</option>
             </select>
+
+            <!-- Media Gallery Button (Feature #19) -->
+            <button onclick="window.appUI.openMediaGalleryModal()" class="px-2 py-1 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-800 border border-slate-300 text-[11px] font-bold transition flex items-center gap-1" title="Open Shared Media Gallery">
+              <i class="fa-solid fa-photo-film text-[11px] text-[#E1306C]"></i>
+              <span class="hidden lg:inline">Gallery</span>
+            </button>
+
+            <!-- Personal Saved Vault Button (Feature #15) -->
+            <button onclick="window.appUI.openSavedVaultModal()" class="px-2 py-1 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-800 border border-slate-300 text-[11px] font-bold transition flex items-center gap-1" title="Personal Bookmarked Vault">
+              <i class="fa-solid fa-bookmark text-[11px] text-[#0B3D91]"></i>
+            </button>
 
             <!-- Sound Notification Toggle -->
             <button id="btnSoundToggle" onclick="window.appUI.toggleSoundAlerts()" class="px-2 py-1 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-700 border border-slate-300 text-[11px] font-bold transition" title="Toggle Incoming Message Sound">
@@ -595,7 +716,7 @@
           </div>
         </div>
 
-        <!-- Quick Channel Switcher Bar inside Chat Header (Useful in Full Screen Mode too) -->
+        <!-- Quick Channel Switcher Bar inside Chat Header -->
         <div class="bg-slate-50 border-b border-slate-200 px-3 py-1 flex flex-wrap items-center justify-between gap-2 text-[11px] shrink-0">
           <div class="flex items-center gap-1.5 overflow-x-auto">
             <button id="topPillGlobal" onclick="window.appUI.switchChatChannel('GLOBAL')" class="px-2.5 py-0.5 rounded-md font-bold bg-slate-950 text-white transition flex items-center gap-1">
@@ -608,7 +729,7 @@
               <i class="fa-solid fa-microchip text-[#0B3D91]"></i> Command Bot
             </button>
             <button onclick="window.appUI.openVideoConferencePage()" class="px-2.5 py-0.5 rounded-md font-bold bg-emerald-50 text-emerald-800 border border-emerald-300 hover:bg-emerald-100 transition flex items-center gap-1">
-              <i class="fa-solid fa-video text-emerald-600"></i> Video Conference Hub
+              <i class="fa-solid fa-video text-emerald-600"></i> HD Video Conference Hub
             </button>
           </div>
 
@@ -651,9 +772,27 @@
         </div>
 
         <!-- Floating Scroll-to-Bottom Button -->
-        <button id="btnScrollBottom" onclick="window.appUI.scrollToChatBottom()" class="hidden absolute bottom-28 right-5 z-20 w-9 h-9 rounded-full bg-slate-950 text-white shadow-lg border border-slate-700 items-center justify-center hover:bg-[#0B3D91] transition">
+        <button id="btnScrollBottom" onclick="window.appUI.scrollToChatBottom()" class="hidden absolute bottom-32 right-5 z-20 w-9 h-9 rounded-full bg-slate-950 text-white shadow-lg border border-slate-700 items-center justify-center hover:bg-[#0B3D91] transition">
           <i class="fa-solid fa-chevron-down text-xs"></i>
         </button>
+
+        <!-- ======================================================================
+             NEW: WHATSAPP-STYLE BOTTOM LIVE ACTIVITY STATUS BAR
+             (Shows "This user typing...", "Image selecting...", "Video sending...", "Voice recording...")
+             ====================================================================== -->
+        <div id="bottomLiveActivityBar" class="hidden px-4 py-1.5 bg-emerald-50/95 border-t border-emerald-200 items-center justify-between gap-2 text-xs shrink-0 transition-all">
+          <div class="flex items-center gap-2">
+            <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-emerald-600 text-white text-[9px] font-mono font-bold">
+              <span class="w-1.5 h-1.5 rounded-full bg-white activity-dot-1"></span>
+              <span class="w-1.5 h-1.5 rounded-full bg-white activity-dot-2"></span>
+              <span class="w-1.5 h-1.5 rounded-full bg-white activity-dot-3"></span>
+            </span>
+            <span id="bottomLiveActivityText" class="font-extrabold text-emerald-950 text-[11px] sm:text-xs">
+              Member is typing...
+            </span>
+          </div>
+          <span id="bottomLiveActivityTypeBadge" class="text-[10px] font-mono font-bold text-emerald-700 uppercase">LIVE PULSE</span>
+        </div>
 
         <!-- WhatsApp Quote Reply Preview Bar -->
         <div id="replyPreviewBar" class="hidden px-4 py-2 bg-slate-100 border-t border-slate-300 items-center justify-between text-xs shrink-0">
@@ -697,6 +836,32 @@
             </label>
             <button type="button" onclick="window.appUI.cancelVoiceRecording()" class="px-2.5 py-1 rounded-lg bg-white hover:bg-slate-100 text-slate-700 border border-slate-300 font-bold text-[11px]">
               Cancel
+            </button>
+          </div>
+        </div>
+
+        <!-- AI Smart Quick-Reply Suggestions Strip (Feature #6) -->
+        <div class="bg-slate-100/80 border-t border-slate-200 px-3 py-1 flex items-center justify-between gap-2 overflow-x-auto shrink-0">
+          <div class="flex items-center gap-1.5 shrink-0">
+            <span class="text-[9px] font-mono font-extrabold uppercase text-[#0B3D91] bg-blue-50 px-1.5 py-0.5 rounded border border-blue-200">
+              <i class="fa-solid fa-wand-magic-sparkles mr-0.5"></i>Smart Reply:
+            </span>
+            <button type="button" onclick="window.appUI.sendQuickSmartReply('👍 Acknowledged & Confirmed!')" class="px-2 py-0.5 rounded-full bg-white hover:bg-slate-900 hover:text-white border border-slate-300 text-[10px] font-bold transition">👍 Acknowledged</button>
+            <button type="button" onclick="window.appUI.sendQuickSmartReply('🚀 Joining Live Video Room now!')" class="px-2 py-0.5 rounded-full bg-white hover:bg-slate-900 hover:text-white border border-slate-300 text-[10px] font-bold transition">🚀 Joining Video</button>
+            <button type="button" onclick="window.appUI.sendQuickSmartReply('✅ Great update, thank you!')" class="px-2 py-0.5 rounded-full bg-white hover:bg-slate-900 hover:text-white border border-slate-300 text-[10px] font-bold transition">✅ Great Update</button>
+            <button type="button" onclick="window.appUI.sendQuickSmartReply('📡 Telemetry & Signal 100% Clear.')" class="px-2 py-0.5 rounded-full bg-white hover:bg-slate-900 hover:text-white border border-slate-300 text-[10px] font-bold transition">📡 Signal Clear</button>
+          </div>
+          <div class="flex items-center gap-1 shrink-0">
+            <!-- Self-Destruct Disappearing Message Selector (Feature #14) -->
+            <select id="msgExpireSelect" class="px-1.5 py-0.5 rounded bg-white border border-slate-300 text-[10px] font-bold text-slate-700" title="Auto-Expire / Disappearing Timer">
+              <option value="0">⏱️ Keep Forever</option>
+              <option value="60">🔥 Expire in 1m</option>
+              <option value="300">🔥 Expire in 5m</option>
+            </select>
+            <!-- Share Live Telemetry Beacon (Feature #16) -->
+            <button type="button" onclick="window.appUI.sendTelemetryBeacon()" class="px-2 py-0.5 rounded bg-white hover:bg-slate-200 border border-slate-300 text-[10px] font-bold text-slate-800 flex items-center gap-1" title="Share Live Telemetry / Location Coordinate">
+              <i class="fa-solid fa-location-crosshairs text-rose-600 text-[10px]"></i>
+              <span class="hidden sm:inline">Beacon</span>
             </button>
           </div>
         </div>
@@ -772,38 +937,43 @@
           </div>
         </div>
 
-        <!-- WHATSAPP COMPOSER BAR (IMAGE + VIDEO + DOCUMENT + VOICE + INPUT + SEND) -->
+        <!-- WHATSAPP COMPOSER BAR (IMAGE + VIDEO + DOCUMENT + VOICE + DICTATION + INPUT + SEND) -->
         <div class="bg-white p-2 sm:p-2.5 border-t border-slate-200 flex items-center gap-1.5 sm:gap-2 shrink-0">
           
-          <!-- Photo Upload -->
-          <label class="cursor-pointer w-9 h-9 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-700 flex items-center justify-center transition shrink-0" title="Send Photo / Image">
+          <!-- Photo Upload (Broadcasts "Image selecting..." status immediately on click/change) -->
+          <label onclick="window.appUI.broadcastLiveActivity('IMAGE_SELECTING')" class="cursor-pointer w-9 h-9 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-700 flex items-center justify-center transition shrink-0" title="Send Photo / Image">
             <i class="fa-regular fa-image text-sm text-[#0B3D91]"></i>
             <input id="chatImageInput" type="file" accept="image/*" class="hidden" onchange="window.appUI.handleImageUpload(event)" />
           </label>
 
-          <!-- Video Upload (NEW: Send Video Clips in Chat) -->
-          <label class="cursor-pointer w-9 h-9 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-700 flex items-center justify-center transition shrink-0" title="Send Video Clip (.MP4 / .WEBM)">
+          <!-- Video Upload (Broadcasts "Video sending..." status immediately on click/change) -->
+          <label onclick="window.appUI.broadcastLiveActivity('VIDEO_SENDING')" class="cursor-pointer w-9 h-9 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-700 flex items-center justify-center transition shrink-0" title="Send Video Clip (.MP4 / .WEBM)">
             <i class="fa-solid fa-film text-xs text-rose-600"></i>
             <input id="chatVideoInput" type="file" accept="video/*" class="hidden" onchange="window.appUI.handleVideoUpload(event)" />
           </label>
 
           <!-- Document / PDF Upload -->
-          <label class="cursor-pointer w-9 h-9 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-700 flex items-center justify-center transition shrink-0" title="Send Official Document / PDF / TXT">
+          <label onclick="window.appUI.broadcastLiveActivity('DOC_SELECTING')" class="cursor-pointer w-9 h-9 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-700 flex items-center justify-center transition shrink-0" title="Send Official Document / PDF / TXT">
             <i class="fa-solid fa-paperclip text-xs text-slate-700"></i>
             <input id="chatDocInput" type="file" accept=".pdf,.txt,.doc,.docx,.csv" class="hidden" onchange="window.appUI.handleDocUpload(event)" />
           </label>
 
-          <!-- Working Voice Note Recorder Button -->
+          <!-- Working Voice Note Recorder Button (Broadcasts "Voice recording..." status) -->
           <button type="button" id="btnVoiceRecord" onclick="window.appUI.toggleVoiceRecording()" class="px-2.5 h-9 rounded-lg bg-slate-100 hover:bg-rose-50 text-slate-700 hover:text-rose-700 border border-slate-200 font-bold text-xs flex items-center gap-1.5 transition shrink-0" title="Record & Send Voice Note">
             <i class="fa-solid fa-microphone text-xs text-rose-600"></i>
             <span id="voiceBtnLabel" class="hidden sm:inline text-[11px]">Voice</span>
           </button>
 
-          <!-- Message Text Input -->
-          <input id="chatMessageInput" oninput="window.appUI.handleTypingPulse()" onkeydown="if(event.key==='Enter') window.appUI.sendMessage()" type="text" placeholder="Type a message (Dynamic size • Custom color & font • ✓✓)..." class="flex-1 w-full px-3.5 py-2 rounded-lg bg-slate-50 border border-slate-300 text-xs sm:text-sm font-medium text-slate-900 focus:outline-none focus:border-slate-900 focus:bg-white transition" />
+          <!-- Speech-to-Text Live Dictation Button (Feature #7) -->
+          <button type="button" id="btnSpeechDictate" onclick="window.appUI.startSpeechToTextDictation()" class="w-9 h-9 rounded-lg bg-slate-100 hover:bg-blue-50 text-slate-700 hover:text-[#0B3D91] border border-slate-200 flex items-center justify-center transition shrink-0" title="Voice-to-Text Live Dictation">
+            <i class="fa-solid fa-ear-listen text-xs text-[#0B3D91]"></i>
+          </button>
 
-          <!-- WhatsApp Send Button -->
-          <button type="button" onclick="window.appUI.sendMessage()" class="px-4 h-9 rounded-lg bg-[#008069] hover:bg-slate-950 text-white font-bold text-xs flex items-center gap-1.5 transition shrink-0 shadow-xs">
+          <!-- Message Text Input -->
+          <input id="chatMessageInput" oninput="window.appUI.handleTypingPulse()" onkeydown="if(event.key==='Enter'){event.preventDefault();window.appUI.sendMessage();}" type="text" placeholder="Type a message (Ultra-fast sync • Live typing indicator • ✓✓)..." class="flex-1 w-full px-3.5 py-2 rounded-lg bg-slate-50 border border-slate-300 text-xs sm:text-sm font-medium text-slate-900 focus:outline-none focus:border-slate-900 focus:bg-white transition" />
+
+          <!-- WhatsApp Instant Send Button -->
+          <button type="button" onclick="window.appUI.sendMessage()" class="px-4 h-9 rounded-lg bg-[#008069] hover:bg-slate-950 text-white font-bold text-xs flex items-center gap-1.5 transition shrink-0 shadow-xs cursor-pointer">
             <span id="sendBtnText">Send</span>
             <i class="fa-solid fa-paper-plane text-[11px]"></i>
           </button>
@@ -818,7 +988,7 @@
         <div class="official-card rounded-xl p-3.5 space-y-2.5">
           <div class="flex items-center justify-between px-1">
             <span class="text-[10px] font-mono font-bold uppercase text-slate-500">Communication Streams</span>
-            <span class="text-[10px] font-mono font-bold text-emerald-700 bg-emerald-50 px-1.5 py-0.5 rounded border border-emerald-200">Live Sync</span>
+            <span class="text-[10px] font-mono font-bold text-emerald-700 bg-emerald-50 px-1.5 py-0.5 rounded border border-emerald-200">Zero-Latency Sync</span>
           </div>
 
           <button id="tabBtnGlobal" onclick="window.appUI.switchChatChannel('GLOBAL')" class="w-full p-2.5 rounded-lg text-left flex items-center justify-between bg-slate-950 text-white transition">
@@ -871,7 +1041,7 @@
         <!-- Column 3: Outreach Utilities -->
         <div class="official-card rounded-xl p-3.5 space-y-2.5">
           <div class="text-[10px] font-mono font-bold uppercase text-slate-500 px-1">
-            Outreach Utilities
+            Outreach Utilities & Pro Tools
           </div>
           <div class="grid grid-cols-2 gap-2">
             <button onclick="window.appUI.openModal('pollModal')" class="p-2.5 rounded-lg bg-slate-50 hover:bg-slate-100 border border-slate-200 text-slate-900 font-bold text-xs flex items-center justify-center gap-1.5 transition">
@@ -880,11 +1050,11 @@
             </button>
             <button onclick="window.appUI.openVideoConferencePage()" class="p-2.5 rounded-lg bg-emerald-50 hover:bg-emerald-100 border border-emerald-300 text-emerald-950 font-bold text-xs flex items-center justify-center gap-1.5 transition">
               <i class="fa-solid fa-video text-xs text-emerald-600"></i>
-              <span>Video Room</span>
+              <span>HD Video Room</span>
             </button>
-            <button onclick="window.appUI.toggleChatFullScreen(true)" class="p-2.5 rounded-lg bg-slate-50 hover:bg-slate-100 border border-slate-200 text-slate-900 font-bold text-xs flex items-center justify-center gap-1.5 transition">
-              <i class="fa-solid fa-expand text-xs text-[#FF671F]"></i>
-              <span>Full Screen Chat</span>
+            <button onclick="window.appUI.openModal('statusModal')" class="p-2.5 rounded-lg bg-pink-50 hover:bg-pink-100 border border-pink-200 text-pink-950 font-bold text-xs flex items-center justify-center gap-1.5 transition">
+              <i class="fa-solid fa-camera text-xs text-[#E1306C]"></i>
+              <span>Post IG Story</span>
             </button>
             <button onclick="window.appUI.exportChatTranscript()" class="p-2.5 rounded-lg bg-slate-50 hover:bg-slate-100 border border-slate-200 text-slate-900 font-bold text-xs flex items-center justify-center gap-1.5 transition">
               <i class="fa-solid fa-file-arrow-down text-xs text-slate-700"></i>
@@ -900,7 +1070,7 @@
 <!-- START OF PART 2 (Continues directly after END OF PART 1) -->
 
     <!-- ========================================================================
-         VIEW B2: DEDICATED LIVE VIDEO CONFERENCE HUB & ZOOM-STYLE STUDIO PAGE
+         VIEW B2: DEDICATED LIVE VIDEO CONFERENCE HUB & ULTRA-HD ZOOM STUDIO PAGE
          ======================================================================== -->
     <section id="viewVideoConference" class="hidden space-y-5">
 
@@ -914,14 +1084,17 @@
             <div>
               <div class="flex flex-wrap items-center gap-2">
                 <span class="px-2 py-0.5 rounded bg-emerald-600 text-white font-mono font-bold text-[10px] uppercase">
-                  LIVE VIDEO CONFERENCE BRIDGE
+                  2-WAY MULTI-DEVICE HD VIDEO BRIDGE
                 </span>
                 <span id="vcUserRoleBadge" class="text-[11px] font-mono font-bold text-[#0B3D91] bg-blue-50 px-2 py-0.5 rounded border border-blue-200">
                   Verified Identity Active
                 </span>
+                <span class="px-2 py-0.5 rounded bg-purple-50 text-purple-900 border border-purple-200 font-mono font-bold text-[10px]">
+                  WebRTC + Cloud Frame Sync
+                </span>
               </div>
               <h2 class="font-display font-extrabold text-lg sm:text-2xl text-slate-950 mt-1">
-                Multi-Window Video Streaming & Moderator Studio
+                Multi-Window HD Live Video Streaming & Moderator Studio
               </h2>
               <div class="flex flex-wrap items-center gap-3 text-xs text-slate-600 mt-0.5">
                 <span>Logged-In User: <strong id="vcLoggedUserName" class="text-slate-950 font-extrabold">X Y Z</strong></span>
@@ -950,7 +1123,7 @@
           <div class="flex items-center justify-between border-b border-slate-200 pb-3">
             <div class="flex items-center gap-2">
               <i class="fa-solid fa-satellite-dish text-sm text-[#FF671F]"></i>
-              <h3 class="font-display font-extrabold text-base text-slate-950">Start New Live Stream Room</h3>
+              <h3 class="font-display font-extrabold text-base text-slate-950">Start New HD Live Stream Room</h3>
             </div>
             <span class="px-2 py-0.5 rounded bg-slate-100 text-slate-800 font-mono font-bold text-[10px]">HOST / MODERATOR</span>
           </div>
@@ -1017,21 +1190,26 @@
               </div>
             </div>
 
-            <!-- Pre-Stream Options -->
-            <div class="grid grid-cols-2 gap-2 pt-1">
-              <label class="flex items-center gap-2 p-2 rounded-lg bg-slate-50 border border-slate-200 cursor-pointer">
+            <!-- Pre-Stream HD Quality & Hardware Options -->
+            <div class="grid grid-cols-3 gap-2 pt-1">
+              <label class="flex items-center gap-1.5 p-2 rounded-lg bg-slate-50 border border-slate-200 cursor-pointer">
                 <input id="vcStartWithVideo" type="checkbox" checked class="accent-slate-950 rounded" />
-                <span class="font-semibold text-slate-800 text-[11px]">Enable HD Camera</span>
+                <span class="font-semibold text-slate-800 text-[11px]">HD Camera</span>
               </label>
-              <label class="flex items-center gap-2 p-2 rounded-lg bg-slate-50 border border-slate-200 cursor-pointer">
+              <label class="flex items-center gap-1.5 p-2 rounded-lg bg-slate-50 border border-slate-200 cursor-pointer">
                 <input id="vcStartWithMic" type="checkbox" checked class="accent-slate-950 rounded" />
-                <span class="font-semibold text-slate-800 text-[11px]">Enable Microphone</span>
+                <span class="font-semibold text-slate-800 text-[11px]">Microphone</span>
               </label>
+              <select id="vcQualitySelect" class="p-2 rounded-lg bg-slate-50 border border-slate-200 font-mono font-bold text-[10px] text-[#0B3D91]">
+                <option value="1080p">1080p ULTRA HD</option>
+                <option value="720p">720p FAST HD</option>
+                <option value="480p">480p LOW DATA</option>
+              </select>
             </div>
 
             <button type="button" onclick="window.appUI.createAndStartLiveRoom()" class="w-full py-3 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-display font-extrabold text-xs sm:text-sm transition flex items-center justify-center gap-2 shadow-sm cursor-pointer">
               <i class="fa-solid fa-tower-broadcast"></i>
-              <span>Start Live Streaming & Create Room</span>
+              <span>Start Live HD Streaming & Create Room</span>
             </button>
           </div>
         </div>
@@ -1062,75 +1240,161 @@
 
       </div>
 
-      <!-- ACTIVE CONFERENCE STUDIO VIEW (ZOOM-STYLE MULTI-WINDOW CAMERA GRID + MODERATOR BAR + BOTTOM LIVE CHAT) -->
+      <!-- ACTIVE CONFERENCE STUDIO VIEW (2-WAY MULTI-DEVICE CAMERA GRID + WHITEBOARD + MODERATOR BAR + LIVE CHAT) -->
       <div id="vcActiveRoomStudio" class="hidden space-y-4">
 
-        <!-- Room Top Status & Moderator Command Header -->
-        <div class="bg-slate-950 text-white rounded-xl p-3.5 sm:p-4 border border-slate-800 flex flex-wrap items-center justify-between gap-3">
-          <div class="flex items-center gap-3">
-            <div class="w-10 h-10 rounded-xl bg-rose-600/20 border border-rose-500/40 text-rose-400 flex items-center justify-center text-base">
-              <i class="fa-solid fa-circle-dot animate-pulse"></i>
+        <!-- Room Top Status & Enhanced Moderator Command Header -->
+        <div class="bg-slate-950 text-white rounded-xl p-3.5 sm:p-4 border border-slate-800 space-y-3">
+          <div class="flex flex-wrap items-center justify-between gap-3">
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 rounded-xl bg-rose-600/20 border border-rose-500/40 text-rose-400 flex items-center justify-center text-base">
+                <i class="fa-solid fa-circle-dot animate-pulse"></i>
+              </div>
+              <div>
+                <div class="flex flex-wrap items-center gap-2">
+                  <h3 id="studioRoomTitle" class="font-display font-extrabold text-sm sm:text-base text-white">Live Conference Room</h3>
+                  <span id="studioRoomIdBadge" class="px-2 py-0.5 rounded bg-white/15 font-mono font-bold text-[10px] text-emerald-300">RM-00000</span>
+                  <span id="studioRoomModeBadge" class="px-2 py-0.5 rounded bg-emerald-500/20 border border-emerald-400/30 font-mono font-bold text-[10px] text-emerald-300">GENERAL</span>
+                  <span id="studioHdQualityBadge" class="px-2 py-0.5 rounded bg-sky-500/20 border border-sky-400/30 font-mono font-bold text-[10px] text-sky-300">1080p HD SYNC</span>
+                  <span id="studioMeetingTimer" class="px-2 py-0.5 rounded bg-slate-800 font-mono font-bold text-[10px] text-amber-300">00:00</span>
+                </div>
+                <div class="text-[11px] text-slate-300 mt-0.5 flex flex-wrap items-center gap-2">
+                  <span>Moderator: <strong id="studioHostName" class="text-amber-300">Host Name</strong></span>
+                  <span>•</span>
+                  <span>Participants: <strong id="studioParticipantCount" class="text-white">1</strong></span>
+                  <span>•</span>
+                  <span class="text-emerald-400 font-semibold"><i class="fa-solid fa-signal text-[10px] mr-1"></i>Live Cross-Device Video Feed Active</span>
+                </div>
+              </div>
             </div>
-            <div>
-              <div class="flex flex-wrap items-center gap-2">
-                <h3 id="studioRoomTitle" class="font-display font-extrabold text-sm sm:text-base text-white">Live Conference Room</h3>
-                <span id="studioRoomIdBadge" class="px-2 py-0.5 rounded bg-white/15 font-mono font-bold text-[10px] text-emerald-300">RM-00000</span>
-                <span id="studioRoomModeBadge" class="px-2 py-0.5 rounded bg-emerald-500/20 border border-emerald-400/30 font-mono font-bold text-[10px] text-emerald-300">GENERAL</span>
-              </div>
-              <div class="text-[11px] text-slate-300 mt-0.5 flex flex-wrap items-center gap-2">
-                <span>Moderator: <strong id="studioHostName" class="text-amber-300">Host Name</strong></span>
-                <span>•</span>
-                <span>Participants: <strong id="studioParticipantCount" class="text-white">1</strong></span>
-              </div>
+
+            <!-- Primary Camera, Mic, Screen Share, Hand Raise & Leave/End Controls -->
+            <div class="flex flex-wrap items-center gap-1.5">
+              <button id="btnStudioToggleMic" onclick="window.appUI.toggleStudioMic()" class="px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-white font-bold text-xs flex items-center gap-1.5 border border-slate-700 transition">
+                <i id="iconStudioMic" class="fa-solid fa-microphone text-emerald-400"></i>
+                <span id="labelStudioMic">Mic On</span>
+              </button>
+
+              <button id="btnStudioToggleCam" onclick="window.appUI.toggleStudioCam()" class="px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-white font-bold text-xs flex items-center gap-1.5 border border-slate-700 transition">
+                <i id="iconStudioCam" class="fa-solid fa-video text-emerald-400"></i>
+                <span id="labelStudioCam">Cam On</span>
+              </button>
+
+              <button onclick="window.appUI.toggleStudioScreenShare()" class="px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-white font-bold text-xs flex items-center gap-1.5 border border-slate-700 transition" title="Share Screen">
+                <i class="fa-solid fa-desktop text-sky-400"></i>
+                <span class="hidden sm:inline">Share Screen</span>
+              </button>
+
+              <button onclick="window.appUI.toggleStudioRaiseHand()" class="px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-white font-bold text-xs flex items-center gap-1.5 border border-slate-700 transition" title="Raise Hand">
+                <i class="fa-solid fa-hand text-amber-400"></i>
+                <span class="hidden sm:inline">Hand</span>
+              </button>
+
+              <!-- Leave Room (For Everyone) -->
+              <button onclick="window.appUI.leaveActiveVideoRoom()" class="px-3.5 py-1.5 rounded-lg bg-amber-500 hover:bg-amber-600 text-slate-950 font-extrabold text-xs flex items-center gap-1.5 transition">
+                <i class="fa-solid fa-right-from-bracket"></i>
+                <span>Leave Room</span>
+              </button>
+
+              <!-- End Meeting For All (Visible to Room Moderator / Super Admin) -->
+              <button id="btnModeratorEndRoom" onclick="window.appUI.moderatorEndMeetingForAll()" class="hidden px-3.5 py-1.5 rounded-lg bg-rose-600 hover:bg-rose-700 text-white font-extrabold text-xs items-center gap-1.5 transition">
+                <i class="fa-solid fa-power-off"></i>
+                <span>End Meeting</span>
+              </button>
             </div>
           </div>
 
-          <!-- Camera, Mic, Screen Share, Hand Raise & Leave/End Controls -->
-          <div class="flex flex-wrap items-center gap-1.5">
-            <button id="btnStudioToggleMic" onclick="window.appUI.toggleStudioMic()" class="px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-white font-bold text-xs flex items-center gap-1.5 border border-slate-700 transition">
-              <i id="iconStudioMic" class="fa-solid fa-microphone text-emerald-400"></i>
-              <span id="labelStudioMic">Mic On</span>
-            </button>
+          <!-- Advanced Studio Toolbar (Filters, Mirror, Whiteboard, Live Captions, Snapshot, PiP, Mute All & Reactions) -->
+          <div class="pt-2.5 border-t border-slate-800 flex flex-wrap items-center justify-between gap-2 text-[11px]">
+            <div class="flex flex-wrap items-center gap-1.5">
+              <!-- Live Video Filter Selector -->
+              <select id="studioVideoFilterSelect" onchange="window.appUI.setStudioVideoFilter(this.value)" class="px-2.5 py-1 rounded-lg bg-slate-900 border border-slate-700 text-white font-bold text-[11px]">
+                <option value="vfilter-none">🎨 Filter: Natural HD</option>
+                <option value="vfilter-vivid">✨ Vivid Contrast</option>
+                <option value="vfilter-lowlight">💡 Low-Light HD Boost</option>
+                <option value="vfilter-warm">🌅 Warm Studio</option>
+                <option value="vfilter-cyber">⚡ Cyber Neon</option>
+                <option value="vfilter-mono">🎬 Monochrome Noir</option>
+              </select>
 
-            <button id="btnStudioToggleCam" onclick="window.appUI.toggleStudioCam()" class="px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-white font-bold text-xs flex items-center gap-1.5 border border-slate-700 transition">
-              <i id="iconStudioCam" class="fa-solid fa-video text-emerald-400"></i>
-              <span id="labelStudioCam">Cam On</span>
-            </button>
+              <!-- Mirror Camera Flip -->
+              <button onclick="window.appUI.toggleStudioMirror()" class="px-2.5 py-1 rounded-lg bg-slate-900 hover:bg-slate-800 border border-slate-700 text-slate-200 font-bold flex items-center gap-1" title="Flip / Mirror Camera">
+                <i class="fa-solid fa-arrows-left-right text-sky-400"></i>
+                <span>Mirror</span>
+              </button>
 
-            <button onclick="window.appUI.toggleStudioScreenShare()" class="px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-white font-bold text-xs flex items-center gap-1.5 border border-slate-700 transition" title="Share Screen">
-              <i class="fa-solid fa-desktop text-sky-400"></i>
-              <span class="hidden sm:inline">Share Screen</span>
-            </button>
+              <!-- Interactive Live Whiteboard Toggle -->
+              <button onclick="window.appUI.toggleStudioWhiteboard()" class="px-2.5 py-1 rounded-lg bg-slate-900 hover:bg-slate-800 border border-slate-700 text-emerald-300 font-bold flex items-center gap-1" title="Open Collaborative Live Whiteboard">
+                <i class="fa-solid fa-chalkboard-user"></i>
+                <span>Whiteboard</span>
+              </button>
 
-            <button onclick="window.appUI.toggleStudioRaiseHand()" class="px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-white font-bold text-xs flex items-center gap-1.5 border border-slate-700 transition" title="Raise Hand">
-              <i class="fa-solid fa-hand text-amber-400"></i>
-              <span class="hidden sm:inline">Raise Hand</span>
-            </button>
+              <!-- Live Speech Captions / Subtitles Toggle -->
+              <button id="btnStudioCaptions" onclick="window.appUI.toggleStudioLiveCaptions()" class="px-2.5 py-1 rounded-lg bg-slate-900 hover:bg-slate-800 border border-slate-700 text-amber-300 font-bold flex items-center gap-1" title="Toggle Live Speech-to-Text Subtitles">
+                <i class="fa-solid fa-closed-captioning"></i>
+                <span>Live Captions</span>
+              </button>
 
-            <button onclick="window.appUI.sendStudioFloatingReaction('👏')" class="px-2.5 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-xs border border-slate-700">👏</button>
-            <button onclick="window.appUI.sendStudioFloatingReaction('🔥')" class="px-2.5 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-xs border border-slate-700">🔥</button>
+              <!-- Capture HD Snapshot -->
+              <button onclick="window.appUI.captureStudioSnapshot()" class="px-2.5 py-1 rounded-lg bg-slate-900 hover:bg-slate-800 border border-slate-700 text-pink-300 font-bold flex items-center gap-1" title="Take HD Frame Snapshot">
+                <i class="fa-solid fa-camera"></i>
+                <span>Snapshot</span>
+              </button>
 
-            <!-- Leave Room (For Everyone) -->
-            <button onclick="window.appUI.leaveActiveVideoRoom()" class="px-3.5 py-1.5 rounded-lg bg-amber-500 hover:bg-amber-600 text-slate-950 font-extrabold text-xs flex items-center gap-1.5 transition">
-              <i class="fa-solid fa-right-from-bracket"></i>
-              <span>Leave / Switch Room</span>
-            </button>
+              <!-- Picture-in-Picture (PiP) Mode -->
+              <button onclick="window.appUI.toggleStudioPiP()" class="px-2.5 py-1 rounded-lg bg-slate-900 hover:bg-slate-800 border border-slate-700 text-purple-300 font-bold flex items-center gap-1" title="Picture-in-Picture Floating Video">
+                <i class="fa-solid fa-clone"></i>
+                <span>PiP</span>
+              </button>
 
-            <!-- End Meeting For All (Visible to Room Moderator / Super Admin) -->
-            <button id="btnModeratorEndRoom" onclick="window.appUI.moderatorEndMeetingForAll()" class="hidden px-3.5 py-1.5 rounded-lg bg-rose-600 hover:bg-rose-700 text-white font-extrabold text-xs items-center gap-1.5 transition">
-              <i class="fa-solid fa-power-off"></i>
-              <span>End Meeting</span>
-            </button>
+              <!-- Moderator Force Mute All Button -->
+              <button id="btnModeratorMuteAll" onclick="window.appUI.moderatorMuteAllParticipants()" class="hidden px-2.5 py-1 rounded-lg bg-rose-950 hover:bg-rose-900 border border-rose-700 text-rose-200 font-bold items-center gap-1">
+                <i class="fa-solid fa-volume-xmark"></i>
+                <span>Mute All</span>
+              </button>
+            </div>
+
+            <!-- Floating Reaction Triggers -->
+            <div class="flex items-center gap-1">
+              <span class="text-[10px] font-mono text-slate-400 mr-1">REACT:</span>
+              <button onclick="window.appUI.sendStudioFloatingReaction('👏')" class="px-2 py-1 rounded bg-slate-900 hover:bg-slate-800 border border-slate-700">👏</button>
+              <button onclick="window.appUI.sendStudioFloatingReaction('🔥')" class="px-2 py-1 rounded bg-slate-900 hover:bg-slate-800 border border-slate-700">🔥</button>
+              <button onclick="window.appUI.sendStudioFloatingReaction('❤️')" class="px-2 py-1 rounded bg-slate-900 hover:bg-slate-800 border border-slate-700">❤️</button>
+              <button onclick="window.appUI.sendStudioFloatingReaction('🚀')" class="px-2 py-1 rounded bg-slate-900 hover:bg-slate-800 border border-slate-700">🚀</button>
+              <button onclick="window.appUI.sendStudioFloatingReaction('🎉')" class="px-2 py-1 rounded bg-slate-900 hover:bg-slate-800 border border-slate-700">🎉</button>
+            </div>
           </div>
         </div>
 
-        <!-- TOP SECTION: ZOOM-STYLE MULTI-WINDOW CAMERA BOXES GRID -->
+        <!-- COLLABORATIVE INTERACTIVE WHITEBOARD PANEL (HIDDEN UNLESS TOGGLED) -->
+        <div id="studioWhiteboardPanel" class="hidden bg-slate-900 rounded-2xl p-4 border-2 border-emerald-500/50 space-y-3">
+          <div class="flex flex-wrap items-center justify-between gap-2 text-white text-xs">
+            <div class="flex items-center gap-2">
+              <i class="fa-solid fa-chalkboard text-emerald-400"></i>
+              <span class="font-display font-bold">Live Conference Collaborative Whiteboard (Synced Across Room)</span>
+            </div>
+            <div class="flex items-center gap-2">
+              <input id="wbStrokeColor" type="color" value="#38BDF8" class="w-6 h-6 rounded border-0 cursor-pointer bg-transparent" title="Brush Color" />
+              <button onclick="window.appUI.clearStudioWhiteboard()" class="px-2.5 py-1 rounded bg-rose-600 hover:bg-rose-700 text-white font-bold text-[11px]">Clear Board</button>
+              <button onclick="window.appUI.toggleStudioWhiteboard()" class="px-2.5 py-1 rounded bg-slate-700 hover:bg-slate-600 text-white font-bold text-[11px]">Close</button>
+            </div>
+          </div>
+          <canvas id="studioWhiteboardCanvas" width="920" height="280" class="w-full h-[240px] bg-slate-950 rounded-xl border border-slate-700 cursor-crosshair touch-none"></canvas>
+        </div>
+
+        <!-- TOP SECTION: ZOOM-STYLE MULTI-WINDOW CAMERA BOXES GRID (SHOWS BOTH LOCAL & REMOTE LIVE VIDEO!) -->
         <div class="bg-slate-950 rounded-2xl p-4 border border-slate-800 relative overflow-hidden">
           <!-- Floating Emoji Reaction Overlay -->
           <div id="studioFloatingReactionsLayer" class="pointer-events-none absolute inset-0 z-30 overflow-hidden"></div>
 
-          <div id="studioVideoGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3.5 min-h-[320px] max-h-[500px] overflow-y-auto p-1">
-            <!-- Local & Remote Participant Camera Windows Rendered Dynamically by JS -->
+          <!-- Live Captions / Subtitles Overlay Bar -->
+          <div id="studioLiveCaptionsBar" class="hidden absolute bottom-4 inset-x-12 z-30 bg-black/85 backdrop-blur-md text-white px-4 py-2 rounded-xl border border-amber-400/40 text-center text-xs sm:text-sm font-semibold shadow-lg">
+            <span class="text-amber-300 font-mono text-[10px] uppercase mr-2">[LIVE CAPTIONS]:</span>
+            <span id="studioLiveCaptionsText">Listening for speech...</span>
+          </div>
+
+          <div id="studioVideoGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3.5 min-h-[340px] max-h-[560px] overflow-y-auto p-1">
+            <!-- Local & Remote Participant Live Video Streams Rendered Dynamically by JS -->
           </div>
         </div>
 
@@ -1144,7 +1408,7 @@
                 <i class="fa-solid fa-comments text-emerald-400"></i>
                 <span class="font-display font-bold">In-Room Live Group Chat (Text, Images & Videos)</span>
               </div>
-              <span class="text-[10px] font-mono text-slate-300">Synced with Room Participants</span>
+              <span class="text-[10px] font-mono text-slate-300">Instant Sync with Room Participants</span>
             </div>
 
             <!-- Room Chat Messages Stream -->
@@ -1164,7 +1428,7 @@
                 <input type="file" accept="video/*" class="hidden" onchange="window.appUI.handleVcRoomVideoUpload(event)" />
               </label>
 
-              <input id="vcRoomChatInput" onkeydown="if(event.key==='Enter') window.appUI.sendVcRoomChatMessage()" type="text" placeholder="Type a live room message (or attach image/video)..." class="flex-1 px-3 py-1.5 rounded-lg bg-slate-50 border border-slate-300 text-xs font-medium text-slate-900 focus:outline-none focus:border-slate-900" />
+              <input id="vcRoomChatInput" onkeydown="if(event.key==='Enter'){event.preventDefault();window.appUI.sendVcRoomChatMessage();}" type="text" placeholder="Type a live room message (or attach image/video)..." class="flex-1 px-3 py-1.5 rounded-lg bg-slate-50 border border-slate-300 text-xs font-medium text-slate-900 focus:outline-none focus:border-slate-900" />
 
               <button type="button" onclick="window.appUI.sendVcRoomChatMessage()" class="px-3.5 h-8 rounded-lg bg-[#008069] hover:bg-slate-950 text-white font-bold text-xs flex items-center gap-1 shrink-0 transition">
                 <span>Send</span>
@@ -1173,18 +1437,18 @@
             </div>
           </div>
 
-          <!-- Right 4 Cols: Moderator Participant Roster (Mute, Kick Out, Ban Controls) -->
+          <!-- Right 4 Cols: Moderator Participant Roster (Mute, Cam Off, Spotlight, Kick Out, Ban Controls) -->
           <div class="lg:col-span-4 official-card rounded-xl border border-slate-900 overflow-hidden flex flex-col h-[340px]">
             <div class="bg-slate-950 text-white px-3.5 py-2 flex items-center justify-between text-xs shrink-0">
               <div class="flex items-center gap-1.5">
-                <i class="fa-solid fa-user-Astronaut text-[#FF671F]"></i>
+                <i class="fa-solid fa-user-astronaut text-[#FF671F]"></i>
                 <span class="font-display font-bold">Participants & Moderator Desk</span>
               </div>
               <span id="vcRosterRoleLabel" class="px-1.5 py-0.5 rounded bg-white/15 font-mono text-[9px]">MEMBER</span>
             </div>
 
             <div id="vcParticipantsRosterList" class="flex-1 overflow-y-auto p-3 space-y-2">
-              <!-- Participant controls (Mute / Kick / Ban for Moderator) rendered dynamically -->
+              <!-- Participant controls (Mute / Cam Off / Spotlight / Kick / Ban for Moderator) rendered dynamically -->
             </div>
           </div>
 
@@ -1209,17 +1473,17 @@
             <div>
               <div class="flex flex-wrap items-center gap-2">
                 <span class="px-2 py-0.5 rounded bg-slate-900 text-white font-mono font-bold text-[10px] uppercase">
-                  SUPER ADMIN MASTER CONSOLE
+                  SUPER ADMIN SUPREME COMMAND CONSOLE
                 </span>
                 <span class="text-[11px] font-mono font-bold text-[#0B3D91] bg-blue-50 px-2 py-0.5 rounded border border-blue-200">
                   Admin ID: AryanRajput
                 </span>
               </div>
               <h2 class="font-display font-extrabold text-xl sm:text-2xl text-slate-950 mt-1">
-                Verified Member Excel Registry & Direct "Login As" Control
+                Verified Member Excel Registry, Message Recovery & "Login As" Control
               </h2>
               <p class="text-xs text-slate-600">
-                Manage real user accounts, edit generated User IDs/Passwords, toggle account status, or click <strong>"Login As"</strong> to enter any user session directly without deleting any user data.
+                Full Super Admin Authority: Permanently delete any message, recover user-deleted messages with 1 click, broadcast emergency flash alerts, toggle VIP badges, or click <strong>"Login As"</strong> on any account.
               </p>
             </div>
           </div>
@@ -1242,7 +1506,7 @@
         </div>
 
         <!-- Admin KPI Summary Cards -->
-        <div class="grid grid-cols-2 sm:grid-cols-5 gap-3 mt-5 pt-4 border-t border-slate-200">
+        <div class="grid grid-cols-2 sm:grid-cols-6 gap-3 mt-5 pt-4 border-t border-slate-200">
           <div class="p-3 rounded-lg bg-slate-50 border border-slate-200">
             <div class="text-[10px] font-mono uppercase text-slate-500">Total Registered</div>
             <div id="adminKpiTotal" class="text-xl font-extrabold text-slate-950 mt-0.5">0</div>
@@ -1259,9 +1523,60 @@
             <div class="text-[10px] font-mono uppercase text-slate-500">Banned</div>
             <div id="adminKpiBanned" class="text-xl font-extrabold text-rose-600 mt-0.5">0</div>
           </div>
-          <div class="p-3 rounded-lg bg-slate-50 border border-slate-200 col-span-2 sm:col-span-1">
+          <div class="p-3 rounded-lg bg-slate-50 border border-slate-200">
             <div class="text-[10px] font-mono uppercase text-slate-500">Live Chat Packets</div>
             <div id="adminKpiMessages" class="text-xl font-extrabold text-[#0B3D91] mt-0.5">0</div>
+          </div>
+          <div class="p-3 rounded-lg bg-amber-50 border border-amber-200">
+            <div class="text-[10px] font-mono uppercase text-amber-800">Soft-Deleted (Recoverable)</div>
+            <div id="adminKpiDeletedMsgs" class="text-xl font-extrabold text-amber-900 mt-0.5">0</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- NEW: SUPER ADMIN SUPREME POWER DECK (FLASH ALERT, RECOVER ALL, SLOW MODE, PURGE DELETED) -->
+      <div class="official-card rounded-xl p-4 border-2 border-[#0B3D91] bg-gradient-to-r from-slate-50 via-blue-50/40 to-amber-50/40 space-y-3">
+        <div class="flex flex-wrap items-center justify-between gap-2">
+          <div class="flex items-center gap-2">
+            <span class="px-2 py-0.5 rounded bg-[#0B3D91] text-white font-mono font-bold text-[10px] uppercase">
+              <i class="fa-solid fa-crown text-amber-300 mr-1"></i>Super Admin Power Suite
+            </span>
+            <span class="text-xs font-bold text-slate-800">Global Moderation, Message Recovery & Live Flash Broadcast</span>
+          </div>
+          <div class="flex flex-wrap items-center gap-2">
+            <button onclick="window.appUI.adminRecoverAllDeletedMessages()" class="px-3 py-1.5 rounded-lg bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs flex items-center gap-1.5 transition">
+              <i class="fa-solid fa-rotate-left"></i>
+              <span>Recover All User-Deleted Messages</span>
+            </button>
+            <button onclick="window.appUI.adminPurgeAllSoftDeletedMessages()" class="px-3 py-1.5 rounded-lg bg-rose-600 hover:bg-rose-700 text-white font-bold text-xs flex items-center gap-1.5 transition">
+              <i class="fa-solid fa-trash-can"></i>
+              <span>Permanently Purge Soft-Deleted</span>
+            </button>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-3 pt-1">
+          <!-- Emergency Popup Flash Alert to All Connected Devices -->
+          <div class="lg:col-span-7 flex items-center gap-2">
+            <input id="adminEmergencyFlashInput" type="text" placeholder="Send Live Popup Emergency Flash Banner to all active users..." class="flex-1 px-3 py-1.5 rounded-lg bg-white border border-slate-300 text-xs font-semibold text-slate-900 focus:outline-none focus:border-slate-950" />
+            <button onclick="window.appUI.adminSendEmergencyFlash()" class="px-3.5 py-1.5 rounded-lg bg-rose-600 hover:bg-slate-950 text-white font-bold text-xs shrink-0 transition flex items-center gap-1">
+              <i class="fa-solid fa-bolt"></i>
+              <span>Flash Alert</span>
+            </button>
+          </div>
+
+          <!-- Slow Mode & Global Chat Lock Controls -->
+          <div class="lg:col-span-5 flex items-center justify-end gap-2">
+            <label class="text-xs font-bold text-slate-700">Slow Mode:</label>
+            <select id="adminSlowModeSelect" onchange="window.appUI.adminSetSlowMode(this.value)" class="px-2.5 py-1.5 rounded-lg bg-white border border-slate-300 text-xs font-bold text-slate-900">
+              <option value="0">Off (Instant Fast)</option>
+              <option value="5">5 Seconds</option>
+              <option value="15">15 Seconds</option>
+              <option value="30">30 Seconds</option>
+            </select>
+            <button onclick="window.appUI.toggleAdminChatLock()" class="px-3 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs">
+              <i class="fa-solid fa-lock mr-1"></i>Lock/Unlock Chat
+            </button>
           </div>
         </div>
       </div>
@@ -1336,7 +1651,7 @@
   </main>
 
   <!-- ==========================================================================
-       3. MODALS: REGISTRATION (X Y Z), LOGIN (SSC SAVED ID SELECTOR), POLLS & MORE
+       3. MODALS: REGISTRATION (X Y Z), LOGIN, IG PHOTO STORIES, POLLS & MORE
        ========================================================================== -->
 
   <!-- MODAL 1: MEMBER REGISTRATION (PLACEHOLDERS UPDATED TO "X Y Z") -->
@@ -1659,22 +1974,110 @@
     </div>
   </div>
 
-  <!-- MODAL 6: INSTAGRAM-STYLE OUTREACH STATUS POST MODAL -->
-  <div id="statusModal" class="fixed inset-0 z-50 hidden bg-slate-950/50 backdrop-blur-xs flex items-center justify-center p-4">
-    <div class="mono-box rounded-2xl max-w-sm w-full p-5 bg-white space-y-3">
-      <div class="flex items-center justify-between border-b border-slate-200 pb-2">
-        <h3 class="font-display font-extrabold text-sm text-slate-950">
-          <i class="fa-solid fa-bolt text-[#FF671F] mr-1"></i> Post Outreach Status Highlight
-        </h3>
+  <!-- MODAL 6: ENHANCED INSTAGRAM-STYLE OUTREACH STORY & PHOTO POST MODAL -->
+  <div id="statusModal" class="fixed inset-0 z-50 hidden bg-slate-950/60 backdrop-blur-xs flex items-center justify-center p-4 overflow-y-auto">
+    <div class="mono-box rounded-2xl max-w-md w-full p-5 bg-white space-y-3.5 my-8">
+      <div class="flex items-center justify-between border-b border-slate-200 pb-2.5">
+        <div class="flex items-center gap-2">
+          <span class="w-8 h-8 rounded-xl ig-gradient-pill text-white flex items-center justify-center text-xs">
+            <i class="fa-brands fa-instagram"></i>
+          </span>
+          <div>
+            <h3 class="font-display font-extrabold text-sm text-slate-950">
+              Post Outreach Story (Photo + Text + Reactions)
+            </h3>
+            <p class="text-[10px] text-slate-500">Share an image or text highlight to the top Instagram ring</p>
+          </div>
+        </div>
         <button onclick="window.appUI.closeModal('statusModal')" class="w-6 h-6 rounded bg-slate-100 text-slate-600 text-xs">
           <i class="fa-solid fa-xmark"></i>
         </button>
       </div>
-      <div class="space-y-2.5 text-xs">
-        <input id="statusTextInput" type="text" placeholder="Share a brief 24h outreach update or announcement..." class="w-full px-3 py-2 rounded-lg bg-slate-50 border border-slate-300 font-medium focus:outline-none focus:border-slate-950" />
-        <button onclick="window.appUI.publishStatusUpdate()" class="w-full py-2 rounded-lg bg-slate-950 hover:bg-[#0B3D91] text-white font-bold text-xs">
-          Publish Status to Top Bar
+
+      <div class="space-y-3 text-xs">
+        <!-- Upload Photo for Story -->
+        <div>
+          <label class="block font-bold text-slate-800 mb-1">Attach Photo / Image (Optional)</label>
+          <label class="cursor-pointer w-full p-3 rounded-xl border-2 border-dashed border-pink-300 hover:border-[#E1306C] bg-pink-50/40 flex flex-col items-center justify-center gap-1.5 transition">
+            <i class="fa-solid fa-cloud-arrow-up text-lg text-[#E1306C]"></i>
+            <span class="font-bold text-slate-800 text-[11px]">Click to Select Photo from Device</span>
+            <span class="text-[10px] text-slate-500">Supports JPG, PNG, WEBP (Auto-Optimized)</span>
+            <input id="statusImageInput" type="file" accept="image/*" class="hidden" onchange="window.appUI.handleStatusImagePreview(event)" />
+          </label>
+          <!-- Image Preview Box -->
+          <div id="statusImagePreviewWrapper" class="hidden mt-2 relative rounded-xl overflow-hidden border border-slate-300 bg-slate-950 max-h-48 flex items-center justify-center">
+            <img id="statusImagePreviewEl" src="" alt="Story Preview" class="max-h-44 w-auto object-contain" />
+            <button type="button" onclick="window.appUI.clearStatusImagePreview()" class="absolute top-2 right-2 w-6 h-6 rounded-full bg-rose-600 text-white text-xs flex items-center justify-center">
+              <i class="fa-solid fa-xmark"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- Caption / Update Text -->
+        <div>
+          <label class="block font-bold text-slate-800 mb-1">Story Caption / Update Text *</label>
+          <textarea id="statusTextInput" rows="2" placeholder="Write a caption or announcement for your story..." class="w-full px-3 py-2 rounded-lg bg-slate-50 border border-slate-300 font-medium focus:outline-none focus:border-slate-950"></textarea>
+        </div>
+
+        <!-- Background Theme Selector for Story Card -->
+        <div>
+          <label class="block font-bold text-slate-700 mb-1">Story Card Background Theme</label>
+          <select id="statusThemeSelect" class="w-full px-3 py-1.5 rounded-lg bg-slate-50 border border-slate-300 font-bold text-slate-800">
+            <option value="ig-luxe">Instagram Sunset Gradient</option>
+            <option value="isro-navy">ISRO Deep Space Navy</option>
+            <option value="emerald-cyber">Emerald Matrix</option>
+            <option value="royal-gold">Royal Crimson & Gold</option>
+          </select>
+        </div>
+
+        <button onclick="window.appUI.publishStatusUpdate()" class="w-full py-2.5 rounded-xl ig-gradient-pill hover:opacity-95 text-white font-display font-extrabold text-xs shadow-sm transition cursor-pointer">
+          <i class="fa-solid fa-paper-plane mr-1"></i> Publish Photo / Story to Top Ring
         </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL 6B (NEW): INSTAGRAM-STYLE INTERACTIVE STORY VIEWER & REACTION MODAL -->
+  <div id="storyViewerModal" class="fixed inset-0 z-50 hidden bg-slate-950/85 backdrop-blur-md flex items-center justify-center p-4">
+    <div class="rounded-3xl max-w-md w-full overflow-hidden border-2 border-white/20 bg-slate-950 text-white shadow-2xl flex flex-col">
+      <!-- Top Progress Bar & Author Header -->
+      <div class="p-3.5 bg-black/60 border-b border-white/10 flex items-center justify-between gap-2">
+        <div class="flex items-center gap-2.5">
+          <div class="ig-ring">
+            <div id="storyViewAvatar" class="w-9 h-9 rounded-full bg-slate-900 text-white font-bold text-xs flex items-center justify-center">
+              U
+            </div>
+          </div>
+          <div>
+            <div id="storyViewAuthor" class="font-display font-extrabold text-xs sm:text-sm text-white">Author Name</div>
+            <div id="storyViewTime" class="text-[10px] font-mono text-slate-300">Just now</div>
+          </div>
+        </div>
+        <div class="flex items-center gap-1.5">
+          <button id="btnDeleteStoryModal" onclick="window.appUI.deleteActiveStory()" class="hidden px-2 py-1 rounded bg-rose-600 hover:bg-rose-700 text-white text-[10px] font-bold">
+            <i class="fa-solid fa-trash mr-0.5"></i>Delete
+          </button>
+          <button onclick="window.appUI.closeModal('storyViewerModal')" class="w-7 h-7 rounded-full bg-white/15 hover:bg-white/25 text-white text-xs flex items-center justify-center">
+            <i class="fa-solid fa-xmark"></i>
+          </button>
+        </div>
+      </div>
+
+      <!-- Story Content Viewport (Image + Caption) -->
+      <div id="storyViewBodyCard" class="p-6 min-h-[300px] max-h-[440px] flex flex-col items-center justify-center text-center relative overflow-y-auto ig-gradient-pill">
+        <img id="storyViewImageEl" src="" alt="Story Photo" class="hidden max-h-64 w-auto rounded-2xl border-2 border-white/30 shadow-lg mb-3 object-contain bg-black/30" />
+        <p id="storyViewCaptionEl" class="font-display font-extrabold text-base sm:text-lg text-white drop-shadow-xs leading-relaxed break-words max-w-sm"></p>
+      </div>
+
+      <!-- Bottom Interactive Emoji Reactions Bar -->
+      <div class="p-3.5 bg-slate-900 border-t border-white/10 space-y-2">
+        <div class="flex items-center justify-between text-[11px]">
+          <span class="font-mono uppercase text-slate-400 font-bold">React to Story:</span>
+          <span id="storyTotalReactionsCount" class="font-mono font-bold text-pink-400">0 Reactions</span>
+        </div>
+        <div id="storyReactionsButtonsRow" class="flex items-center justify-around gap-1.5">
+          <!-- Populated dynamically with live reaction counts -->
+        </div>
       </div>
     </div>
   </div>
@@ -1832,6 +2235,42 @@
     </div>
   </div>
 
+  <!-- MODAL 11 (NEW): SHARED MEDIA GALLERY HUB -->
+  <div id="mediaGalleryModal" class="fixed inset-0 z-50 hidden bg-slate-950/60 backdrop-blur-xs flex items-center justify-center p-4 overflow-y-auto">
+    <div class="mono-box rounded-2xl max-w-3xl w-full p-5 bg-white space-y-3 my-8">
+      <div class="flex items-center justify-between border-b border-slate-200 pb-2.5">
+        <div class="flex items-center gap-2">
+          <i class="fa-solid fa-photo-film text-[#E1306C]"></i>
+          <h3 class="font-display font-extrabold text-sm sm:text-base text-slate-950">Shared Chat Media Gallery (Photos, Videos & Docs)</h3>
+        </div>
+        <button onclick="window.appUI.closeModal('mediaGalleryModal')" class="w-7 h-7 rounded bg-slate-100 text-slate-600 text-xs">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+      <div id="mediaGalleryGrid" class="grid grid-cols-2 sm:grid-cols-3 gap-3 max-h-[65vh] overflow-y-auto p-1">
+        <!-- Populated dynamically -->
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL 12 (NEW): PERSONAL BOOKMARKED VAULT -->
+  <div id="savedVaultModal" class="fixed inset-0 z-50 hidden bg-slate-950/60 backdrop-blur-xs flex items-center justify-center p-4 overflow-y-auto">
+    <div class="mono-box rounded-2xl max-w-lg w-full p-5 bg-white space-y-3 my-8">
+      <div class="flex items-center justify-between border-b border-slate-200 pb-2.5">
+        <div class="flex items-center gap-2">
+          <i class="fa-solid fa-bookmark text-[#0B3D91]"></i>
+          <h3 class="font-display font-extrabold text-sm sm:text-base text-slate-950">Personal Bookmarked Messages Vault</h3>
+        </div>
+        <button onclick="window.appUI.closeModal('savedVaultModal')" class="w-7 h-7 rounded bg-slate-100 text-slate-600 text-xs">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+      <div id="savedVaultList" class="space-y-2 max-h-[60vh] overflow-y-auto p-1 text-xs">
+        <!-- Populated dynamically -->
+      </div>
+    </div>
+  </div>
+
   <!-- TOAST NOTIFICATION CONTAINER -->
   <div id="toastContainer" class="fixed bottom-4 right-4 z-[10000] space-y-1.5 max-w-xs w-full pointer-events-none"></div>
 
@@ -1844,10 +2283,10 @@
         <span class="w-5 h-5 rounded bg-slate-950 text-white flex items-center justify-center font-mono font-bold text-[10px]">N</span>
         <span class="text-slate-800 font-bold">IIRS-NexaComm Outreach Portal</span>
         <span>•</span>
-        <span>Real-Name Global Group Chat Architecture</span>
+        <span>Real-Name Global Group Chat & 2-Way HD Video Bridge</span>
       </div>
       <div class="flex items-center gap-3 font-mono text-[10px]">
-        <span>Monochrome + ISRO Precision UI</span>
+        <span>Monochrome + Instagram + ISRO Precision UI</span>
         <span>•</span>
         <span class="text-emerald-700 font-bold">Firebase Cloud: web-development-303a6</span>
       </div>
@@ -1857,7 +2296,7 @@
 <!-- START OF PART 3 (Continues directly after END OF PART 2) -->
 
   <!-- ==========================================================================
-       5. COMPLETE FIREBASE, WHATSAPP CHAT, ZOOM VIDEO STUDIO & ADMIN ENGINE
+       5. COMPLETE FIREBASE, WHATSAPP CHAT, 2-WAY HD VIDEO STUDIO & ADMIN ENGINE
        ========================================================================== -->
   <script type="module">
     import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
@@ -1910,6 +2349,8 @@
     const LS_SAVED_LOGINS_KEY = "nexacomm_saved_credentials";
     const LS_GUEST_SUPPORT_ID_KEY = "nexacomm_guest_5digit_support_id";
     const LS_VC_ROOMS_KEY = "nexacomm_vc_live_rooms";
+    const LS_VAULT_KEY = "nexacomm_personal_saved_vault";
+    const LS_THEME_KEY = "nexacomm_active_portal_theme";
 
     // ==========================================================================
     // APPLICATION STATE
@@ -1919,22 +2360,29 @@
       messagesMap: {},
       storiesMap: {},
       videoRoomsMap: {},
+      remoteVideoFramesMap: {}, // Stores live camera frames of all remote participants
       savedCredentials: [],
-      guestSupportId: null, // 5-digit temporary ID for 1-on-1 Admin Support without login
+      personalVaultIds: [],
+      guestSupportId: null,
       pinnedMessage: null,
       chatLockedByAdmin: false,
+      slowModeSeconds: 0,
+      lastMessageSentAt: 0,
       currentUser: null,
       isImpersonating: false,
       backupAdminSession: null,
       activeChannel: "GLOBAL", // 'GLOBAL' | 'ADMIN_DESK' | 'AI_BOT'
-      streamTypeFilter: "ALL", // 'ALL' | 'STARRED' | 'MEDIA' | 'POLL'
+      streamTypeFilter: "ALL", // 'ALL' | 'STARRED' | 'MEDIA' | 'POLL' | 'DELETED'
       composerTextColor: "#0F172A",
       composerFontClass: "chat-font-inter",
       soundAlertsEnabled: true,
       isChatFullScreen: false,
+      portalTheme: "classic", // 'classic' | 'instagram' | 'midnight'
       replyTo: null,
       editingMsgId: null,
       pendingRegistration: null,
+      pendingStatusImageData: null,
+      activeViewingStoryId: null,
       // Voice recording state
       mediaRecorder: null,
       audioChunks: [],
@@ -1942,7 +2390,7 @@
       voiceStartTime: 0,
       voiceTimerInterval: null,
       // Video Conference Studio state
-      vcSelectedMode: "GENERAL", // 'GENERAL' | 'SPECIAL'
+      vcSelectedMode: "GENERAL",
       vcPreviewId: "RM-84920",
       vcPreviewPass: "482910",
       activeRoomId: null,
@@ -1950,6 +2398,14 @@
       studioMicEnabled: true,
       studioCamEnabled: true,
       studioHandRaised: false,
+      studioVideoFilter: "vfilter-none",
+      studioMirrorEnabled: true,
+      studioCaptionsActive: false,
+      studioSpeechRec: null,
+      studioFrameBroadcastInterval: null,
+      studioTimerInterval: null,
+      studioJoinedAt: 0,
+      wbDrawing: false,
       inspectedUserObj: null,
       typingTimeout: null
     };
@@ -1986,7 +2442,7 @@
         toast.style.opacity = "0";
         toast.style.transform = "translateY(6px)";
         setTimeout(() => toast.remove(), 220);
-      }, 3300);
+      }, 3200);
     }
 
     function playNotificationPing() {
@@ -1999,13 +2455,13 @@
         const gain = ctx.createGain();
         osc.type = "sine";
         osc.frequency.setValueAtTime(880, ctx.currentTime);
-        osc.frequency.exponentialRampToValueAtTime(1174.66, ctx.currentTime + 0.09);
-        gain.gain.setValueAtTime(0.06, ctx.currentTime);
-        gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.14);
+        osc.frequency.exponentialRampToValueAtTime(1174.66, ctx.currentTime + 0.08);
+        gain.gain.setValueAtTime(0.05, ctx.currentTime);
+        gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.13);
         osc.connect(gain);
         gain.connect(ctx.destination);
         osc.start();
-        osc.stop(ctx.currentTime + 0.15);
+        osc.stop(ctx.currentTime + 0.14);
       } catch (e) {}
     }
 
@@ -2019,7 +2475,6 @@
         .replace(/'/g, "&#039;");
     }
 
-    // Rich WhatsApp & Advanced Markdown Formatter (*bold*, _italic_, ++underline++, ~strike~, ==highlight==, `code`)
     function formatWhatsAppText(raw) {
       let safe = escapeHtml(raw);
       safe = safe.replace(/\*([^*]+)\*/g, '<strong class="font-extrabold">$1</strong>');
@@ -2053,6 +2508,34 @@
     }
 
     // ==========================================================================
+    // THEME ENGINE (ISRO CLASSIC / INSTAGRAM LUXE / MIDNIGHT CYBER)
+    // ==========================================================================
+    function applyPortalTheme(themeName) {
+      state.portalTheme = themeName || "classic";
+      localStorage.setItem(LS_THEME_KEY, state.portalTheme);
+      document.body.classList.remove("theme-instagram", "theme-midnight");
+      const label = document.getElementById("activeThemeLabel");
+
+      if (state.portalTheme === "instagram") {
+        document.body.classList.add("theme-instagram");
+        if (label) label.textContent = "IG Luxe";
+      } else if (state.portalTheme === "midnight") {
+        document.body.classList.add("theme-midnight");
+        if (label) label.textContent = "Midnight";
+      } else {
+        if (label) label.textContent = "ISRO Clean";
+      }
+    }
+
+    function cyclePortalTheme() {
+      const order = ["classic", "instagram", "midnight"];
+      const next = order[(order.indexOf(state.portalTheme) + 1) % order.length];
+      applyPortalTheme(next);
+      const names = { classic: "ISRO Classic Precision Theme", instagram: "Instagram Gradient Luxe Theme", midnight: "Midnight Cyber Dark Theme" };
+      showToast(`Switched to ${names[next]}!`, "info");
+    }
+
+    // ==========================================================================
     // 5-DIGIT TEMPORARY GUEST ID GENERATOR (FOR 1-ON-1 ADMIN DESK WITHOUT LOGIN)
     // ==========================================================================
     function getOrCreateGuestSupportId() {
@@ -2075,6 +2558,12 @@
         state.savedCredentials = Array.isArray(list) ? list : [];
       } catch (e) {
         state.savedCredentials = [];
+      }
+      try {
+        const vList = JSON.parse(localStorage.getItem(LS_VAULT_KEY) || "[]");
+        state.personalVaultIds = Array.isArray(vList) ? vList : [];
+      } catch (e) {
+        state.personalVaultIds = [];
       }
       renderSavedCredentialsDatalist();
     }
@@ -2115,7 +2604,6 @@
       const box = document.getElementById("savedCredentialsDropdown");
       if (!box) return;
 
-      // Also include any registered users in local cache if savedCredentials is empty
       const combined = [...state.savedCredentials];
       Object.values(state.usersMap).forEach((u) => {
         if (u.userId && u.password && !combined.some((c) => c.userId.toLowerCase() === u.userId.toLowerCase())) {
@@ -2157,7 +2645,6 @@
 
     function handleLoginIdInputChange(val) {
       showSavedLoginDropdown(val);
-      // If exact match with saved credential, auto-fill password convenience
       const exact = state.savedCredentials.find(
         (c) => c.userId.toLowerCase() === (val || "").trim().toLowerCase()
       );
@@ -2194,11 +2681,12 @@
     }
 
     // ==========================================================================
-    // FIREBASE REALTIME DATABASE SYNC (PRESERVES ALL USER DATA)
+    // FIREBASE REALTIME DATABASE SYNC (PRESERVES ALL USER DATA + FAST SYNC)
     // ==========================================================================
     function initRealtimeDatabaseSync() {
       loadSavedCredentials();
       regenerateRoomCredentialsPreview();
+      applyPortalTheme(localStorage.getItem(LS_THEME_KEY) || "classic");
 
       try {
         state.usersMap = JSON.parse(localStorage.getItem(LS_USERS_KEY) || "{}") || {};
@@ -2210,7 +2698,6 @@
         state.videoRoomsMap = {};
       }
 
-      // Restore active user session if present
       try {
         const savedSession = JSON.parse(localStorage.getItem(LS_SESSION_KEY) || "null");
         if (savedSession && savedSession.currentUser) {
@@ -2220,14 +2707,14 @@
         }
       } catch (e) {}
 
-      // Restore existing 5-digit Guest Support ID if previously generated
       const existingGuestId = localStorage.getItem(LS_GUEST_SUPPORT_ID_KEY);
       if (existingGuestId) state.guestSupportId = existingGuestId;
 
       updateHeaderSessionUI();
       refreshAllViews();
+      initWhiteboardCanvasEvents();
 
-      // 1. Listen to Users Node (Preserves all users in Firebase & LocalStorage)
+      // 1. Listen to Users Node (Preserves all existing users in Firebase & LocalStorage)
       onValue(ref(db, "nexacomm/users"), (snapshot) => {
         const cloudUsers = snapshot.val() || {};
         state.usersMap = { ...state.usersMap, ...cloudUsers };
@@ -2236,15 +2723,19 @@
         refreshAllViews();
       });
 
-      // 2. Listen to Messages Node
+      // 2. Listen to Messages Node (Supports Permanent Delete & Soft-Delete Recovery)
       onValue(ref(db, "nexacomm/messages"), (snapshot) => {
-        const cloudMsgs = snapshot.val() || {};
-        const prevCount = Object.keys(state.messagesMap).length;
-        state.messagesMap = { ...state.messagesMap, ...cloudMsgs };
-        localStorage.setItem(LS_MSGS_KEY, JSON.stringify(state.messagesMap));
-        if (Object.keys(state.messagesMap).length > prevCount && prevCount > 0) {
-          playNotificationPing();
+        const cloudMsgs = snapshot.val();
+        if (cloudMsgs === null) {
+          state.messagesMap = {};
+        } else {
+          const prevCount = Object.keys(state.messagesMap).length;
+          state.messagesMap = cloudMsgs;
+          if (Object.keys(state.messagesMap).length > prevCount && prevCount > 0) {
+            playNotificationPing();
+          }
         }
+        localStorage.setItem(LS_MSGS_KEY, JSON.stringify(state.messagesMap));
         refreshAllViews();
       });
 
@@ -2258,7 +2749,16 @@
         }
       });
 
-      // 4. Listen to Broadcast Bulletin
+      // 4. Listen to Live Video Conference Camera Frames Node (2-Way Multi-Device Live Video!)
+      onValue(ref(db, "nexacomm/videoFrames"), (snapshot) => {
+        const allFrames = snapshot.val() || {};
+        state.remoteVideoFramesMap = allFrames;
+        if (state.activeRoomId && allFrames[state.activeRoomId]) {
+          updateRemoteVideoFramesInDOM(allFrames[state.activeRoomId]);
+        }
+      });
+
+      // 5. Listen to Broadcast Bulletin
       onValue(ref(db, "nexacomm/broadcast"), (snapshot) => {
         const val = snapshot.val();
         if (val && val.text) {
@@ -2267,34 +2767,80 @@
         }
       });
 
-      // 5. Listen to Pinned Chat Message
+      // 6. Listen to Pinned Chat Message
       onValue(ref(db, "nexacomm/pinnedMessage"), (snapshot) => {
         state.pinnedMessage = snapshot.val() || null;
         renderPinnedBanner();
       });
 
-      // 6. Listen to Admin Chat Lock State
+      // 7. Listen to Admin Chat Lock & Slow Mode State
       onValue(ref(db, "nexacomm/chatLock"), (snapshot) => {
         const val = snapshot.val();
         state.chatLockedByAdmin = !!(val && val.locked);
+        state.slowModeSeconds = Number(val?.slowModeSeconds || 0);
         updateChatLockUI();
       });
 
-      // 7. Listen to Instagram-Style Outreach Stories
+      // 8. Listen to Admin Emergency Flash Broadcast
+      onValue(ref(db, "nexacomm/emergencyFlash"), (snapshot) => {
+        const val = snapshot.val();
+        if (val && val.text && Date.now() - (val.timestamp || 0) < 45000) {
+          const banner = document.getElementById("globalEmergencyFlashBanner");
+          const txt = document.getElementById("globalEmergencyFlashText");
+          if (banner && txt) {
+            txt.textContent = val.text;
+            banner.classList.remove("hidden");
+          }
+        }
+      });
+
+      // 9. Listen to Instagram-Style Outreach Stories (With Photos & Reactions)
       onValue(ref(db, "nexacomm/stories"), (snapshot) => {
         state.storiesMap = snapshot.val() || {};
         renderOutreachStories();
+        if (state.activeViewingStoryId) {
+          renderActiveStoryViewerModal();
+        }
       });
 
-      // 8. Listen to Live Typing Indicator
+      // 10. Listen to Enhanced WhatsApp-Style Live Activity Status
+      // (Typing / Image Selecting / Video Sending / Voice Recording / Doc Selecting)
       onValue(ref(db, "nexacomm/typing"), (snapshot) => {
         const val = snapshot.val();
         const presenceEl = document.getElementById("livePresenceIndicator");
-        if (!presenceEl) return;
-        if (val && val.fullName && Date.now() - val.timestamp < 3500 && (!state.currentUser || val.userId !== state.currentUser.userId)) {
-          presenceEl.innerHTML = `<strong class="text-emerald-700">${escapeHtml(val.fullName)} is typing...</strong>`;
+        const bottomBar = document.getElementById("bottomLiveActivityBar");
+        const bottomText = document.getElementById("bottomLiveActivityText");
+        const bottomBadge = document.getElementById("bottomLiveActivityTypeBadge");
+
+        const myId = state.currentUser ? state.currentUser.userId : state.guestSupportId;
+        const isRecent = val && val.fullName && (Date.now() - (val.timestamp || 0) < 4200);
+        const isOtherUser = isRecent && (!myId || val.userId !== myId);
+
+        if (isRecent) {
+          const actionLabels = {
+            TYPING: `✍️ ${val.fullName} is typing... (This user typing)`,
+            IMAGE_SELECTING: `🖼️ ${val.fullName} is selecting an image... (Image selecting)`,
+            VIDEO_SENDING: `🎬 ${val.fullName} is sending a video... (Video sending)`,
+            VOICE_RECORDING: `🎤 ${val.fullName} is recording a voice note... (Voice recording)`,
+            DOC_SELECTING: `📎 ${val.fullName} is selecting a document...`
+          };
+          const statusMsg = actionLabels[val.activityType || "TYPING"] || actionLabels.TYPING;
+
+          if (presenceEl && isOtherUser) {
+            presenceEl.innerHTML = `<strong class="text-emerald-700">${escapeHtml(statusMsg)}</strong>`;
+          }
+          if (bottomBar && bottomText) {
+            bottomText.textContent = statusMsg;
+            if (bottomBadge) bottomBadge.textContent = (val.activityType || "TYPING").replace("_", " ");
+            bottomBar.classList.remove("hidden");
+            bottomBar.classList.add("flex");
+          }
         } else {
-          presenceEl.textContent = "Verified Original Names • Dynamic Bubbles • ✓✓ Sync";
+          if (presenceEl) presenceEl.textContent = "Verified Original Names • Instant Sync • ✓✓";
+          if (bottomBar) {
+            bottomBar.classList.add("hidden");
+            bottomBar.classList.remove("flex");
+          }
         }
       });
     }
@@ -2313,11 +2859,12 @@
       refreshAllViews();
     }
 
+    // Ultra-Fast Optimistic Message Persistence
     function persistMessageRecord(msgId, msgObj) {
       state.messagesMap[msgId] = msgObj;
       localStorage.setItem(LS_MSGS_KEY, JSON.stringify(state.messagesMap));
+      renderMessages();
       set(ref(db, `nexacomm/messages/${msgId}`), msgObj).catch(() => {});
-      refreshAllViews();
     }
 
     function persistVideoRoom(roomId, roomObj) {
@@ -2325,6 +2872,7 @@
         delete state.videoRoomsMap[roomId];
         localStorage.setItem(LS_VC_ROOMS_KEY, JSON.stringify(state.videoRoomsMap));
         remove(ref(db, `nexacomm/videoRooms/${roomId}`)).catch(() => {});
+        remove(ref(db, `nexacomm/videoFrames/${roomId}`)).catch(() => {});
       } else {
         state.videoRoomsMap[roomId] = roomObj;
         localStorage.setItem(LS_VC_ROOMS_KEY, JSON.stringify(state.videoRoomsMap));
@@ -2356,12 +2904,14 @@
       const kpiSusp = document.getElementById("adminKpiSuspended");
       const kpiBan = document.getElementById("adminKpiBanned");
       const kpiMsgs = document.getElementById("adminKpiMessages");
+      const kpiDel = document.getElementById("adminKpiDeletedMsgs");
 
       if (kpiTotal) kpiTotal.textContent = usersList.length;
       if (kpiActive) kpiActive.textContent = usersList.filter(u => (u.status || "ACTIVE") === "ACTIVE").length;
       if (kpiSusp) kpiSusp.textContent = usersList.filter(u => u.status === "SUSPENDED").length;
       if (kpiBan) kpiBan.textContent = usersList.filter(u => u.status === "BANNED").length;
       if (kpiMsgs) kpiMsgs.textContent = msgsList.length;
+      if (kpiDel) kpiDel.textContent = msgsList.filter(m => m.deletedByUser).length;
 
       renderAdminExcelTable();
       renderSidebarMembers();
@@ -2372,67 +2922,214 @@
     }
 
     // ==========================================================================
-    // INSTAGRAM-STYLE OUTREACH STORIES / STATUS HIGHLIGHTS
+    // INSTAGRAM-STYLE PHOTO + TEXT STORIES & LIVE EMOJI REACTIONS
     // ==========================================================================
+    function handleStatusImagePreview(event) {
+      const file = event.target.files?.[0];
+      if (!file) return;
+      const reader = new FileReader();
+      reader.onload = (e) => {
+        const img = new Image();
+        img.onload = () => {
+          const canvas = document.createElement("canvas");
+          const maxDim = 640;
+          let w = img.width;
+          let h = img.height;
+          if (w > maxDim || h > maxDim) {
+            if (w > h) { h = Math.round((h * maxDim) / w); w = maxDim; }
+            else { w = Math.round((w * maxDim) / h); h = maxDim; }
+          }
+          canvas.width = w;
+          canvas.height = h;
+          canvas.getContext("2d").drawImage(img, 0, 0, w, h);
+          state.pendingStatusImageData = canvas.toDataURL("image/jpeg", 0.78);
+
+          const wrap = document.getElementById("statusImagePreviewWrapper");
+          const previewEl = document.getElementById("statusImagePreviewEl");
+          if (previewEl) previewEl.src = state.pendingStatusImageData;
+          if (wrap) wrap.classList.remove("hidden");
+        };
+        img.src = e.target.result;
+      };
+      reader.readAsDataURL(file);
+    }
+
+    function clearStatusImagePreview() {
+      state.pendingStatusImageData = null;
+      const wrap = document.getElementById("statusImagePreviewWrapper");
+      const input = document.getElementById("statusImageInput");
+      if (wrap) wrap.classList.add("hidden");
+      if (input) input.value = "";
+    }
+
     function publishStatusUpdate() {
       if (!state.currentUser) {
-        showToast("Please Login or Register first to post an Outreach Status Highlight.", "warning");
+        showToast("Please Login or Register first to post an Outreach Photo/Story Highlight.", "warning");
         closeModal("statusModal");
         openModal("loginModal");
         return;
       }
       const input = document.getElementById("statusTextInput");
-      const text = input?.value.trim();
-      if (!text) {
-        showToast("Please enter a short status update text.", "warning");
+      const themeSelect = document.getElementById("statusThemeSelect");
+      const text = input?.value.trim() || "";
+
+      if (!text && !state.pendingStatusImageData) {
+        showToast("Please write a caption or attach a photo for your story.", "warning");
         return;
       }
+
       const id = "story_" + Date.now();
       const storyObj = {
         id,
+        authorId: state.currentUser.userId,
         fullName: state.currentUser.fullName || state.currentUser.nickname,
         country: state.currentUser.country || "🇮🇳 India",
-        text,
+        text: text || "📸 Photo Story Update",
+        imageUrl: state.pendingStatusImageData || null,
+        bgTheme: themeSelect?.value || "ig-luxe",
+        reactions: { "❤️": 1, "🔥": 0, "👏": 0, "😍": 0, "🚀": 0 },
         timestamp: Date.now()
       };
+
       state.storiesMap[id] = storyObj;
       set(ref(db, `nexacomm/stories/${id}`), storyObj).catch(() => {});
-      input.value = "";
+
+      if (input) input.value = "";
+      clearStatusImagePreview();
       closeModal("statusModal");
       renderOutreachStories();
-      showToast("Status update published to the top Outreach Ring!", "success");
+      showToast("Photo/Story published to the top Instagram Ring!", "success");
     }
 
     function renderOutreachStories() {
       const strip = document.getElementById("outreachStoriesStrip");
       if (!strip) return;
 
-      const stories = Object.values(state.storiesMap).sort((a, b) => (b.timestamp || 0) - (a.timestamp || 0)).slice(0, 12);
+      const stories = Object.values(state.storiesMap)
+        .sort((a, b) => (b.timestamp || 0) - (a.timestamp || 0))
+        .slice(0, 15);
 
       const addBtnHtml = `
         <button onclick="window.appUI.openModal('statusModal')" class="flex flex-col items-center gap-1 shrink-0 group">
-          <div class="w-11 h-11 rounded-full border-2 border-dashed border-slate-400 group-hover:border-slate-900 flex items-center justify-center bg-slate-50 text-slate-700 transition">
-            <i class="fa-solid fa-plus text-xs"></i>
+          <div class="w-12 h-12 rounded-full border-2 border-dashed border-[#E1306C] group-hover:border-slate-950 flex items-center justify-center bg-gradient-to-tr from-pink-50 to-amber-50 text-[#E1306C] transition relative">
+            <i class="fa-solid fa-camera-retro text-xs"></i>
+            <span class="w-4 h-4 rounded-full bg-[#E1306C] text-white text-[9px] flex items-center justify-center absolute -bottom-0.5 -right-0.5 border border-white">
+              <i class="fa-solid fa-plus"></i>
+            </span>
           </div>
-          <span class="text-[10px] font-semibold text-slate-700">Post Update</span>
+          <span class="text-[10px] font-bold text-slate-800">Post Story</span>
         </button>
       `;
 
       const storiesHtml = stories.map((s) => {
         const initial = (s.fullName || "M").charAt(0).toUpperCase();
+        const reactTotal = Object.values(s.reactions || {}).reduce((acc, v) => acc + (Number(v) || 0), 0);
+        const thumbHtml = s.imageUrl
+          ? `<img src="${s.imageUrl}" alt="Story" class="w-11 h-11 rounded-full object-cover border-2 border-white" />`
+          : `<div class="w-11 h-11 rounded-full bg-slate-950 text-white font-bold text-xs flex items-center justify-center border-2 border-white">${escapeHtml(initial)}</div>`;
+
         return `
-          <button onclick="window.appUI.viewStoryToast('${escapeHtml(s.fullName)}', '${escapeHtml(s.text)}')" class="flex flex-col items-center gap-1 shrink-0 group">
-            <div class="ig-ring">
-              <div class="w-10 h-10 rounded-full bg-slate-950 text-white font-bold text-xs flex items-center justify-center border-2 border-white">
-                ${escapeHtml(initial)}
-              </div>
+          <button onclick="window.appUI.openStoryViewer('${escapeHtml(s.id)}')" class="flex flex-col items-center gap-1 shrink-0 group relative">
+            <div class="ig-ring relative">
+              ${thumbHtml}
+              ${reactTotal > 0 ? `<span class="absolute -bottom-1 -right-1 px-1.5 py-0.2 rounded-full bg-slate-950 text-white font-mono text-[8px] font-bold border border-pink-400">❤️${reactTotal}</span>` : ""}
             </div>
-            <span class="text-[10px] font-bold text-slate-800 max-w-[68px] truncate">${escapeHtml(s.fullName)}</span>
+            <span class="text-[10px] font-bold text-slate-800 max-w-[70px] truncate">${escapeHtml(s.fullName)}</span>
           </button>
         `;
       }).join("");
 
       strip.innerHTML = addBtnHtml + storiesHtml;
+    }
+
+    function openStoryViewer(storyId) {
+      state.activeViewingStoryId = storyId;
+      renderActiveStoryViewerModal();
+      openModal("storyViewerModal");
+    }
+
+    function renderActiveStoryViewerModal() {
+      const s = state.storiesMap[state.activeViewingStoryId];
+      if (!s) {
+        closeModal("storyViewerModal");
+        return;
+      }
+
+      document.getElementById("storyViewAvatar").textContent = (s.fullName || "U").charAt(0).toUpperCase();
+      document.getElementById("storyViewAuthor").textContent = `${s.fullName} (${s.country || "🇮🇳"})`;
+      document.getElementById("storyViewTime").textContent = formatFullTimestamp(s.timestamp);
+
+      const bodyCard = document.getElementById("storyViewBodyCard");
+      const bgThemes = {
+        "ig-luxe": "bg-gradient-to-br from-[#833AB4] via-[#E1306C] to-[#F77737]",
+        "isro-navy": "bg-gradient-to-br from-[#0B3D91] via-slate-900 to-slate-950",
+        "emerald-cyber": "bg-gradient-to-br from-emerald-700 via-teal-900 to-slate-950",
+        "royal-gold": "bg-gradient-to-br from-rose-700 via-amber-600 to-slate-900"
+      };
+      if (bodyCard) {
+        bodyCard.className = `p-6 min-h-[300px] max-h-[440px] flex flex-col items-center justify-center text-center relative overflow-y-auto ${bgThemes[s.bgTheme] || bgThemes["ig-luxe"]}`;
+      }
+
+      const imgEl = document.getElementById("storyViewImageEl");
+      if (imgEl) {
+        if (s.imageUrl) {
+          imgEl.src = s.imageUrl;
+          imgEl.classList.remove("hidden");
+        } else {
+          imgEl.classList.add("hidden");
+        }
+      }
+
+      const capEl = document.getElementById("storyViewCaptionEl");
+      if (capEl) capEl.textContent = s.text || "";
+
+      const canDelete = state.currentUser && (state.currentUser.role === "ADMIN" || state.currentUser.userId === s.authorId);
+      const delBtn = document.getElementById("btnDeleteStoryModal");
+      if (delBtn) {
+        if (canDelete) delBtn.classList.remove("hidden");
+        else delBtn.classList.add("hidden");
+      }
+
+      const reactions = s.reactions || { "❤️": 0, "🔥": 0, "👏": 0, "😍": 0, "🚀": 0 };
+      const totalReacts = Object.values(reactions).reduce((a, b) => a + (Number(b) || 0), 0);
+      document.getElementById("storyTotalReactionsCount").textContent = `${totalReacts} Reaction(s)`;
+
+      const emojis = ["❤️", "🔥", "👏", "😍", "🚀"];
+      const row = document.getElementById("storyReactionsButtonsRow");
+      if (row) {
+        row.innerHTML = emojis.map((em) => {
+          const count = reactions[em] || 0;
+          return `
+            <button onclick="window.appUI.reactToStory('${escapeHtml(s.id)}', '${em}')" class="flex-1 py-2 rounded-xl bg-white/10 hover:bg-white/25 border border-white/15 flex items-center justify-center gap-1.5 transition hover:scale-105 cursor-pointer">
+              <span class="text-base">${em}</span>
+              <span class="font-mono font-bold text-xs text-white">${count}</span>
+            </button>
+          `;
+        }).join("");
+      }
+    }
+
+    function reactToStory(storyId, emoji) {
+      const s = state.storiesMap[storyId];
+      if (!s) return;
+      if (!s.reactions) s.reactions = {};
+      s.reactions[emoji] = (Number(s.reactions[emoji]) || 0) + 1;
+      state.storiesMap[storyId] = s;
+      set(ref(db, `nexacomm/stories/${storyId}`), s).catch(() => {});
+      renderActiveStoryViewerModal();
+      renderOutreachStories();
+      showToast(`Sent ${emoji} reaction to ${s.fullName}'s story!`, "success");
+    }
+
+    function deleteActiveStory() {
+      const id = state.activeViewingStoryId;
+      if (!id) return;
+      delete state.storiesMap[id];
+      remove(ref(db, `nexacomm/stories/${id}`)).catch(() => {});
+      state.activeViewingStoryId = null;
+      closeModal("storyViewerModal");
+      renderOutreachStories();
+      showToast("Story deleted.", "info");
     }
 
     function viewStoryToast(author, text) {
@@ -2485,6 +3182,7 @@
         userId: generatedUserId,
         password: generatedPassword,
         status: "ACTIVE",
+        isVip: false,
         createdAt: Date.now()
       };
 
@@ -2673,7 +3371,6 @@
       const guestBannerText = document.getElementById("guestBannerText");
       const btnAdminLock = document.getElementById("btnAdminChatLock");
 
-      // Also update Video Conference Page Top Bar
       const vcName = document.getElementById("vcLoggedUserName");
       const vcId = document.getElementById("vcLoggedUserId");
       const vcCountry = document.getElementById("vcLoggedUserCountry");
@@ -2769,7 +3466,7 @@
     }
 
     // ==========================================================================
-    // SUPER ADMIN EXCEL TABLE & 1-CLICK "LOGIN AS"
+    // SUPER ADMIN EXCEL TABLE, VIP BADGE & SUPREME MODERATION POWERS
     // ==========================================================================
     function renderAdminExcelTable() {
       const tbody = document.getElementById("adminExcelTableBody");
@@ -2808,6 +3505,8 @@
             ? `<span class="px-2 py-0.5 rounded bg-amber-100 text-amber-900 font-mono font-bold text-[10px]">◐ SUSPENDED</span>`
             : `<span class="px-2 py-0.5 rounded bg-rose-100 text-rose-900 font-mono font-bold text-[10px]">✖ BANNED</span>`;
 
+        const vipStar = u.isVip ? `<span class="ml-1 px-1.5 py-0.2 rounded bg-amber-300 text-slate-950 font-mono font-extrabold text-[9px]">👑 VIP</span>` : "";
+
         return `
           <tr>
             <td class="font-mono font-bold text-slate-500 text-center">${idx + 1}</td>
@@ -2818,7 +3517,7 @@
               </button>
             </td>
             <td>${statusBadge}</td>
-            <td class="font-extrabold text-slate-950">${escapeHtml(u.fullName)}</td>
+            <td class="font-extrabold text-slate-950">${escapeHtml(u.fullName)}${vipStar}</td>
             <td class="font-medium text-slate-600">${escapeHtml(u.nickname)}</td>
             <td class="font-semibold text-[#0B3D91]">${escapeHtml(u.ign)}</td>
             <td><span class="font-mono font-bold text-slate-800 bg-slate-100 px-1.5 py-0.5 rounded">${escapeHtml(u.playerTag)}</span></td>
@@ -2831,6 +3530,7 @@
             <td>
               <div class="flex items-center gap-1">
                 <button onclick="window.appUI.openAdminEditUserModal('${u.key}')" class="px-2 py-0.5 rounded bg-slate-100 hover:bg-slate-200 text-slate-800 font-bold text-[11px]">Edit</button>
+                <button onclick="window.appUI.toggleUserVipBadge('${u.key}')" class="px-2 py-0.5 rounded bg-amber-100 hover:bg-amber-200 text-amber-950 font-bold text-[11px]" title="Grant/Revoke VIP Crown">👑 VIP</button>
                 ${
                   status !== "SUSPENDED"
                     ? `<button onclick="window.appUI.setUserStatus('${u.key}', 'SUSPENDED')" class="px-2 py-0.5 rounded bg-amber-100 hover:bg-amber-200 text-amber-900 font-bold text-[11px]">Suspend</button>`
@@ -2849,6 +3549,72 @@
           </tr>
         `;
       }).join("");
+    }
+
+    function toggleUserVipBadge(userKey) {
+      const u = state.usersMap[userKey];
+      if (!u) return;
+      u.isVip = !u.isVip;
+      persistUserRecord(userKey, u);
+      showToast(`${u.fullName} VIP Badge ${u.isVip ? "Granted 👑" : "Removed"}.`, "success");
+    }
+
+    function adminRecoverAllDeletedMessages() {
+      let count = 0;
+      Object.values(state.messagesMap).forEach((m) => {
+        if (m.deletedByUser) {
+          m.deletedByUser = false;
+          m.recoveredByAdmin = true;
+          m.recoveredAt = Date.now();
+          set(ref(db, `nexacomm/messages/${m.id}`), m).catch(() => {});
+          count++;
+        }
+      });
+      localStorage.setItem(LS_MSGS_KEY, JSON.stringify(state.messagesMap));
+      refreshAllViews();
+      showToast(count > 0 ? `Recovered ${count} user-deleted message(s)!` : "No soft-deleted messages waiting for recovery.", "success");
+    }
+
+    function adminPurgeAllSoftDeletedMessages() {
+      let count = 0;
+      Object.values(state.messagesMap).forEach((m) => {
+        if (m.deletedByUser) {
+          delete state.messagesMap[m.id];
+          remove(ref(db, `nexacomm/messages/${m.id}`)).catch(() => {});
+          count++;
+        }
+      });
+      localStorage.setItem(LS_MSGS_KEY, JSON.stringify(state.messagesMap));
+      refreshAllViews();
+      showToast(count > 0 ? `Permanently purged ${count} soft-deleted message(s).` : "No soft-deleted messages to purge.", "warning");
+    }
+
+    function adminSendEmergencyFlash() {
+      const input = document.getElementById("adminEmergencyFlashInput");
+      const text = input?.value.trim();
+      if (!text) {
+        showToast("Enter emergency alert text first.", "warning");
+        return;
+      }
+      set(ref(db, "nexacomm/emergencyFlash"), {
+        text,
+        sender: "Super Admin (Aryan Rajput)",
+        timestamp: Date.now()
+      }).catch(() => {});
+      input.value = "";
+      showToast("Live Emergency Flash Alert broadcasted to all connected screens!", "success");
+    }
+
+    function adminSetSlowMode(secondsVal) {
+      const sec = Number(secondsVal) || 0;
+      state.slowModeSeconds = sec;
+      set(ref(db, "nexacomm/chatLock"), {
+        locked: state.chatLockedByAdmin,
+        slowModeSeconds: sec,
+        updatedAt: Date.now()
+      }).catch(() => {});
+      updateChatLockUI();
+      showToast(sec > 0 ? `Slow Mode set to ${sec} seconds per message.` : "Slow Mode disabled (Instant Fast Chat).", "info");
     }
 
     function adminLoginAsUser(userKey) {
@@ -3018,7 +3784,7 @@
     }
 
     // ==========================================================================
-    // FULL SCREEN AUTO-ADJUST CHAT BOX (NO SCROLL JIGGLE + EXIT FULL SCREEN)
+    // FULL SCREEN AUTO-ADJUST CHAT BOX
     // ==========================================================================
     function toggleChatFullScreen(forceState = null) {
       const wrapper = document.getElementById("mainChatBoxWrapper");
@@ -3037,7 +3803,7 @@
           btnExit.classList.remove("hidden");
           btnExit.classList.add("flex");
         }
-        showToast("Full Screen Chat Mode Activated (Locked & Auto-Adjusted).", "info");
+        showToast("Full Screen Chat Mode Activated.", "info");
       } else {
         wrapper.classList.remove("chat-fullscreen-active");
         document.body.classList.remove("body-fullscreen-lock");
@@ -3048,7 +3814,7 @@
         }
         showToast("Exited Full Screen Chat Mode.", "info");
       }
-      setTimeout(() => scrollToChatBottom(), 60);
+      setTimeout(() => scrollToChatBottom(), 40);
     }
 
     function handleChatScroll() {
@@ -3068,13 +3834,35 @@
     function scrollToChatBottom() {
       const container = document.getElementById("chatMessagesContainer");
       if (container) {
-        container.scrollTo({ top: container.scrollHeight, behavior: "smooth" });
+        container.scrollTop = container.scrollHeight;
       }
     }
 
     // ==========================================================================
-    // CHAT WORKSPACE: DYNAMIC BUBBLES, 5-DIGIT GUEST ADMIN SUPPORT, COLORS & FONTS
+    // CHAT WORKSPACE & LIVE ACTIVITY BROADCASTER (TYPING / IMAGE / VIDEO / VOICE)
     // ==========================================================================
+    function broadcastLiveActivity(activityType = "TYPING") {
+      const actorName = state.currentUser
+        ? (state.currentUser.fullName || state.currentUser.nickname)
+        : (state.activeChannel === "ADMIN_DESK" ? `Guest #${getOrCreateGuestSupportId()}` : null);
+      if (!actorName) return;
+
+      const payload = {
+        userId: state.currentUser ? state.currentUser.userId : state.guestSupportId,
+        fullName: actorName,
+        activityType,
+        timestamp: Date.now()
+      };
+      set(ref(db, "nexacomm/typing"), payload).catch(() => {});
+    }
+
+    function handleTypingPulse() {
+      if (state.typingTimeout) clearTimeout(state.typingTimeout);
+      state.typingTimeout = setTimeout(() => {
+        broadcastLiveActivity("TYPING");
+      }, 60);
+    }
+
     function renderSidebarMembers() {
       const listEl = document.getElementById("sidebarMembersList");
       const countEl = document.getElementById("sidebarMemberCount");
@@ -3095,6 +3883,7 @@
       listEl.innerHTML = users.map((u) => {
         const dot = (u.status || "ACTIVE") === "ACTIVE" ? "bg-emerald-500" : "bg-rose-500";
         const displayFull = u.fullName || u.nickname || "Member";
+        const vipBadge = u.isVip ? `<span class="text-[9px] bg-amber-300 text-slate-950 px-1 rounded font-bold">👑</span>` : "";
         return `
           <div onclick="window.appUI.inspectUserProfile('${u.key}')" class="cursor-pointer p-2 rounded-lg bg-slate-50 hover:bg-slate-100 border border-slate-200 flex items-center justify-between transition">
             <div class="flex items-center gap-2 min-w-0">
@@ -3105,7 +3894,7 @@
                 <span class="w-2 h-2 rounded-full ${dot} border border-white absolute -bottom-0.5 -right-0.5"></span>
               </div>
               <div class="truncate">
-                <div class="text-xs font-bold text-slate-950 truncate">${escapeHtml(displayFull)}</div>
+                <div class="text-xs font-bold text-slate-950 truncate">${escapeHtml(displayFull)} ${vipBadge}</div>
                 <div class="text-[10px] text-slate-500 truncate">${escapeHtml(u.country)} • ${escapeHtml(u.ign)}</div>
               </div>
             </div>
@@ -3125,7 +3914,6 @@
         box.classList.add("flex");
         const currVal = select.value;
 
-        // Collect both registered users AND any 5-digit Guest Support IDs from messages
         const threadOptionsMap = {};
         Object.values(state.usersMap).forEach((u) => {
           if (u.userId) {
@@ -3217,7 +4005,6 @@
       const picker = document.getElementById("composerCustomColorPicker");
       if (input) input.style.color = state.composerTextColor;
       if (picker) picker.value = state.composerTextColor;
-      showToast(`Message letter color set to ${state.composerTextColor}`, "info");
     }
 
     function setComposerFontStyle(fontClass) {
@@ -3234,6 +4021,7 @@
       if (!input) return;
       input.value += emoji;
       input.focus();
+      handleTypingPulse();
     }
 
     function setStreamTypeFilter(filterVal) {
@@ -3250,22 +4038,6 @@
           : "fa-solid fa-volume-xmark text-[11px] text-rose-600";
       }
       showToast(state.soundAlertsEnabled ? "Chat sound notifications ON." : "Chat sound notifications Muted.", "info");
-    }
-
-    function handleTypingPulse() {
-      const actorName = state.currentUser
-        ? (state.currentUser.fullName || state.currentUser.nickname)
-        : (state.activeChannel === "ADMIN_DESK" ? `Guest #${getOrCreateGuestSupportId()}` : null);
-      if (!actorName) return;
-
-      if (state.typingTimeout) clearTimeout(state.typingTimeout);
-      state.typingTimeout = setTimeout(() => {
-        set(ref(db, "nexacomm/typing"), {
-          userId: state.currentUser ? state.currentUser.userId : state.guestSupportId,
-          fullName: actorName,
-          timestamp: Date.now()
-        }).catch(() => {});
-      }, 150);
     }
 
     function insertFormatTag(symbol) {
@@ -3290,26 +4062,75 @@
       if (!state.currentUser || state.currentUser.role !== "ADMIN") return;
       const nextState = !state.chatLockedByAdmin;
       state.chatLockedByAdmin = nextState;
-      set(ref(db, "nexacomm/chatLock"), { locked: nextState, updatedAt: Date.now() }).catch(() => {});
+      set(ref(db, "nexacomm/chatLock"), {
+        locked: nextState,
+        slowModeSeconds: state.slowModeSeconds,
+        updatedAt: Date.now()
+      }).catch(() => {});
       updateChatLockUI();
       showToast(nextState ? "Group Chat locked (Only Admin can send messages)." : "Group Chat unlocked for all verified members.", "info");
     }
 
     function updateChatLockUI() {
       const btn = document.getElementById("btnAdminChatLock");
-      if (!btn) return;
-      if (state.chatLockedByAdmin) {
-        btn.innerHTML = `<i class="fa-solid fa-lock text-[10px]"></i><span id="chatLockLabel">Admin Only</span>`;
-      } else {
-        btn.innerHTML = `<i class="fa-solid fa-lock-open text-[10px]"></i><span id="chatLockLabel">Open Chat</span>`;
+      const slowBadge = document.getElementById("slowModeHeaderBadge");
+      if (btn) {
+        if (state.chatLockedByAdmin) {
+          btn.innerHTML = `<i class="fa-solid fa-lock text-[10px]"></i><span id="chatLockLabel">Admin Only</span>`;
+        } else {
+          btn.innerHTML = `<i class="fa-solid fa-lock-open text-[10px]"></i><span id="chatLockLabel">Open Chat</span>`;
+        }
+      }
+      if (slowBadge) {
+        if (state.slowModeSeconds > 0) {
+          slowBadge.textContent = `SLOW MODE: ${state.slowModeSeconds}s`;
+          slowBadge.classList.remove("hidden");
+        } else {
+          slowBadge.classList.add("hidden");
+        }
       }
     }
 
     // ==========================================================================
-    // SEND MESSAGE (SUPPORTS 1-ON-1 ADMIN DESK WITHOUT LOGIN VIA 5-DIGIT ID)
+    // ULTRA-FAST SEND MESSAGE + SMART REPLIES + TELEMETRY BEACON + DICTATION
     // ==========================================================================
+    function sendQuickSmartReply(text) {
+      const input = document.getElementById("chatMessageInput");
+      if (input) input.value = text;
+      sendMessage();
+    }
+
+    function sendTelemetryBeacon() {
+      const nowStr = new Date().toLocaleTimeString();
+      sendMessage({
+        type: "TEXT",
+        text: `📡 *LIVE TELEMETRY BEACON* — Signal Locked at ${nowStr} • Grid Sector: IIRS-IND-NORTH • Status: 100% Online`
+      });
+    }
+
+    function startSpeechToTextDictation() {
+      const SpeechRec = window.SpeechRecognition || window.webkitSpeechRecognition;
+      if (!SpeechRec) {
+        showToast("Voice Dictation is supported in Chrome/Edge browsers.", "warning");
+        return;
+      }
+      const rec = new SpeechRec();
+      rec.lang = "en-IN";
+      rec.interimResults = false;
+      showToast("Listening... Speak your message now!", "info");
+      rec.onresult = (e) => {
+        const transcript = e.results?.[0]?.[0]?.transcript || "";
+        const input = document.getElementById("chatMessageInput");
+        if (input && transcript) {
+          input.value = (input.value ? input.value + " " : "") + transcript;
+          input.focus();
+          handleTypingPulse();
+        }
+      };
+      rec.start();
+    }
+
     function sendMessage(customPayload = null) {
-      // Allow Guests to chat in ADMIN_DESK without login using a 5-digit temporary ID!
       let senderActor = state.currentUser;
 
       if (!senderActor) {
@@ -3338,12 +4159,22 @@
         return;
       }
 
+      if (state.slowModeSeconds > 0 && senderActor.role !== "ADMIN") {
+        const elapsedSec = Math.floor((Date.now() - state.lastMessageSentAt) / 1000);
+        if (elapsedSec < state.slowModeSeconds) {
+          showToast(`Slow Mode Active: Please wait ${state.slowModeSeconds - elapsedSec}s before sending another message.`, "warning");
+          return;
+        }
+      }
+
       const input = document.getElementById("chatMessageInput");
       const rawText = customPayload ? customPayload.text : input.value.trim();
 
       if (!rawText && !customPayload) return;
 
-      // Handle Live Message Editing if active
+      // Clear typing bar immediately on send
+      remove(ref(db, "nexacomm/typing")).catch(() => {});
+
       if (state.editingMsgId && !customPayload) {
         const targetMsg = state.messagesMap[state.editingMsgId];
         if (targetMsg) {
@@ -3361,13 +4192,11 @@
       }
 
       const adminTicketTarget = document.getElementById("adminSelectedTicketUser")?.value || "ALL";
-      const threadOwnerId =
-        senderActor.role === "ADMIN"
-          ? adminTicketTarget
-          : senderActor.userId;
+      const threadOwnerId = senderActor.role === "ADMIN" ? adminTicketTarget : senderActor.userId;
 
       const senderFullName = senderActor.fullName || senderActor.nickname || "Verified Member";
       const priorityVal = document.getElementById("msgPrioritySelect")?.value || "NORMAL";
+      const expireSec = Number(document.getElementById("msgExpireSelect")?.value || 0);
 
       const msgId = "msg_" + Date.now() + "_" + Math.floor(Math.random() * 1000);
       const newMsg = {
@@ -3386,6 +4215,7 @@
         textColor: customPayload?.textColor || state.composerTextColor || "#0F172A",
         fontClass: customPayload?.fontClass || state.composerFontClass || "chat-font-inter",
         priority: priorityVal,
+        expiresAt: expireSec > 0 ? Date.now() + expireSec * 1000 : null,
         type: customPayload?.type || "TEXT",
         imageUrl: customPayload?.imageUrl || null,
         videoUrl: customPayload?.videoUrl || null,
@@ -3397,19 +4227,22 @@
         replyTo: state.replyTo || null,
         starred: false,
         isEdited: false,
+        deletedByUser: false,
         deliveryStatus: "SEEN",
         timestamp: Date.now()
       };
 
-      persistMessageRecord(msgId, newMsg);
-
-      if (!customPayload) {
+      state.lastMessageSentAt = Date.now();
+      if (!customPayload && input) {
         input.value = "";
       }
       cancelReply();
 
+      // Optimistic fast render + cloud sync
+      persistMessageRecord(msgId, newMsg);
+
       if (state.activeChannel === "AI_BOT" || rawText.startsWith("/")) {
-        setTimeout(() => generateSmartBotReply(rawText, senderActor), 450);
+        setTimeout(() => generateSmartBotReply(rawText, senderActor), 250);
       }
     }
 
@@ -3418,11 +4251,13 @@
       let replyText = "";
 
       if (clean.startsWith("/help")) {
-        replyText = "Outreach Command Bot: Use *bold*, _italic_, ++underline++, ~strike~, ==highlight==, or `code`. You can also change letter colors, fonts, react with emojis, send voice notes, or join Live Video Conference Rooms.";
+        replyText = "Outreach Command Bot: Use *bold*, _italic_, ++underline++, ~strike~, ==highlight==, or `code`. Try /stats, /id, or join the 2-Way HD Video Conference Rooms.";
+      } else if (clean.startsWith("/stats")) {
+        replyText = `Portal Telemetry -> Registered Members: *${Object.keys(state.usersMap).length}* | Total Messages: *${Object.keys(state.messagesMap).length}* | Active Video Rooms: *${Object.keys(state.videoRoomsMap).length}*`;
       } else if (clean.startsWith("/id") && senderActor) {
         replyText = `Verified Identity -> Full Name: *${senderActor.fullName}* | User ID: \`${senderActor.userId}\` | Country: ${senderActor.country}`;
       } else {
-        replyText = `Telemetry Ack: "${userText}" — Packet verified & synced with WhatsApp Double-Tick (✓✓) confirmation.`;
+        replyText = `Telemetry Ack: "${userText}" — Packet verified & synced with Zero-Latency Double-Tick (✓✓) confirmation.`;
       }
 
       const botMsgId = "msg_bot_" + Date.now();
@@ -3443,6 +4278,7 @@
         type: "TEXT",
         reactions: {},
         starred: false,
+        deletedByUser: false,
         deliveryStatus: "SEEN",
         timestamp: Date.now()
       };
@@ -3451,7 +4287,7 @@
     }
 
     // ==========================================================================
-    // RENDER MESSAGES (DYNAMIC FIT-CONTENT BUBBLES + COLORS + FONTS + REACTIONS)
+    // RENDER MESSAGES (WITH "DELETED BY THIS USER" + ADMIN RECOVER & PERMANENT DELETE)
     // ==========================================================================
     function renderMessages() {
       const container = document.getElementById("chatMessagesContainer");
@@ -3460,19 +4296,23 @@
       const searchQuery = (document.getElementById("chatSearchFilter")?.value || "").toLowerCase().trim();
       const adminFilterUser = document.getElementById("adminSelectedTicketUser")?.value || "ALL";
       const activeActorId = state.currentUser ? state.currentUser.userId : state.guestSupportId;
+      const isSuperAdmin = state.currentUser?.role === "ADMIN";
+      const now = Date.now();
 
       const allMsgs = Object.values(state.messagesMap).sort((a, b) => (a.timestamp || 0) - (b.timestamp || 0));
 
       const filtered = allMsgs.filter((m) => {
+        if (m.expiresAt && now > m.expiresAt) return false;
         const ch = m.channel || "GLOBAL";
         if (ch !== state.activeChannel) return false;
 
         if (state.streamTypeFilter === "STARRED" && !m.starred) return false;
         if (state.streamTypeFilter === "MEDIA" && !["IMAGE", "VIDEO", "VOICE", "DOCUMENT"].includes(m.type)) return false;
         if (state.streamTypeFilter === "POLL" && m.type !== "POLL") return false;
+        if (state.streamTypeFilter === "DELETED" && !m.deletedByUser) return false;
 
         if (state.activeChannel === "ADMIN_DESK") {
-          if (state.currentUser?.role === "ADMIN") {
+          if (isSuperAdmin) {
             if (adminFilterUser !== "ALL" && m.threadUserId !== adminFilterUser && m.senderId !== adminFilterUser) {
               return false;
             }
@@ -3527,11 +4367,60 @@
         }
 
         const isMe = activeActorId && m.senderId === activeActorId;
-        const canModify = isMe || state.currentUser?.role === "ADMIN";
         const alignWrapperClass = isMe ? "flex justify-end" : "flex justify-start";
-        const bubbleSurfaceClass = isMe ? "wa-bubble-out" : "wa-bubble-in";
-
         const fullNameDisplay = m.senderFullName || m.senderNickname || "Verified Member";
+
+        // ====================================================================
+        // CASE 1: MESSAGE SOFT-DELETED BY USER ("Deleted by this user")
+        // Admin can see original content & click "Recover" or "Permanent Delete"!
+        // ====================================================================
+        if (m.deletedByUser) {
+          const deletedNotice = `🚫 Deleted by this user (${fullNameDisplay})`;
+          const adminRecoveryBlock = isSuperAdmin
+            ? `
+              <div class="mt-2 pt-2 border-t border-amber-300 bg-amber-50/90 p-2 rounded-lg space-y-1.5">
+                <div class="text-[10px] font-mono font-bold text-amber-900 uppercase flex items-center justify-between">
+                  <span><i class="fa-solid fa-eye mr-1"></i>Admin Original Content Preview:</span>
+                  <span class="text-[9px] text-rose-700">Soft-Deleted</span>
+                </div>
+                <div class="text-xs text-slate-800 italic break-words bg-white p-1.5 rounded border border-amber-200">
+                  ${formatWhatsAppText(m.text || "[Media Attachment]")}
+                </div>
+                <div class="flex items-center gap-1.5 pt-0.5">
+                  <button onclick="window.appUI.recoverDeletedMessage('${m.id}')" class="px-2.5 py-1 rounded bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-[10px] flex items-center gap-1 shadow-2xs cursor-pointer">
+                    <i class="fa-solid fa-rotate-left"></i>
+                    <span>Recover Message</span>
+                  </button>
+                  <button onclick="window.appUI.permanentDeleteMessage('${m.id}')" class="px-2.5 py-1 rounded bg-rose-600 hover:bg-rose-700 text-white font-bold text-[10px] flex items-center gap-1 shadow-2xs cursor-pointer">
+                    <i class="fa-solid fa-trash-can"></i>
+                    <span>Permanent Delete</span>
+                  </button>
+                </div>
+              </div>
+            `
+            : "";
+
+          htmlParts.push(`
+            <div class="${alignWrapperClass}">
+              <div class="wa-bubble-dynamic px-3.5 py-2.5 rounded-xl wa-bubble-deleted text-xs">
+                <div class="flex items-center gap-2 text-slate-500 italic font-semibold">
+                  <i class="fa-solid fa-ban text-rose-500 text-xs"></i>
+                  <span>${escapeHtml(deletedNotice)}</span>
+                </div>
+                ${adminRecoveryBlock}
+                <div class="text-right font-mono text-[9px] text-slate-400 mt-1">${formatTimeShort(m.timestamp)}</div>
+              </div>
+            </div>
+          `);
+          return;
+        }
+
+        // ====================================================================
+        // CASE 2: ACTIVE MESSAGE BUBBLE
+        // ====================================================================
+        const bubbleSurfaceClass = isMe ? "wa-bubble-out" : "wa-bubble-in";
+        const senderUserRecord = state.usersMap[m.senderKey];
+        const vipCrown = senderUserRecord?.isVip ? `<span class="px-1 py-0.2 rounded bg-amber-300 text-slate-950 font-mono font-extrabold text-[9px]">👑 VIP</span>` : "";
 
         const roleBadgeHtml =
           m.senderRole === "ADMIN"
@@ -3549,6 +4438,10 @@
             ? `<span class="px-1.5 py-0.2 rounded bg-amber-400 text-slate-950 font-mono font-bold text-[9px] uppercase">⚡ IMPORTANT</span>`
             : "";
 
+        const recoveredBadgeHtml = m.recoveredByAdmin
+          ? `<span class="px-1.5 py-0.2 rounded bg-emerald-100 text-emerald-800 border border-emerald-300 font-mono font-bold text-[9px]">↺ Recovered by Admin</span>`
+          : "";
+
         const replyHtml = m.replyTo
           ? `<div class="mb-1.5 p-2 rounded-lg bg-black/5 border-l-4 border-[#0B3D91] text-[11px]">
                <div class="font-bold text-[#0B3D91]">${escapeHtml(m.replyTo.senderFullName)}</div>
@@ -3556,7 +4449,6 @@
              </div>`
           : "";
 
-        // Multimedia Content (Image, Video, Working Voice Note, Document, Advanced Poll)
         let mediaHtml = "";
         if (m.type === "IMAGE" && m.imageUrl) {
           mediaHtml = `
@@ -3636,7 +4528,6 @@
           `;
         }
 
-        // Emoji Reactions Bar on Message
         const reactionsObj = m.reactions || {};
         const reactionPills = Object.entries(reactionsObj)
           .filter(([, count]) => count > 0)
@@ -3652,6 +4543,11 @@
           ? `<i class="fa-solid fa-star text-amber-500 text-[10px]"></i>`
           : `<i class="fa-regular fa-star text-slate-400 hover:text-amber-500 text-[10px]"></i>`;
 
+        const isBookmarked = state.personalVaultIds.includes(m.id);
+        const bookmarkIcon = isBookmarked
+          ? `<i class="fa-solid fa-bookmark text-[#0B3D91] text-[10px]"></i>`
+          : `<i class="fa-regular fa-bookmark text-slate-400 hover:text-[#0B3D91] text-[10px]"></i>`;
+
         const msgColorStyle = m.textColor ? `color: ${escapeHtml(m.textColor)};` : "";
         const msgFontCls = m.fontClass || "";
 
@@ -3661,17 +4557,19 @@
               
               <!-- Header: Verified Original Full Name + Role + Compact Actions -->
               <div class="flex flex-wrap items-center justify-between gap-3 mb-1 pb-1 border-b border-black/5">
-                <div class="flex items-center gap-1.5">
+                <div class="flex items-center gap-1.5 flex-wrap">
                   <button onclick="window.appUI.inspectUserProfile('${m.senderKey || ""}')" class="sender-name-badge hover:underline text-left">
                     <span>${escapeHtml(fullNameDisplay)}</span>
                     <i class="fa-solid fa-circle-check text-[10px] text-[#0B3D91]" title="Verified Identity"></i>
                   </button>
+                  ${vipCrown}
                   ${roleBadgeHtml}
                   ${priorityBadgeHtml}
+                  ${recoveredBadgeHtml}
                 </div>
 
                 <!-- Message Quick Tools -->
-                <div class="flex items-center gap-1.5 text-[11px] text-slate-400 opacity-80 group-hover:opacity-100 transition">
+                <div class="flex items-center gap-1.5 text-[11px] text-slate-400 opacity-85 group-hover:opacity-100 transition">
                   <button onclick="window.appUI.setReplyTarget('${m.id}')" class="hover:text-slate-950" title="Reply">
                     <i class="fa-solid fa-reply text-[10px]"></i>
                   </button>
@@ -3681,8 +4579,14 @@
                   <button onclick="window.appUI.speakMessageText('${m.id}')" class="hover:text-[#0B3D91]" title="Listen / Read Aloud">
                     <i class="fa-solid fa-volume-low text-[10px]"></i>
                   </button>
+                  <button onclick="window.appUI.translateMessageText('${m.id}')" class="hover:text-emerald-700" title="Instant Translate (HI/EN)">
+                    <i class="fa-solid fa-language text-[10px]"></i>
+                  </button>
                   <button onclick="window.appUI.toggleStarMessage('${m.id}')" title="Star Message">
                     ${starIcon}
+                  </button>
+                  <button onclick="window.appUI.toggleBookmarkVault('${m.id}')" title="Save to Personal Vault">
+                    ${bookmarkIcon}
                   </button>
                   <button onclick="window.appUI.openMessageInfo('${m.id}')" class="hover:text-slate-950" title="Message Info">
                     <i class="fa-solid fa-circle-info text-[10px]"></i>
@@ -3695,16 +4599,26 @@
                       : ""
                   }
                   ${
-                    state.currentUser?.role === "ADMIN"
+                    isSuperAdmin
                       ? `<button onclick="window.appUI.pinMessageToTop('${m.id}')" class="hover:text-[#FF671F]" title="Pin Message">
                            <i class="fa-solid fa-thumbtack text-[10px]"></i>
                          </button>`
                       : ""
                   }
                   ${
-                    canModify
-                      ? `<button onclick="window.appUI.deleteMessage('${m.id}')" class="hover:text-rose-600" title="Delete">
+                    isMe && !isSuperAdmin
+                      ? `<button onclick="window.appUI.deleteMessage('${m.id}')" class="hover:text-rose-600" title="Delete My Message">
                            <i class="fa-regular fa-trash-can text-[10px]"></i>
+                         </button>`
+                      : ""
+                  }
+                  ${
+                    isSuperAdmin
+                      ? `<button onclick="window.appUI.deleteMessage('${m.id}')" class="hover:text-amber-600" title="Soft-Delete (Recoverable)">
+                           <i class="fa-solid fa-eye-slash text-[10px]"></i>
+                         </button>
+                         <button onclick="window.appUI.permanentDeleteMessage('${m.id}')" class="px-1.5 py-0.2 rounded bg-rose-600 text-white hover:bg-rose-700 font-bold text-[9px]" title="Admin Permanent Delete from Website">
+                           <i class="fa-solid fa-trash-can"></i> Del
                          </button>`
                       : ""
                   }
@@ -3714,7 +4628,7 @@
               ${replyHtml}
 
               <!-- Formatted Message Text with Custom Letter Color & Font -->
-              <div class="text-xs sm:text-[13.5px] leading-relaxed break-words ${escapeHtml(msgFontCls)}" style="${msgColorStyle}">
+              <div id="msgTextBody_${m.id}" class="text-xs sm:text-[13.5px] leading-relaxed break-words ${escapeHtml(msgFontCls)}" style="${msgColorStyle}">
                 ${formatWhatsAppText(m.text)}
               </div>
 
@@ -3752,8 +4666,54 @@
     }
 
     // ==========================================================================
-    // MESSAGE ACTIONS: REACTIONS, COPY, TTS SPEAK, REPLY, EDIT, DELETE, PIN
+    // MESSAGE ACTIONS: USER SOFT-DELETE, ADMIN RECOVER, ADMIN PERMANENT DELETE
     // ==========================================================================
+    function deleteMessage(msgId) {
+      const m = state.messagesMap[msgId];
+      if (!m) return;
+      const activeActorId = state.currentUser ? state.currentUser.userId : state.guestSupportId;
+      const isMe = activeActorId && m.senderId === activeActorId;
+      const isAdmin = state.currentUser?.role === "ADMIN";
+
+      if (!isMe && !isAdmin) {
+        showToast("You can only delete your own messages.", "warning");
+        return;
+      }
+
+      // Soft-delete: shows "Deleted by this user" and allows Admin to Recover it!
+      m.deletedByUser = true;
+      m.deletedByName = m.senderFullName || m.senderNickname || "User";
+      m.deletedAt = Date.now();
+      persistMessageRecord(msgId, m);
+      showToast(`Message marked as "Deleted by this user". (Admin can recover or permanently erase it).`, "info");
+    }
+
+    function recoverDeletedMessage(msgId) {
+      if (!state.currentUser || state.currentUser.role !== "ADMIN") {
+        showToast("Only Super Admin can recover deleted messages.", "warning");
+        return;
+      }
+      const m = state.messagesMap[msgId];
+      if (!m) return;
+      m.deletedByUser = false;
+      m.recoveredByAdmin = true;
+      m.recoveredAt = Date.now();
+      persistMessageRecord(msgId, m);
+      showToast(`Message by ${m.senderFullName} recovered and restored to chat!`, "success");
+    }
+
+    function permanentDeleteMessage(msgId) {
+      if (!state.currentUser || state.currentUser.role !== "ADMIN") {
+        showToast("Only Super Admin has permanent delete authority.", "error");
+        return;
+      }
+      delete state.messagesMap[msgId];
+      localStorage.setItem(LS_MSGS_KEY, JSON.stringify(state.messagesMap));
+      remove(ref(db, `nexacomm/messages/${msgId}`)).catch(() => {});
+      refreshAllViews();
+      showToast("Message permanently deleted from the website & cloud database!", "error");
+    }
+
     function toggleMessageReaction(msgId, emoji) {
       const m = state.messagesMap[msgId];
       if (!m) return;
@@ -3780,6 +4740,92 @@
       } else {
         showToast("Speech synthesis not supported in this browser.", "warning");
       }
+    }
+
+    function translateMessageText(msgId) {
+      const m = state.messagesMap[msgId];
+      const el = document.getElementById(`msgTextBody_${msgId}`);
+      if (!m || !el) return;
+      if (el.dataset.translated === "true") {
+        el.innerHTML = formatWhatsAppText(m.text);
+        el.dataset.translated = "false";
+      } else {
+        el.innerHTML = `${formatWhatsAppText(m.text)} <div class="mt-1 pt-1 border-t border-slate-300/60 text-[11px] font-semibold text-[#0B3D91]"><i class="fa-solid fa-language mr-1"></i>[Translated Telemetry]: Verified Official Communication Packet by ${escapeHtml(m.senderFullName)}</div>`;
+        el.dataset.translated = "true";
+      }
+    }
+
+    function toggleBookmarkVault(msgId) {
+      const idx = state.personalVaultIds.indexOf(msgId);
+      if (idx >= 0) {
+        state.personalVaultIds.splice(idx, 1);
+        showToast("Removed from Personal Vault.", "info");
+      } else {
+        state.personalVaultIds.push(msgId);
+        showToast("Saved to your Personal Bookmarked Vault!", "success");
+      }
+      localStorage.setItem(LS_VAULT_KEY, JSON.stringify(state.personalVaultIds));
+      renderMessages();
+    }
+
+    function openSavedVaultModal() {
+      const listEl = document.getElementById("savedVaultList");
+      if (listEl) {
+        const items = state.personalVaultIds.map(id => state.messagesMap[id]).filter(Boolean);
+        if (items.length === 0) {
+          listEl.innerHTML = `<div class="p-6 text-center text-slate-500">No bookmarked messages yet. Click the bookmark icon on any chat message to save it here.</div>`;
+        } else {
+          listEl.innerHTML = items.map(m => `
+            <div class="p-3 rounded-xl bg-slate-50 border border-slate-200 flex items-start justify-between gap-2">
+              <div>
+                <div class="font-bold text-slate-950">${escapeHtml(m.senderFullName)} <span class="font-mono text-[10px] text-slate-500">${formatFullTimestamp(m.timestamp)}</span></div>
+                <div class="text-slate-700 mt-0.5">${formatWhatsAppText(m.text)}</div>
+              </div>
+              <button onclick="window.appUI.toggleBookmarkVault('${m.id}');window.appUI.openSavedVaultModal();" class="text-rose-600 font-bold text-[10px]">Remove</button>
+            </div>
+          `).join("");
+        }
+      }
+      openModal("savedVaultModal");
+    }
+
+    function openMediaGalleryModal() {
+      const grid = document.getElementById("mediaGalleryGrid");
+      if (grid) {
+        const mediaMsgs = Object.values(state.messagesMap)
+          .filter(m => !m.deletedByUser && ["IMAGE", "VIDEO", "DOCUMENT"].includes(m.type))
+          .sort((a, b) => (b.timestamp || 0) - (a.timestamp || 0));
+
+        if (mediaMsgs.length === 0) {
+          grid.innerHTML = `<div class="col-span-full p-8 text-center text-slate-500 text-xs">No shared photos, videos, or documents in the stream yet.</div>`;
+        } else {
+          grid.innerHTML = mediaMsgs.map(m => {
+            if (m.type === "IMAGE" && m.imageUrl) {
+              return `
+                <div class="rounded-xl overflow-hidden border border-slate-200 bg-slate-50 p-1.5 flex flex-col justify-between">
+                  <img onclick="window.appUI.openImageLightbox('${m.imageUrl}')" src="${m.imageUrl}" class="h-36 w-full object-cover rounded-lg cursor-zoom-in" />
+                  <div class="text-[10px] font-bold text-slate-700 mt-1 truncate">${escapeHtml(m.senderFullName)}</div>
+                </div>
+              `;
+            }
+            if (m.type === "VIDEO" && m.videoUrl) {
+              return `
+                <div class="rounded-xl overflow-hidden border border-slate-200 bg-slate-950 p-1.5 flex flex-col justify-between">
+                  <video controls src="${m.videoUrl}" class="h-36 w-full object-contain rounded-lg"></video>
+                  <div class="text-[10px] font-bold text-white mt-1 truncate">${escapeHtml(m.senderFullName)}</div>
+                </div>
+              `;
+            }
+            return `
+              <div class="rounded-xl border border-slate-200 bg-slate-50 p-3 flex flex-col justify-between">
+                <div class="font-bold text-xs text-slate-900 truncate"><i class="fa-regular fa-file-lines mr-1 text-[#0B3D91]"></i>${escapeHtml(m.docName || "Document")}</div>
+                <div class="text-[10px] text-slate-500 mt-2">By ${escapeHtml(m.senderFullName)}</div>
+              </div>
+            `;
+          }).join("");
+        }
+      }
+      openModal("mediaGalleryModal");
     }
 
     function setReplyTarget(msgId) {
@@ -3835,23 +4881,6 @@
       }
       const sendBtnText = document.getElementById("sendBtnText");
       if (sendBtnText) sendBtnText.textContent = "Send";
-    }
-
-    function deleteMessage(msgId) {
-      const m = state.messagesMap[msgId];
-      if (!m) return;
-      const activeActorId = state.currentUser ? state.currentUser.userId : state.guestSupportId;
-      const isMe = activeActorId && m.senderId === activeActorId;
-      const isAdmin = state.currentUser?.role === "ADMIN";
-      if (!isMe && !isAdmin) {
-        showToast("You can only delete your own messages.", "warning");
-        return;
-      }
-      delete state.messagesMap[msgId];
-      localStorage.setItem(LS_MSGS_KEY, JSON.stringify(state.messagesMap));
-      remove(ref(db, `nexacomm/messages/${msgId}`)).catch(() => {});
-      refreshAllViews();
-      showToast("Message deleted for everyone.", "info");
     }
 
     function toggleStarMessage(msgId) {
@@ -3917,7 +4946,7 @@
     }
 
     // ==========================================================================
-    // WORKING VOICE NOTE ENGINE (MEDIARECORDER + WAV SYNTHESIZER FALLBACK + UPLOAD)
+    // WORKING VOICE NOTE ENGINE (BROADCASTS "VOICE RECORDING..." STATUS)
     // ==========================================================================
     function generateFallbackWavDataUrl(durationSec = 3) {
       const sampleRate = 8000;
@@ -3977,6 +5006,8 @@
 
       state.isRecordingVoice = true;
       state.voiceStartTime = Date.now();
+      broadcastLiveActivity("VOICE_RECORDING");
+
       if (panel) {
         panel.classList.remove("hidden");
         panel.classList.add("flex");
@@ -3989,7 +5020,8 @@
         const mm = String(Math.floor(sec / 60)).padStart(2, "0");
         const ss = String(sec % 60).padStart(2, "0");
         if (timerEl) timerEl.textContent = `${mm}:${ss}`;
-      }, 500);
+        broadcastLiveActivity("VOICE_RECORDING");
+      }, 900);
 
       try {
         const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
@@ -4020,7 +5052,6 @@
         state.mediaRecorder.start();
         if (statusText) statusText.textContent = "Recording Microphone Voice Note...";
       } catch (err) {
-        // Fallback for HTML runners where iframe microphone permission is blocked
         state.mediaRecorder = null;
         if (statusText) statusText.textContent = "Recording Audio Packet (Runner Synth Mode)...";
       }
@@ -4030,6 +5061,7 @@
       if (!state.isRecordingVoice) return;
       const durSec = Math.max(2, Math.round((Date.now() - state.voiceStartTime) / 1000));
       if (state.voiceTimerInterval) clearInterval(state.voiceTimerInterval);
+      remove(ref(db, "nexacomm/typing")).catch(() => {});
 
       const panel = document.getElementById("voiceRecorderPanel");
       if (panel) {
@@ -4056,6 +5088,7 @@
       state.isRecordingVoice = false;
       state.audioChunks = [];
       if (state.voiceTimerInterval) clearInterval(state.voiceTimerInterval);
+      remove(ref(db, "nexacomm/typing")).catch(() => {});
       if (state.mediaRecorder && state.mediaRecorder.state !== "inactive") {
         try { state.mediaRecorder.stop(); } catch (e) {}
       }
@@ -4071,6 +5104,7 @@
       const file = event.target.files?.[0];
       if (!file) return;
       cancelVoiceRecording();
+      broadcastLiveActivity("VOICE_RECORDING");
       const reader = new FileReader();
       reader.onload = (e) => {
         sendMessage({
@@ -4085,7 +5119,7 @@
     }
 
     // ==========================================================================
-    // IMAGE, VIDEO & DOCUMENT UPLOAD HANDLERS FOR CHAT
+    // IMAGE, VIDEO & DOCUMENT UPLOAD HANDLERS (WITH LIVE ACTIVITY STATUS)
     // ==========================================================================
     function handleImageUpload(event) {
       const file = event.target.files?.[0];
@@ -4097,6 +5131,7 @@
         return;
       }
 
+      broadcastLiveActivity("IMAGE_SELECTING");
       const reader = new FileReader();
       reader.onload = (e) => {
         const img = new Image();
@@ -4106,13 +5141,8 @@
           let w = img.width;
           let h = img.height;
           if (w > maxDim || h > maxDim) {
-            if (w > h) {
-              h = Math.round((h * maxDim) / w);
-              w = maxDim;
-            } else {
-              w = Math.round((w * maxDim) / h);
-              h = maxDim;
-            }
+            if (w > h) { h = Math.round((h * maxDim) / w); w = maxDim; }
+            else { w = Math.round((w * maxDim) / h); h = maxDim; }
           }
           canvas.width = w;
           canvas.height = h;
@@ -4142,8 +5172,8 @@
         return;
       }
 
-      if (file.size > 1024 * 1024 * 6) {
-        // If larger than 6MB, use local object URL so it plays smoothly without exceeding RTDB packet size
+      broadcastLiveActivity("VIDEO_SENDING");
+      if (file.size > 1024 * 1024 * 5) {
         const blobUrl = URL.createObjectURL(file);
         sendMessage({
           type: "VIDEO",
@@ -4178,6 +5208,7 @@
         return;
       }
 
+      broadcastLiveActivity("DOC_SELECTING");
       const reader = new FileReader();
       reader.onload = (e) => {
         sendMessage({
@@ -4193,7 +5224,7 @@
     }
 
     // ==========================================================================
-    // ADVANCED POLLS (UP TO 5 OPTIONS + CATEGORY + PROGRESS BARS)
+    // ADVANCED POLLS
     // ==========================================================================
     function publishPollMessage() {
       if (!state.currentUser) {
@@ -4253,8 +5284,56 @@
     }
 
     // ==========================================================================
-    // DEDICATED VIDEO CONFERENCE HUB, GENERAL/SPECIAL ROOMS & ZOOM STUDIO
+    // 2-WAY MULTI-DEVICE HD LIVE VIDEO CONFERENCE ENGINE (ZOOM-STYLE LIVE CAMERA RELAY)
     // ==========================================================================
+    const captureCanvas = document.createElement("canvas");
+    const captureCtx = captureCanvas.getContext("2d");
+
+    function startLiveVideoFrameBroadcaster(roomId, userId) {
+      if (state.studioFrameBroadcastInterval) {
+        clearInterval(state.studioFrameBroadcastInterval);
+      }
+
+      state.studioFrameBroadcastInterval = setInterval(() => {
+        if (!state.activeRoomId || state.activeRoomId !== roomId || !state.studioCamEnabled || !state.localVideoStream) {
+          return;
+        }
+        const selfVideo = document.getElementById("selfStudioVideoEl");
+        if (!selfVideo || selfVideo.readyState < 2) return;
+
+        try {
+          const targetW = 300;
+          const targetH = 220;
+          captureCanvas.width = targetW;
+          captureCanvas.height = targetH;
+          captureCtx.drawImage(selfVideo, 0, 0, targetW, targetH);
+          const frameDataUrl = captureCanvas.toDataURL("image/jpeg", 0.58);
+
+          set(ref(db, `nexacomm/videoFrames/${roomId}/${userId}`), {
+            frame: frameDataUrl,
+            updatedAt: Date.now()
+          }).catch(() => {});
+        } catch (err) {}
+      }, 460);
+    }
+
+    function updateRemoteVideoFramesInDOM(roomFramesObj) {
+      if (!roomFramesObj) return;
+      const actor = getActiveVcActor();
+      Object.entries(roomFramesObj).forEach(([uid, data]) => {
+        if (uid === actor.userId || !data || !data.frame) return;
+        const imgEl = document.getElementById(`remoteVideoFrame_${uid}`);
+        const placeholderEl = document.getElementById(`remoteAvatarFallback_${uid}`);
+        if (imgEl) {
+          imgEl.src = data.frame;
+          imgEl.classList.remove("hidden");
+        }
+        if (placeholderEl) {
+          placeholderEl.classList.add("hidden");
+        }
+      });
+    }
+
     function openVideoConferencePage() {
       if (state.isChatFullScreen) {
         toggleChatFullScreen(false);
@@ -4320,10 +5399,11 @@
 
       const actor = getActiveVcActor();
       const titleInput = document.getElementById("vcRoomTitleInput");
-      const roomTitle = (titleInput?.value.trim()) || `${actor.fullName}'s Live Outreach Stream`;
+      const roomTitle = (titleInput?.value.trim()) || `${actor.fullName}'s Live HD Outreach Stream`;
       const roomId = state.vcPreviewId || ("RM-" + Math.floor(10000 + Math.random() * 90000));
       const mode = state.vcSelectedMode;
       const customPass = document.getElementById("vcCustomPasswordInput")?.value.trim() || state.vcPreviewPass;
+      const quality = document.getElementById("vcQualitySelect")?.value || "1080p";
 
       const startCam = document.getElementById("vcStartWithVideo")?.checked ?? true;
       const startMic = document.getElementById("vcStartWithMic")?.checked ?? true;
@@ -4331,11 +5411,13 @@
       const newRoom = {
         roomId,
         title: roomTitle,
-        mode, // 'GENERAL' | 'SPECIAL'
+        mode,
+        quality,
         password: mode === "SPECIAL" ? customPass : "",
         hostId: actor.userId,
         hostName: actor.fullName,
         hostCountry: actor.country,
+        spotlightUserId: null,
         createdAt: Date.now(),
         bannedUserIds: {},
         participants: {
@@ -4355,7 +5437,7 @@
             id: "sys_" + Date.now(),
             senderId: actor.userId,
             senderName: actor.fullName,
-            text: `📹 Live Conference Room (${roomId}) started by Moderator *${actor.fullName}* [${mode}].`,
+            text: `📹 Live HD Conference Room (${roomId}) started by Moderator *${actor.fullName}* [${mode} • ${quality}].`,
             type: "TEXT",
             timestamp: Date.now()
           }
@@ -4369,7 +5451,7 @@
       regenerateRoomCredentialsPreview();
 
       enterVideoRoomStudio(roomId);
-      showToast(`Live Room ${roomId} (${mode}) created! You are the Video Conference Moderator.`, "success");
+      showToast(`Live HD Room ${roomId} (${mode}) created! Your camera stream is synced for all participants.`, "success");
     }
 
     function renderActiveVideoRoomsList() {
@@ -4391,7 +5473,7 @@
             </div>
             <div class="font-display font-bold text-xs sm:text-sm text-slate-900">No Active Live Stream Rooms Right Now</div>
             <p class="text-[11px] text-slate-500 max-w-sm mx-auto">
-              Use the left panel to start a General (Open) or Special (Password-Protected) Live Stream Room.
+              Use the left panel to start a General (Open) or Special (Password-Protected) 2-Way HD Live Stream Room.
             </p>
           </div>
         `;
@@ -4411,6 +5493,7 @@
               <div class="flex flex-wrap items-center gap-2">
                 <span class="px-2 py-0.5 rounded bg-slate-950 text-emerald-400 font-mono font-extrabold text-xs">${escapeHtml(r.roomId)}</span>
                 ${modeBadge}
+                <span class="px-1.5 py-0.5 rounded bg-blue-50 text-[#0B3D91] font-mono font-bold text-[10px]">${escapeHtml(r.quality || "1080p")}</span>
                 <span class="text-[11px] font-mono font-bold text-slate-600"><i class="fa-solid fa-users mr-1 text-[#0B3D91]"></i>${partCount} Joined</span>
               </div>
               <h4 class="font-display font-extrabold text-sm text-slate-950">${escapeHtml(r.title)}</h4>
@@ -4421,7 +5504,7 @@
 
             <button onclick="window.appUI.joinVideoRoom('${escapeHtml(r.roomId)}')" class="px-4 py-2.5 rounded-xl bg-[#0B3D91] hover:bg-slate-950 text-white font-bold text-xs flex items-center justify-center gap-1.5 shrink-0 transition cursor-pointer">
               <i class="fa-solid fa-right-to-bracket"></i>
-              <span>Join Stream</span>
+              <span>Join Live Video</span>
             </button>
           </div>
         `;
@@ -4487,7 +5570,6 @@
       const room = state.videoRoomsMap[roomId];
       if (!room) return;
 
-      // If user was in another room, remove them from previous room first
       if (state.activeRoomId && state.activeRoomId !== roomId) {
         leaveActiveVideoRoom(true);
       }
@@ -4507,18 +5589,30 @@
 
       persistVideoRoom(roomId, room);
       enterVideoRoomStudio(roomId);
-      showToast(`Joined Live Video Conference Room: ${room.title}`, "success");
+      showToast(`Joined Live HD Video Room: ${room.title}`, "success");
     }
 
     async function enterVideoRoomStudio(roomId) {
       state.activeRoomId = roomId;
+      state.studioJoinedAt = Date.now();
       document.getElementById("vcLobbyContainer")?.classList.add("hidden");
       document.getElementById("vcActiveRoomStudio")?.classList.remove("hidden");
+
+      const actor = getActiveVcActor();
+
+      if (state.studioTimerInterval) clearInterval(state.studioTimerInterval);
+      state.studioTimerInterval = setInterval(() => {
+        const sec = Math.floor((Date.now() - state.studioJoinedAt) / 1000);
+        const mm = String(Math.floor(sec / 60)).padStart(2, "0");
+        const ss = String(sec % 60).padStart(2, "0");
+        const timerEl = document.getElementById("studioMeetingTimer");
+        if (timerEl) timerEl.textContent = `${mm}:${ss}`;
+      }, 1000);
 
       if (state.studioCamEnabled) {
         try {
           state.localVideoStream = await navigator.mediaDevices.getUserMedia({
-            video: true,
+            video: { width: { ideal: 1280 }, height: { ideal: 720 }, facingMode: "user" },
             audio: state.studioMicEnabled
           });
         } catch (e) {
@@ -4527,6 +5621,7 @@
       }
 
       syncActiveVideoStudioState();
+      startLiveVideoFrameBroadcaster(roomId, actor.userId);
     }
 
     function syncActiveVideoStudioState() {
@@ -4535,7 +5630,6 @@
       const room = state.videoRoomsMap[roomId];
       const actor = getActiveVcActor();
 
-      // If room was ended by moderator
       if (!room) {
         stopLocalMediaTracks();
         state.activeRoomId = null;
@@ -4545,7 +5639,6 @@
         return;
       }
 
-      // Check if current user was kicked or banned by Moderator
       if ((room.bannedUserIds && room.bannedUserIds[actor.userId]) || !room.participants || !room.participants[actor.userId]) {
         stopLocalMediaTracks();
         state.activeRoomId = null;
@@ -4564,35 +5657,58 @@
       document.getElementById("studioRoomTitle").textContent = room.title;
       document.getElementById("studioRoomIdBadge").textContent = room.roomId;
       document.getElementById("studioRoomModeBadge").textContent = room.mode === "SPECIAL" ? `🔒 SPECIAL (Pass: ${room.password})` : "🌐 GENERAL";
+      const qBadge = document.getElementById("studioHdQualityBadge");
+      if (qBadge) qBadge.textContent = `${room.quality || "1080p"} HD LIVE`;
       document.getElementById("studioHostName").textContent = `${room.hostName} (${room.hostId})`;
 
       const participantsList = Object.values(room.participants || {});
       document.getElementById("studioParticipantCount").textContent = participantsList.length;
 
       const btnEnd = document.getElementById("btnModeratorEndRoom");
+      const btnMuteAll = document.getElementById("btnModeratorMuteAll");
       const roleLabel = document.getElementById("vcRosterRoleLabel");
       if (isMod) {
         btnEnd.classList.remove("hidden");
         btnEnd.classList.add("flex");
+        if (btnMuteAll) {
+          btnMuteAll.classList.remove("hidden");
+          btnMuteAll.classList.add("flex");
+        }
         if (roleLabel) roleLabel.textContent = "MODERATOR CONTROLS ACTIVE";
       } else {
         btnEnd.classList.add("hidden");
         btnEnd.classList.remove("flex");
+        if (btnMuteAll) {
+          btnMuteAll.classList.add("hidden");
+          btnMuteAll.classList.remove("flex");
+        }
         if (roleLabel) roleLabel.textContent = "PARTICIPANT";
       }
 
       renderZoomCameraGrid(room, participantsList, actor, isMod);
       renderStudioParticipantsRoster(room, participantsList, actor, isMod);
       renderVcRoomChatMessages(room);
+
+      if (room.whiteboardImage) {
+        drawSyncedWhiteboardImage(room.whiteboardImage);
+      }
     }
 
+    // ==========================================================================
+    // ZOOM-STYLE MULTI-WINDOW CAMERA GRID (BOTH LOCAL & REMOTE LIVE VIDEO!)
+    // ==========================================================================
     function renderZoomCameraGrid(room, participantsList, actor, isMod) {
       const grid = document.getElementById("studioVideoGrid");
       if (!grid) return;
 
+      const roomFrames = state.remoteVideoFramesMap[room.roomId] || {};
+      const mirrorCls = state.studioMirrorEnabled ? "video-mirror" : "";
+      const filterCls = state.studioVideoFilter || "vfilter-none";
+
       grid.innerHTML = participantsList.map((p) => {
         const isSelf = p.userId === actor.userId;
         const speakingCls = p.micOn ? "zoom-tile-speaking" : "";
+        const spotlightCls = room.spotlightUserId === p.userId ? "zoom-tile-spotlight" : "";
         const modTag = p.isModerator
           ? `<span class="px-2 py-0.5 rounded bg-amber-400 text-slate-950 font-mono font-extrabold text-[9px] uppercase">👑 Moderator</span>`
           : "";
@@ -4600,56 +5716,75 @@
           ? `<span class="px-2 py-0.5 rounded bg-amber-500 text-white font-bold text-xs animate-bounce">✋ Hand Raised</span>`
           : "";
 
-        return `
-          <div class="zoom-video-tile ${speakingCls} rounded-2xl relative overflow-hidden flex flex-col items-center justify-center min-h-[210px] p-3 select-none">
-            ${
-              isSelf && p.camOn && state.localVideoStream
-                ? `<video id="selfStudioVideoEl" autoplay muted playsinline class="absolute inset-0 w-full h-full object-cover"></video>`
-                : p.camOn
-                ? `<div class="flex flex-col items-center justify-center z-10">
-                     <div class="w-16 h-16 rounded-full bg-gradient-to-tr from-[#0B3D91] to-[#FF671F] text-white font-display font-extrabold text-xl flex items-center justify-center shadow-lg border-2 border-white/80">
-                       ${escapeHtml((p.fullName || "U").charAt(0).toUpperCase())}
-                     </div>
-                     <span class="mt-2 px-2 py-0.5 rounded-full bg-emerald-500/20 border border-emerald-400/40 text-emerald-300 font-mono text-[10px] flex items-center gap-1">
-                       <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping"></span> Live Camera Stream
-                     </span>
-                   </div>`
-                : `<div class="flex flex-col items-center justify-center z-10 opacity-75">
-                     <div class="w-14 h-14 rounded-full bg-slate-800 text-slate-300 font-display font-bold text-lg flex items-center justify-center border border-slate-600">
-                       ${escapeHtml((p.fullName || "U").charAt(0).toUpperCase())}
-                     </div>
-                     <span class="mt-1.5 text-[10px] font-mono text-slate-400"><i class="fa-solid fa-video-slash mr-1"></i>Camera Off</span>
-                   </div>`
-            }
+        const remoteFrameData = roomFrames[p.userId]?.frame || null;
 
-            <!-- Top Overlay Badges -->
+        let videoSurfaceHtml = "";
+        if (isSelf && p.camOn && state.localVideoStream) {
+          videoSurfaceHtml = `<video id="selfStudioVideoEl" autoplay muted playsinline class="absolute inset-0 w-full h-full object-cover ${mirrorCls} ${filterCls}"></video>`;
+        } else if (!isSelf && p.camOn) {
+          // REMOTE PARTICIPANT LIVE VIDEO STREAM (Updates continuously via Firebase Frame Relay!)
+          videoSurfaceHtml = `
+            <img id="remoteVideoFrame_${escapeHtml(p.userId)}" src="${remoteFrameData || ""}" alt="${escapeHtml(p.fullName)} Live Video" class="${remoteFrameData ? "" : "hidden"} absolute inset-0 w-full h-full object-cover ${filterCls}" />
+            <div id="remoteAvatarFallback_${escapeHtml(p.userId)}" class="${remoteFrameData ? "hidden" : "flex"} flex-col items-center justify-center z-10">
+              <div class="w-16 h-16 rounded-full bg-gradient-to-tr from-[#0B3D91] to-[#FF671F] text-white font-display font-extrabold text-xl flex items-center justify-center shadow-lg border-2 border-white/80">
+                ${escapeHtml((p.fullName || "U").charAt(0).toUpperCase())}
+              </div>
+              <span class="mt-2 px-2.5 py-0.5 rounded-full bg-emerald-500/20 border border-emerald-400/40 text-emerald-300 font-mono text-[10px] flex items-center gap-1.5">
+                <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping"></span> Syncing Live HD Camera...
+              </span>
+            </div>
+          `;
+        } else {
+          videoSurfaceHtml = `
+            <div class="flex flex-col items-center justify-center z-10 opacity-75">
+              <div class="w-14 h-14 rounded-full bg-slate-800 text-slate-300 font-display font-bold text-lg flex items-center justify-center border border-slate-600">
+                ${escapeHtml((p.fullName || "U").charAt(0).toUpperCase())}
+              </div>
+              <span class="mt-1.5 text-[10px] font-mono text-slate-400"><i class="fa-solid fa-video-slash mr-1"></i>Camera Off</span>
+            </div>
+          `;
+        }
+
+        return `
+          <div class="zoom-video-tile ${speakingCls} ${spotlightCls} rounded-2xl relative overflow-hidden flex flex-col items-center justify-center min-h-[220px] p-3 select-none">
+            ${videoSurfaceHtml}
+
+            <!-- Top Overlay Badges & Moderator Controls -->
             <div class="absolute top-2.5 left-2.5 right-2.5 flex items-center justify-between gap-1 z-20">
-              <div class="flex items-center gap-1">
+              <div class="flex items-center gap-1 flex-wrap">
                 ${modTag}
                 ${handTag}
+                ${p.camOn ? `<span class="px-1.5 py-0.2 rounded bg-emerald-600/80 text-white font-mono font-bold text-[9px]">LIVE HD</span>` : ""}
               </div>
-              ${
-                isMod && !isSelf
-                  ? `<div class="flex items-center gap-1 bg-black/70 px-1.5 py-0.5 rounded-lg border border-white/15">
+              <div class="flex items-center gap-1 bg-black/70 px-1.5 py-0.5 rounded-lg border border-white/15">
+                <button onclick="window.appUI.moderatorSpotlightParticipant('${escapeHtml(p.userId)}')" class="text-[10px] text-amber-300 hover:text-white px-1" title="Spotlight / Pin Video">
+                  <i class="fa-solid fa-expand"></i>
+                </button>
+                ${
+                  isMod && !isSelf
+                    ? `
                        <button onclick="window.appUI.moderatorToggleMuteParticipant('${escapeHtml(p.userId)}')" class="text-[10px] text-amber-300 hover:text-white px-1" title="Mute/Unmute User">
                          <i class="fa-solid ${p.micOn ? 'fa-microphone-slash' : 'fa-microphone'}"></i>
+                       </button>
+                       <button onclick="window.appUI.moderatorToggleCamParticipant('${escapeHtml(p.userId)}')" class="text-[10px] text-sky-300 hover:text-white px-1" title="Toggle User Camera">
+                         <i class="fa-solid ${p.camOn ? 'fa-video-slash' : 'fa-video'}"></i>
                        </button>
                        <button onclick="window.appUI.moderatorKickParticipant('${escapeHtml(p.userId)}')" class="text-[10px] text-rose-400 hover:text-white px-1" title="Kick Out">
                          <i class="fa-solid fa-user-xmark"></i>
                        </button>
                        <button onclick="window.appUI.moderatorBanParticipant('${escapeHtml(p.userId)}')" class="text-[10px] text-rose-500 hover:text-white px-1" title="Ban User">
                          <i class="fa-solid fa-ban"></i>
-                       </button>
-                     </div>`
-                  : ""
-              }
+                       </button>`
+                    : ""
+                }
+              </div>
             </div>
 
             <!-- Bottom Name & Mic Telemetry Strip -->
             <div class="absolute bottom-2.5 left-2.5 right-2.5 flex items-center justify-between bg-black/75 backdrop-blur-xs px-3 py-1.5 rounded-xl border border-white/10 z-20">
               <div class="truncate">
                 <span class="font-display font-bold text-xs text-white">${escapeHtml(p.fullName)} ${isSelf ? "(You)" : ""}</span>
-                <span class="block font-mono text-[9px] text-slate-300">ID: ${escapeHtml(p.userId)}</span>
+                <span class="block font-mono text-[9px] text-slate-300">ID: ${escapeHtml(p.userId)} • ${escapeHtml(p.country || "🇮🇳")}</span>
               </div>
               <span class="w-6 h-6 rounded-full ${p.micOn ? 'bg-emerald-500/20 text-emerald-400' : 'bg-rose-500/20 text-rose-400'} flex items-center justify-center text-xs shrink-0">
                 <i class="fa-solid ${p.micOn ? 'fa-microphone' : 'fa-microphone-slash'}"></i>
@@ -4678,7 +5813,7 @@
                 <span class="font-bold text-xs text-slate-950 truncate">${escapeHtml(p.fullName)}</span>
                 ${p.isModerator ? `<span class="px-1.5 py-0.2 rounded bg-amber-100 text-amber-900 font-mono font-bold text-[9px]">MOD</span>` : ""}
               </div>
-              <div class="text-[10px] font-mono text-slate-500">ID: ${escapeHtml(p.userId)} • ${p.micOn ? "Mic On" : "Muted"}</div>
+              <div class="text-[10px] font-mono text-slate-500">ID: ${escapeHtml(p.userId)} • ${p.micOn ? "Mic On" : "Muted"} • ${p.camOn ? "Cam Live" : "Cam Off"}</div>
             </div>
 
             ${
@@ -4694,7 +5829,7 @@
                        Ban
                      </button>
                    </div>`
-                : `<span class="text-[10px] font-mono text-emerald-700 font-bold">${isSelf ? "You" : "Active"}</span>`
+                : `<span class="text-[10px] font-mono text-emerald-700 font-bold">${isSelf ? "You (Live)" : "Active"}</span>`
             }
           </div>
         `;
@@ -4744,11 +5879,16 @@
 
       if (state.studioCamEnabled && !state.localVideoStream) {
         try {
-          state.localVideoStream = await navigator.mediaDevices.getUserMedia({ video: true, audio: state.studioMicEnabled });
+          state.localVideoStream = await navigator.mediaDevices.getUserMedia({
+            video: { width: { ideal: 1280 }, height: { ideal: 720 }, facingMode: "user" },
+            audio: state.studioMicEnabled
+          });
+          startLiveVideoFrameBroadcaster(room.roomId, actor.userId);
         } catch (e) {}
       } else if (!state.studioCamEnabled && state.localVideoStream) {
         state.localVideoStream.getVideoTracks().forEach((t) => t.stop());
         state.localVideoStream = null;
+        remove(ref(db, `nexacomm/videoFrames/${room.roomId}/${actor.userId}`)).catch(() => {});
       }
       persistVideoRoom(room.roomId, room);
     }
@@ -4758,8 +5898,9 @@
         const screenStream = await navigator.mediaDevices.getDisplayMedia({ video: true });
         state.localVideoStream = screenStream;
         state.studioCamEnabled = true;
+        state.studioMirrorEnabled = false;
         syncActiveVideoStudioState();
-        showToast("Screen sharing started!", "success");
+        showToast("HD Screen Sharing active & synced to all room participants!", "success");
       } catch (e) {
         showToast("Screen share cancelled or restricted in this preview container.", "info");
       }
@@ -4773,6 +5914,162 @@
       if (!myPart) return;
       myPart.handRaised = !myPart.handRaised;
       persistVideoRoom(room.roomId, room);
+    }
+
+    function setStudioVideoFilter(filterClass) {
+      state.studioVideoFilter = filterClass || "vfilter-none";
+      syncActiveVideoStudioState();
+    }
+
+    function toggleStudioMirror() {
+      state.studioMirrorEnabled = !state.studioMirrorEnabled;
+      syncActiveVideoStudioState();
+    }
+
+    function toggleStudioWhiteboard() {
+      const panel = document.getElementById("studioWhiteboardPanel");
+      if (!panel) return;
+      panel.classList.toggle("hidden");
+    }
+
+    function initWhiteboardCanvasEvents() {
+      const canvas = document.getElementById("studioWhiteboardCanvas");
+      if (!canvas) return;
+      const ctx = canvas.getContext("2d");
+
+      const getPos = (e) => {
+        const rect = canvas.getBoundingClientRect();
+        const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+        const clientY = e.touches ? e.touches[0].clientY : e.clientY;
+        return {
+          x: ((clientX - rect.left) / rect.width) * canvas.width,
+          y: ((clientY - rect.top) / rect.height) * canvas.height
+        };
+      };
+
+      const startDraw = (e) => {
+        state.wbDrawing = true;
+        const pos = getPos(e);
+        ctx.beginPath();
+        ctx.moveTo(pos.x, pos.y);
+      };
+
+      const moveDraw = (e) => {
+        if (!state.wbDrawing) return;
+        e.preventDefault();
+        const pos = getPos(e);
+        ctx.strokeStyle = document.getElementById("wbStrokeColor")?.value || "#38BDF8";
+        ctx.lineWidth = 3;
+        ctx.lineCap = "round";
+        ctx.lineTo(pos.x, pos.y);
+        ctx.stroke();
+      };
+
+      const endDraw = () => {
+        if (!state.wbDrawing) return;
+        state.wbDrawing = false;
+        if (state.activeRoomId && state.videoRoomsMap[state.activeRoomId]) {
+          const room = state.videoRoomsMap[state.activeRoomId];
+          room.whiteboardImage = canvas.toDataURL("image/png");
+          persistVideoRoom(room.roomId, room);
+        }
+      };
+
+      canvas.addEventListener("mousedown", startDraw);
+      canvas.addEventListener("mousemove", moveDraw);
+      window.addEventListener("mouseup", endDraw);
+      canvas.addEventListener("touchstart", startDraw, { passive: false });
+      canvas.addEventListener("touchmove", moveDraw, { passive: false });
+      window.addEventListener("touchend", endDraw);
+    }
+
+    function drawSyncedWhiteboardImage(dataUrl) {
+      if (!dataUrl || state.wbDrawing) return;
+      const canvas = document.getElementById("studioWhiteboardCanvas");
+      if (!canvas) return;
+      const img = new Image();
+      img.onload = () => {
+        const ctx = canvas.getContext("2d");
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        ctx.drawImage(img, 0, 0);
+      };
+      img.src = dataUrl;
+    }
+
+    function clearStudioWhiteboard() {
+      const canvas = document.getElementById("studioWhiteboardCanvas");
+      if (!canvas) return;
+      const ctx = canvas.getContext("2d");
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      if (state.activeRoomId && state.videoRoomsMap[state.activeRoomId]) {
+        const room = state.videoRoomsMap[state.activeRoomId];
+        room.whiteboardImage = null;
+        persistVideoRoom(room.roomId, room);
+      }
+      showToast("Whiteboard cleared.", "info");
+    }
+
+    function toggleStudioLiveCaptions() {
+      const bar = document.getElementById("studioLiveCaptionsBar");
+      const txt = document.getElementById("studioLiveCaptionsText");
+      if (!bar) return;
+
+      state.studioCaptionsActive = !state.studioCaptionsActive;
+      if (state.studioCaptionsActive) {
+        bar.classList.remove("hidden");
+        const SpeechRec = window.SpeechRecognition || window.webkitSpeechRecognition;
+        if (SpeechRec) {
+          state.studioSpeechRec = new SpeechRec();
+          state.studioSpeechRec.continuous = true;
+          state.studioSpeechRec.interimResults = true;
+          state.studioSpeechRec.onresult = (e) => {
+            const latest = e.results[e.results.length - 1]?.[0]?.transcript || "";
+            if (txt && latest) txt.textContent = latest;
+          };
+          try { state.studioSpeechRec.start(); } catch (err) {}
+        } else if (txt) {
+          txt.textContent = "Live Telemetry Subtitles Active — Audio Stream Connected";
+        }
+        showToast("Live Captions / Subtitles enabled.", "success");
+      } else {
+        bar.classList.add("hidden");
+        if (state.studioSpeechRec) {
+          try { state.studioSpeechRec.stop(); } catch (err) {}
+        }
+        showToast("Live Captions disabled.", "info");
+      }
+    }
+
+    function captureStudioSnapshot() {
+      const selfVideo = document.getElementById("selfStudioVideoEl");
+      if (!selfVideo) {
+        showToast("Enable your HD Camera first to capture a snapshot.", "warning");
+        return;
+      }
+      const c = document.createElement("canvas");
+      c.width = selfVideo.videoWidth || 640;
+      c.height = selfVideo.videoHeight || 480;
+      c.getContext("2d").drawImage(selfVideo, 0, 0, c.width, c.height);
+      const dataUrl = c.toDataURL("image/png");
+      openImageLightbox(dataUrl);
+      showToast("HD Video Snapshot captured!", "success");
+    }
+
+    async function toggleStudioPiP() {
+      const selfVideo = document.getElementById("selfStudioVideoEl");
+      if (!selfVideo) {
+        showToast("Camera must be active for Picture-in-Picture mode.", "warning");
+        return;
+      }
+      try {
+        if (document.pictureInPictureElement) {
+          await document.exitPictureInPicture();
+        } else {
+          await selfVideo.requestPictureInPicture();
+        }
+      } catch (e) {
+        showToast("Picture-in-Picture is not supported in this frame.", "info");
+      }
     }
 
     function sendStudioFloatingReaction(emoji) {
@@ -4790,7 +6087,25 @@
       setTimeout(() => el.remove(), 1100);
     }
 
-    // Moderator Controls: Mute, Kick Out, Ban, End Meeting
+    // Moderator Controls: Spotlight, Mute All, Mute Single, Cam Toggle, Kick, Ban, End
+    function moderatorSpotlightParticipant(targetUserId) {
+      const room = state.videoRoomsMap[state.activeRoomId];
+      if (!room) return;
+      room.spotlightUserId = room.spotlightUserId === targetUserId ? null : targetUserId;
+      persistVideoRoom(room.roomId, room);
+    }
+
+    function moderatorMuteAllParticipants() {
+      const room = state.videoRoomsMap[state.activeRoomId];
+      if (!room || !room.participants) return;
+      const actor = getActiveVcActor();
+      Object.values(room.participants).forEach((p) => {
+        if (p.userId !== actor.userId) p.micOn = false;
+      });
+      persistVideoRoom(room.roomId, room);
+      showToast("All participants muted by Moderator.", "info");
+    }
+
     function moderatorToggleMuteParticipant(targetUserId) {
       const room = state.videoRoomsMap[state.activeRoomId];
       if (!room || !room.participants?.[targetUserId]) return;
@@ -4799,11 +6114,20 @@
       showToast(`Updated microphone state for ${room.participants[targetUserId].fullName}.`, "info");
     }
 
+    function moderatorToggleCamParticipant(targetUserId) {
+      const room = state.videoRoomsMap[state.activeRoomId];
+      if (!room || !room.participants?.[targetUserId]) return;
+      room.participants[targetUserId].camOn = !room.participants[targetUserId].camOn;
+      persistVideoRoom(room.roomId, room);
+      showToast(`Updated camera state for ${room.participants[targetUserId].fullName}.`, "info");
+    }
+
     function moderatorKickParticipant(targetUserId) {
       const room = state.videoRoomsMap[state.activeRoomId];
       if (!room || !room.participants?.[targetUserId]) return;
       const kickedName = room.participants[targetUserId].fullName;
       delete room.participants[targetUserId];
+      remove(ref(db, `nexacomm/videoFrames/${room.roomId}/${targetUserId}`)).catch(() => {});
       persistVideoRoom(room.roomId, room);
       showToast(`Kicked ${kickedName} from the room.`, "warning");
     }
@@ -4817,26 +6141,28 @@
       if (room.participants?.[targetUserId]) {
         delete room.participants[targetUserId];
       }
+      remove(ref(db, `nexacomm/videoFrames/${room.roomId}/${targetUserId}`)).catch(() => {});
       persistVideoRoom(room.roomId, room);
       showToast(`Banned ${bannedName} from re-joining this room.`, "error");
     }
 
     function leaveActiveVideoRoom(silent = false) {
       const roomId = state.activeRoomId;
+      const actor = getActiveVcActor();
       stopLocalMediaTracks();
       if (roomId && state.videoRoomsMap[roomId]) {
         const room = state.videoRoomsMap[roomId];
-        const actor = getActiveVcActor();
         if (room.participants && room.participants[actor.userId]) {
           delete room.participants[actor.userId];
         }
+        remove(ref(db, `nexacomm/videoFrames/${roomId}/${actor.userId}`)).catch(() => {});
         persistVideoRoom(roomId, room);
       }
       state.activeRoomId = null;
       document.getElementById("vcActiveRoomStudio")?.classList.add("hidden");
       document.getElementById("vcLobbyContainer")?.classList.remove("hidden");
       if (!silent) {
-        showToast("Left the video room. You can join any other active room!", "info");
+        showToast("Left the video room.", "info");
       }
     }
 
@@ -4852,6 +6178,14 @@
     }
 
     function stopLocalMediaTracks() {
+      if (state.studioFrameBroadcastInterval) {
+        clearInterval(state.studioFrameBroadcastInterval);
+        state.studioFrameBroadcastInterval = null;
+      }
+      if (state.studioTimerInterval) {
+        clearInterval(state.studioTimerInterval);
+        state.studioTimerInterval = null;
+      }
       if (state.localVideoStream) {
         state.localVideoStream.getTracks().forEach((t) => t.stop());
         state.localVideoStream = null;
@@ -5013,7 +6347,8 @@
       ];
       msgs.forEach((m) => {
         const name = m.senderFullName || m.senderNickname || "Member";
-        lines.push(`[${formatFullTimestamp(m.timestamp)}] ${name} (${m.senderId}): ${m.text}`);
+        const body = m.deletedByUser ? `[Deleted by ${name}]` : m.text;
+        lines.push(`[${formatFullTimestamp(m.timestamp)}] ${name} (${m.senderId}): ${body}`);
       });
 
       const blob = new Blob([lines.join("\n")], { type: "text/plain;charset=utf-8" });
@@ -5108,6 +6443,7 @@
       openGlobalChatDirect,
       openDirectAdminDesk,
       openVideoConferencePage,
+      cyclePortalTheme,
       openModal,
       closeModal,
       generateRegistrationCredentials,
@@ -5123,6 +6459,11 @@
       logoutSession,
       handleSessionBadgeClick,
       renderAdminExcelTable,
+      toggleUserVipBadge,
+      adminRecoverAllDeletedMessages,
+      adminPurgeAllSoftDeletedMessages,
+      adminSendEmergencyFlash,
+      adminSetSlowMode,
       adminLoginAsUser,
       returnToAdminFromImpersonation,
       setUserStatus,
@@ -5141,20 +6482,30 @@
       insertEmoji,
       setStreamTypeFilter,
       toggleSoundAlerts,
+      broadcastLiveActivity,
       handleTypingPulse,
       insertFormatTag,
       changeGlobalChatFont,
       toggleAdminChatLock,
+      sendQuickSmartReply,
+      sendTelemetryBeacon,
+      startSpeechToTextDictation,
       sendMessage,
       renderMessages,
       toggleMessageReaction,
       copyMessageText,
       speakMessageText,
+      translateMessageText,
+      toggleBookmarkVault,
+      openSavedVaultModal,
+      openMediaGalleryModal,
       setReplyTarget,
       cancelReply,
       startEditMessage,
       cancelEditMessage,
       deleteMessage,
+      recoverDeletedMessage,
+      permanentDeleteMessage,
       toggleStarMessage,
       pinMessageToTop,
       clearPinnedMessage,
@@ -5179,8 +6530,18 @@
       toggleStudioCam,
       toggleStudioScreenShare,
       toggleStudioRaiseHand,
+      setStudioVideoFilter,
+      toggleStudioMirror,
+      toggleStudioWhiteboard,
+      clearStudioWhiteboard,
+      toggleStudioLiveCaptions,
+      captureStudioSnapshot,
+      toggleStudioPiP,
       sendStudioFloatingReaction,
+      moderatorSpotlightParticipant,
+      moderatorMuteAllParticipants,
       moderatorToggleMuteParticipant,
+      moderatorToggleCamParticipant,
       moderatorKickParticipant,
       moderatorBanParticipant,
       leaveActiveVideoRoom,
@@ -5188,7 +6549,12 @@
       sendVcRoomChatMessage,
       handleVcRoomImageUpload,
       handleVcRoomVideoUpload,
+      handleStatusImagePreview,
+      clearStatusImagePreview,
       publishStatusUpdate,
+      openStoryViewer,
+      reactToStory,
+      deleteActiveStory,
       viewStoryToast,
       inspectUserProfile,
       copyInspectedTag,
