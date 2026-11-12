@@ -1,0 +1,3480 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>IIRS-NexaComm — Official Global Outreach & Real-Time Communication Portal</title>
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Clean Official & Modern Fonts (Inter, Plus Jakarta Sans, Space Grotesk, JetBrains Mono) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Crisp Micro Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Inter"', 'sans-serif'],
+            display: ['"Plus Jakarta Sans"', 'sans-serif'],
+            tech: ['"Space Grotesk"', 'sans-serif'],
+            mono: ['"JetBrains Mono"', 'monospace'],
+          },
+          colors: {
+            isro: {
+              navy: '#0B3D91',
+              saffron: '#FF671F',
+              green: '#046A38',
+              slate: '#0F172A',
+              light: '#F8FAFC',
+              border: '#E2E8F0'
+            },
+            wa: {
+              bg: '#EFEAE2',
+              out: '#D9FDD3',
+              in: '#FFFFFF',
+              teal: '#008069',
+              tick: '#53BDEB',
+              green: '#25D366'
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    /* ==========================================================================
+       ISRO / IIRS MONOCHROME + INSTAGRAM CLEAN UI + WHATSAPP ENGINE STYLES
+       ========================================================================== */
+    :root {
+      --bg-main: #FFFFFF;
+      --bg-subtle: #F8FAFC;
+      --text-primary: #0F172A;
+      --text-secondary: #475569;
+      --border-crisp: #E2E8F0;
+      --border-dark: #0F172A;
+      --isro-blue: #0B3D91;
+      --isro-orange: #FF671F;
+    }
+
+    * {
+      box-sizing: border-box;
+      scrollbar-width: thin;
+      scrollbar-color: #CBD5E1 #F8FAFC;
+    }
+
+    *::-webkit-scrollbar {
+      width: 5px;
+      height: 5px;
+    }
+    *::-webkit-scrollbar-track {
+      background: #F8FAFC;
+    }
+    *::-webkit-scrollbar-thumb {
+      background: #94A3B8;
+      border-radius: 9999px;
+    }
+
+    body {
+      background-color: #FAFAFA;
+      color: #0F172A;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Official ISRO/IIRS Subtle Technical Grid */
+    .isro-tech-grid {
+      background-size: 28px 28px;
+      background-image: 
+        linear-gradient(to right, rgba(15, 23, 42, 0.035) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(15, 23, 42, 0.035) 1px, transparent 1px);
+    }
+
+    /* Crisp Monochrome & Official Surface Cards */
+    .official-card {
+      background: #FFFFFF;
+      border: 1px solid #E2E8F0;
+      box-shadow: 0 1px 3px rgba(15, 23, 42, 0.04);
+      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .official-card:hover {
+      border-color: #CBD5E1;
+      box-shadow: 0 6px 20px -6px rgba(15, 23, 42, 0.08);
+    }
+
+    /* High-Contrast Monochrome Border Card */
+    .mono-box {
+      background: #FFFFFF;
+      border: 1.5px solid #0F172A;
+      box-shadow: 3px 3px 0px #0F172A;
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+    }
+    .mono-box:hover {
+      transform: translate(-1px, -1px);
+      box-shadow: 5px 5px 0px #0B3D91;
+    }
+
+    /* Instagram-Style Gradient Story Ring */
+    .ig-ring {
+      padding: 2px;
+      background: linear-gradient(45deg, #FF671F 0%, #E1306C 50%, #0B3D91 100%);
+      border-radius: 9999px;
+    }
+
+    /* Centerpiece Hero Global Chat Button Pulse */
+    @keyframes subtlePulseRing {
+      0% { box-shadow: 0 0 0 0 rgba(11, 61, 145, 0.35), 4px 4px 0px #0F172A; }
+      70% { box-shadow: 0 0 0 12px rgba(11, 61, 145, 0), 4px 4px 0px #0F172A; }
+      100% { box-shadow: 0 0 0 0 rgba(11, 61, 145, 0), 4px 4px 0px #0F172A; }
+    }
+    .hero-global-chat-btn {
+      animation: subtlePulseRing 2.5s infinite;
+      transition: all 0.2s ease;
+    }
+    .hero-global-chat-btn:hover {
+      transform: translateY(-2px);
+    }
+
+    /* WhatsApp Chat Wallpaper & Message Bubbles */
+    .wa-chat-bg {
+      background-color: #F4F5F7;
+      background-image: radial-gradient(#CBD5E1 0.85px, transparent 0.85px);
+      background-size: 18px 18px;
+    }
+
+    @keyframes waPopIn {
+      0% { opacity: 0; transform: translateY(6px) scale(0.985); }
+      100% { opacity: 1; transform: translateY(0) scale(1); }
+    }
+
+    .wa-bubble-in {
+      background: #FFFFFF;
+      border: 1px solid #E2E8F0;
+      border-radius: 0px 14px 14px 14px;
+      box-shadow: 0 1px 1.5px rgba(15, 23, 42, 0.06);
+      animation: waPopIn 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+      position: relative;
+    }
+
+    .wa-bubble-out {
+      background: #E8F8EE;
+      border: 1px solid #BBF7D0;
+      border-radius: 14px 0px 14px 14px;
+      box-shadow: 0 1px 1.5px rgba(15, 23, 42, 0.06);
+      animation: waPopIn 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+      position: relative;
+    }
+
+    /* Original Full Name Header Styles inside WhatsApp Bubble */
+    .sender-name-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-weight: 800;
+      font-size: 0.8rem;
+      color: #0F172A;
+      letter-spacing: -0.01em;
+    }
+
+    .sender-admin-badge {
+      background: #0F172A;
+      color: #FFFFFF;
+      padding: 1px 7px;
+      border-radius: 4px;
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    /* Clean Enterprise Excel Table */
+    .excel-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.78rem;
+    }
+    .excel-table th {
+      background: #0F172A;
+      color: #FFFFFF;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      padding: 10px 12px;
+      border: 1px solid #334155;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      white-space: nowrap;
+      text-align: left;
+    }
+    .excel-table td {
+      padding: 8px 12px;
+      border: 1px solid #E2E8F0;
+      background: #FFFFFF;
+      color: #0F172A;
+      vertical-align: middle;
+      white-space: nowrap;
+    }
+    .excel-table tr:nth-child(even) td {
+      background: #F8FAFC;
+    }
+    .excel-table tr:hover td {
+      background: #EFF6FF !important;
+    }
+
+    /* Font Switcher Utility Classes */
+    .chat-font-inter { font-family: 'Inter', sans-serif; }
+    .chat-font-jakarta { font-family: 'Plus Jakarta Sans', sans-serif; }
+    .chat-font-space { font-family: 'Space Grotesk', sans-serif; }
+    .chat-font-mono { font-family: 'JetBrains Mono', monospace; }
+
+    /* High-Contrast Monochrome Filter Toggle */
+    body.high-contrast-mono {
+      filter: grayscale(100%) contrast(105%);
+    }
+  </style>
+</head>
+
+<body class="isro-tech-grid min-h-screen flex flex-col selection:bg-slate-900 selection:text-white">
+
+  <!-- ==========================================================================
+       1. OFFICIAL ISRO / IIRS TELEMETRY TOP MICRO-BAR
+       ========================================================================== -->
+  <div class="bg-slate-950 text-white border-b border-slate-800 text-[11px] font-medium">
+    <div class="max-w-[1440px] mx-auto px-3 sm:px-6 py-1.5 flex flex-wrap items-center justify-between gap-2">
+      
+      <!-- Left: Official Outreach Identity & Tricolor Bar -->
+      <div class="flex items-center gap-2.5">
+        <div class="flex items-center gap-0.5">
+          <span class="w-2 h-2 rounded-full bg-[#FF671F]"></span>
+          <span class="w-2 h-2 rounded-full bg-white"></span>
+          <span class="w-2 h-2 rounded-full bg-[#046A38]"></span>
+        </div>
+        <span class="font-mono font-semibold tracking-wider uppercase text-slate-200">
+          IIRS / ISRO OUTREACH STYLE ARCHITECTURE
+        </span>
+        <span class="hidden md:inline text-slate-500">|</span>
+        <span class="hidden md:inline text-slate-300 font-mono" id="liveIstClock">
+          IST: --:--:-- | UTC: --:--:--
+        </span>
+      </div>
+
+      <!-- Right: Live Firebase Telemetry & Monochrome Toggle -->
+      <div class="flex items-center gap-3">
+        <div class="flex items-center gap-1.5 font-mono">
+          <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping"></span>
+          <span class="text-slate-300">RTDB SYNC</span>
+        </div>
+        <span class="text-slate-600">|</span>
+        <div class="font-mono text-slate-300">
+          Members: <strong id="navStatUsers" class="text-white">0</strong>
+        </div>
+        <span class="text-slate-600">|</span>
+        <div class="font-mono text-slate-300">
+          Packets: <strong id="navStatMsgs" class="text-emerald-400">0</strong>
+        </div>
+        <button onclick="window.appUI.toggleMonochromeTheme()" class="px-2 py-0.5 rounded bg-slate-800 hover:bg-slate-700 text-[10px] font-mono text-white border border-slate-700 transition" title="Toggle Pure Black & White Mode">
+          <i class="fa-solid fa-circle-half-stroke mr-1"></i>B&W Mode
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ==========================================================================
+       2. MAIN NAVIGATION HEADER (CLEAN, COMPACT ICONS, CORNER AUTH & ADMIN)
+       ========================================================================== -->
+  <header class="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-slate-900">
+    <div class="max-w-[1440px] mx-auto px-3 sm:px-6 py-2.5 flex flex-wrap items-center justify-between gap-3">
+      
+      <!-- Brand Identity -->
+      <div class="flex items-center gap-2.5 cursor-pointer" onclick="window.appUI.switchMainView('landing')">
+        <div class="w-9 h-9 rounded-lg bg-slate-950 text-white flex items-center justify-center border border-slate-800 shadow-xs">
+          <i class="fa-solid fa-satellite text-sm text-[#FF671F]"></i>
+        </div>
+        <div>
+          <div class="flex items-center gap-2">
+            <span class="font-display font-extrabold text-base sm:text-lg tracking-tight text-slate-950">
+              NEXACOMM <span class="text-[#0B3D91]">OUTREACH</span>
+            </span>
+            <span class="px-1.5 py-0.5 text-[9px] font-mono font-bold uppercase bg-slate-100 text-slate-800 border border-slate-300 rounded">
+              v5.0 LIVE
+            </span>
+          </div>
+          <p class="text-[10px] font-medium text-slate-500 leading-none mt-0.5">
+            Global Group Communication & Verified Identity Network
+          </p>
+        </div>
+      </div>
+
+      <!-- Center Quick Navigation Pills -->
+      <div class="flex items-center gap-1.5">
+        <button id="btnNavHome" onclick="window.appUI.switchMainView('landing')" class="px-3 py-1.5 rounded-lg text-xs font-bold bg-slate-100 hover:bg-slate-200 text-slate-900 transition flex items-center gap-1.5">
+          <i class="fa-solid fa-compass text-[11px]"></i>
+          <span>Portal Home</span>
+        </button>
+
+        <button id="btnNavChatWorkspace" onclick="window.appUI.openGlobalChatDirect()" class="px-3.5 py-1.5 rounded-lg text-xs font-bold bg-[#0B3D91] hover:bg-slate-900 text-white transition flex items-center gap-1.5 shadow-xs">
+          <i class="fa-brands fa-whatsapp text-sm text-emerald-300"></i>
+          <span>Global Group Chat</span>
+          <span class="px-1.5 py-0.2 bg-white/20 rounded text-[9px] font-mono">PUBLIC</span>
+        </button>
+
+        <!-- Impersonation Return Button (Shown when Admin uses "Login As") -->
+        <button id="btnReturnToAdmin" onclick="window.appUI.returnToAdminFromImpersonation()" class="hidden px-3 py-1.5 rounded-lg text-xs font-bold bg-amber-400 hover:bg-amber-500 text-slate-950 border border-slate-900 transition items-center gap-1.5">
+          <i class="fa-solid fa-rotate-left text-[11px]"></i>
+          <span>Exit "Login As" (Back to Admin)</span>
+        </button>
+      </div>
+
+      <!-- Right Corner Action Controls -->
+      <div class="flex items-center gap-2">
+        
+        <!-- GUEST BUTTONS (Shown when logged out) -->
+        <div id="guestAuthControls" class="flex items-center gap-1.5">
+          <button onclick="window.appUI.openModal('registerModal')" class="px-3 py-1.5 rounded-lg text-xs font-bold bg-slate-950 hover:bg-slate-800 text-white transition flex items-center gap-1.5">
+            <i class="fa-solid fa-user-plus text-[10px]"></i>
+            <span>Register</span>
+          </button>
+
+          <button onclick="window.appUI.openModal('loginModal')" class="px-3 py-1.5 rounded-lg text-xs font-bold bg-white hover:bg-slate-100 text-slate-900 border border-slate-900 transition flex items-center gap-1.5">
+            <i class="fa-solid fa-right-to-bracket text-[10px]"></i>
+            <span>Login</span>
+          </button>
+
+          <!-- Compact Corner Admin Login Button -->
+          <button onclick="window.appUI.openModal('adminLoginModal')" title="Super Admin Console" class="px-2.5 py-1.5 rounded-lg text-xs font-bold bg-slate-100 hover:bg-slate-200 text-slate-900 border border-slate-300 transition flex items-center gap-1">
+            <i class="fa-solid fa-shield-halved text-[11px] text-[#0B3D91]"></i>
+            <span>Admin</span>
+          </button>
+        </div>
+
+        <!-- ACTIVE LOGGED IN SESSION BADGE -->
+        <div id="activeSessionControls" class="hidden items-center gap-2">
+          <div onclick="window.appUI.handleSessionBadgeClick()" class="cursor-pointer px-2.5 py-1 rounded-lg bg-slate-100 hover:bg-slate-200 border border-slate-300 flex items-center gap-2 transition">
+            <div id="sessionAvatar" class="w-6 h-6 rounded-full bg-slate-900 text-white font-bold text-[11px] flex items-center justify-center">
+              U
+            </div>
+            <div class="text-left leading-tight">
+              <div id="sessionDisplayName" class="text-xs font-bold text-slate-950">Full Name</div>
+              <div id="sessionRoleTag" class="text-[9px] font-mono text-slate-600">ID: ---</div>
+            </div>
+          </div>
+
+          <button onclick="window.appUI.logoutSession()" class="px-2.5 py-1.5 rounded-lg text-xs font-bold bg-white hover:bg-rose-50 text-rose-700 border border-rose-300 transition flex items-center gap-1" title="Logout">
+            <i class="fa-solid fa-power-off text-[11px]"></i>
+            <span class="hidden sm:inline">Logout</span>
+          </button>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Official Broadcast Notice Strip -->
+    <div class="bg-slate-100 border-t border-slate-200 px-3 sm:px-6 py-1 flex items-center justify-between gap-2 text-[11px]">
+      <div class="flex items-center gap-2 truncate">
+        <span class="px-1.5 py-0.5 rounded bg-slate-900 text-white font-mono font-bold text-[9px] uppercase shrink-0">
+          OFFICIAL BULLETIN
+        </span>
+        <span id="globalBroadcastTicker" class="font-medium text-slate-700 truncate">
+          Welcome to IIRS-NexaComm Official Outreach Portal • Global Group Chat is open for public viewing & verified real-name messaging.
+        </span>
+      </div>
+      <button onclick="window.appUI.openGlobalChatDirect()" class="shrink-0 text-[11px] font-bold text-[#0B3D91] hover:underline flex items-center gap-1">
+        <span>Open Live Stream</span>
+        <i class="fa-solid fa-arrow-right text-[9px]"></i>
+      </button>
+    </div>
+  </header>
+
+  <!-- ==========================================================================
+       3. MAIN VIEWPORT CONTAINER
+       ========================================================================== -->
+  <main class="flex-1 max-w-[1440px] w-full mx-auto px-3 sm:px-6 py-5">
+
+    <!-- ========================================================================
+         VIEW A: CLEAN ISRO / INSTAGRAM INSPIRED PORTAL HOME (WITH CENTER GLOBAL CHAT BUTTON)
+         ======================================================================== -->
+    <section id="viewLanding" class="space-y-6">
+
+      <!-- INSTAGRAM-STYLE LIVE OUTREACH HIGHLIGHTS / STATUS STRIP -->
+      <div class="official-card rounded-xl p-3 flex items-center justify-between gap-4 overflow-x-auto">
+        <div class="flex items-center gap-4" id="outreachStoriesStrip">
+          <!-- Add Status Button -->
+          <button onclick="window.appUI.openModal('statusModal')" class="flex flex-col items-center gap-1 shrink-0 group">
+            <div class="w-11 h-11 rounded-full border-2 border-dashed border-slate-400 group-hover:border-slate-900 flex items-center justify-center bg-slate-50 text-slate-700 transition">
+              <i class="fa-solid fa-plus text-xs"></i>
+            </div>
+            <span class="text-[10px] font-semibold text-slate-700">Post Update</span>
+          </button>
+          <!-- Dynamic Status Bubbles Rendered by JS -->
+        </div>
+
+        <div class="hidden md:flex items-center gap-2 shrink-0 border-l border-slate-200 pl-4">
+          <div class="text-right">
+            <div class="text-[10px] font-mono uppercase text-slate-400">Portal Mode</div>
+            <div class="text-xs font-bold text-slate-900">Public Global Access</div>
+          </div>
+          <span class="w-8 h-8 rounded-lg bg-slate-100 border border-slate-300 flex items-center justify-center text-slate-800 text-xs">
+            <i class="fa-solid fa-tower-cell"></i>
+          </span>
+        </div>
+      </div>
+
+      <!-- CENTERPIECE HERO ARCHITECTURE: MASSIVE GLOBAL GROUP CHAT LAUNCHPAD -->
+      <div class="mono-box rounded-2xl p-6 sm:p-10 bg-white relative overflow-hidden">
+        <!-- Top Official Accent Bar -->
+        <div class="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-[#0B3D91] via-slate-900 to-[#FF671F]"></div>
+
+        <div class="max-w-3xl mx-auto text-center space-y-6">
+          
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-100 border border-slate-300 text-slate-900 text-[11px] font-mono font-bold">
+            <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+            <span>OPEN ACCESS TELECOMMUNICATION & OUTREACH TERMINAL</span>
+          </div>
+
+          <h1 class="font-display font-extrabold text-2xl sm:text-4xl md:text-5xl text-slate-950 tracking-tight leading-tight">
+            Unified Real-Name Communication & <span class="underline decoration-[#FF671F] decoration-4 underline-offset-4">Global Group Chat</span>
+          </h1>
+
+          <p class="text-slate-600 text-xs sm:text-sm max-w-2xl mx-auto leading-relaxed font-medium">
+            Inspired by ISRO/IIRS outreach precision and clean WhatsApp/Instagram interaction. Anyone can inspect the live Global Group Chat before or after login. Every message displays the member's <strong>Verified Original Full Name</strong> with real-time double-tick (`✓✓`) confirmation.
+          </p>
+
+          <!-- MASSIVE CENTER BUTTON: GLOBAL GROUP CHAT -->
+          <div class="pt-2 pb-1 flex flex-col items-center justify-center gap-3">
+            <button onclick="window.appUI.openGlobalChatDirect()" class="hero-global-chat-btn w-full sm:w-auto min-w-[300px] sm:min-w-[420px] px-8 py-5 rounded-xl bg-slate-950 hover:bg-[#0B3D91] text-white border-2 border-slate-950 flex items-center justify-between gap-4 group cursor-pointer">
+              <div class="flex items-center gap-3.5 text-left">
+                <div class="w-12 h-12 rounded-xl bg-white/10 border border-white/20 flex items-center justify-center text-2xl text-emerald-400 shrink-0">
+                  <i class="fa-brands fa-whatsapp"></i>
+                </div>
+                <div>
+                  <div class="flex items-center gap-2">
+                    <span class="font-display font-extrabold text-lg sm:text-xl tracking-tight text-white">
+                      GLOBAL GROUP CHAT
+                    </span>
+                    <span class="px-2 py-0.5 rounded bg-emerald-500 text-slate-950 font-mono font-extrabold text-[10px]">
+                      LIVE
+                    </span>
+                  </div>
+                  <p class="text-[11px] text-slate-300 font-medium mt-0.5">
+                    Open to Everyone (View Without Login • Chat With Verified Full Name)
+                  </p>
+                </div>
+              </div>
+              <div class="w-9 h-9 rounded-lg bg-white text-slate-950 flex items-center justify-center text-sm group-hover:translate-x-1 transition shrink-0">
+                <i class="fa-solid fa-arrow-right"></i>
+              </div>
+            </button>
+
+            <div class="flex flex-wrap items-center justify-center gap-4 text-[11px] font-semibold text-slate-500">
+              <span><i class="fa-solid fa-check-double text-sky-500 mr-1"></i>WhatsApp Double Tick (`✓✓`)</span>
+              <span>•</span>
+              <span><i class="fa-solid fa-id-card text-slate-800 mr-1"></i>Original Real Name Display</span>
+              <span>•</span>
+              <span><i class="fa-solid fa-bolt text-[#FF671F] mr-1"></i>Reply, Edit & Delete</span>
+            </div>
+          </div>
+
+          <!-- Secondary Quick Action Buttons -->
+          <div class="pt-3 border-t border-slate-200 flex flex-wrap items-center justify-center gap-2.5">
+            <button onclick="window.appUI.openModal('registerModal')" class="px-4 py-2 rounded-lg text-xs font-bold bg-white hover:bg-slate-100 text-slate-900 border border-slate-900 transition flex items-center gap-1.5">
+              <i class="fa-solid fa-id-badge text-[11px] text-[#0B3D91]"></i>
+              <span>New Member Registration</span>
+            </button>
+
+            <button onclick="window.appUI.openModal('loginModal')" class="px-4 py-2 rounded-lg text-xs font-bold bg-white hover:bg-slate-100 text-slate-900 border border-slate-300 transition flex items-center gap-1.5">
+              <i class="fa-solid fa-key text-[11px]"></i>
+              <span>Member Login</span>
+            </button>
+
+            <button onclick="window.appUI.openDirectAdminDesk()" class="px-4 py-2 rounded-lg text-xs font-bold bg-white hover:bg-slate-100 text-slate-900 border border-slate-300 transition flex items-center gap-1.5">
+              <i class="fa-solid fa-headset text-[11px] text-[#FF671F]"></i>
+              <span>1-on-1 Admin Support Desk</span>
+            </button>
+
+            <button onclick="window.appUI.openModal('adminLoginModal')" class="px-4 py-2 rounded-lg text-xs font-bold bg-slate-100 hover:bg-slate-200 text-slate-900 border border-slate-300 transition flex items-center gap-1.5">
+              <i class="fa-solid fa-table-list text-[11px]"></i>
+              <span>Master Excel Registry</span>
+            </button>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- CLEAN 3-COLUMN ARCHITECTURE OVERVIEW (MONOCHROME + ISRO PRECISION) -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+        
+        <!-- Card 1 -->
+        <div class="official-card rounded-xl p-4 space-y-2">
+          <div class="flex items-center justify-between">
+            <span class="text-[10px] font-mono font-bold uppercase px-2 py-0.5 rounded bg-slate-900 text-white">MODULE 01</span>
+            <i class="fa-brands fa-whatsapp text-base text-emerald-600"></i>
+          </div>
+          <h3 class="font-display font-bold text-sm text-slate-950">WhatsApp-Grade Global Chat</h3>
+          <p class="text-xs text-slate-600 leading-relaxed">
+            Zero Telegram clutter. Features authentic outgoing/incoming chat bubbles, double blue ticks (`✓✓`), message editing, quote replies, voice speed controls, and real-name headers.
+          </p>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="official-card rounded-xl p-4 space-y-2">
+          <div class="flex items-center justify-between">
+            <span class="text-[10px] font-mono font-bold uppercase px-2 py-0.5 rounded bg-[#0B3D91] text-white">MODULE 02</span>
+            <i class="fa-solid fa-user-check text-sm text-[#0B3D91]"></i>
+          </div>
+          <h3 class="font-display font-bold text-sm text-slate-950">Verified Original Name Identity</h3>
+          <p class="text-xs text-slate-600 leading-relaxed">
+            Instead of confusing random usernames, every message prominently displays the sender's <strong>Original Full Name</strong> alongside their country and verified status badge.
+          </p>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="official-card rounded-xl p-4 space-y-2">
+          <div class="flex items-center justify-between">
+            <span class="text-[10px] font-mono font-bold uppercase px-2 py-0.5 rounded bg-[#FF671F] text-white">MODULE 03</span>
+            <i class="fa-solid fa-table text-sm text-[#FF671F]"></i>
+          </div>
+          <h3 class="font-display font-bold text-sm text-slate-950">Admin Excel Grid & "Login As"</h3>
+          <p class="text-xs text-slate-600 leading-relaxed">
+            Super Admin (<strong>AryanRajput</strong>) manages all registered users in a high-contrast spreadsheet with 1-click <strong>"Login As"</strong> account switching and chat moderation.
+          </p>
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- ========================================================================
+         VIEW B: WHATSAPP + INSTAGRAM + ISRO GLOBAL GROUP CHAT WORKSPACE
+         ======================================================================== -->
+    <section id="viewChatWorkspace" class="hidden">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-4 items-start">
+
+        <!-- LEFT SIDEBAR (3 Cols): COMPACT CHANNELS, DIRECTORY & OUTREACH TOOLS -->
+        <div class="lg:col-span-3 space-y-3">
+          
+          <!-- Channel Switcher -->
+          <div class="official-card rounded-xl p-3 space-y-2">
+            <div class="flex items-center justify-between px-1">
+              <span class="text-[10px] font-mono font-bold uppercase text-slate-500">Communication Streams</span>
+              <span class="text-[10px] font-mono font-bold text-emerald-700 bg-emerald-50 px-1.5 py-0.5 rounded border border-emerald-200">Public Read</span>
+            </div>
+
+            <button id="tabBtnGlobal" onclick="window.appUI.switchChatChannel('GLOBAL')" class="w-full p-2.5 rounded-lg text-left flex items-center justify-between bg-slate-950 text-white transition">
+              <div class="flex items-center gap-2.5">
+                <i class="fa-brands fa-whatsapp text-base text-emerald-400"></i>
+                <div>
+                  <div class="text-xs font-bold leading-tight">Global Group Chat</div>
+                  <div class="text-[10px] opacity-75">Public Stream • Original Names</div>
+                </div>
+              </div>
+              <span class="px-1.5 py-0.5 rounded bg-white/15 font-mono text-[9px]">LIVE</span>
+            </button>
+
+            <button id="tabBtnAdminDesk" onclick="window.appUI.switchChatChannel('ADMIN_DESK')" class="w-full p-2.5 rounded-lg text-left flex items-center justify-between bg-white hover:bg-slate-50 text-slate-900 border border-slate-200 transition">
+              <div class="flex items-center gap-2.5">
+                <i class="fa-solid fa-user-shield text-xs text-[#0B3D91]"></i>
+                <div>
+                  <div class="text-xs font-bold leading-tight">Direct Admin Desk</div>
+                  <div class="text-[10px] text-slate-500">1-on-1 with Aryan Rajput</div>
+                </div>
+              </div>
+              <span class="px-1.5 py-0.5 rounded bg-slate-100 text-slate-700 font-mono text-[9px]">VIP</span>
+            </button>
+
+            <button id="tabBtnAiBot" onclick="window.appUI.switchChatChannel('AI_BOT')" class="w-full p-2.5 rounded-lg text-left flex items-center justify-between bg-white hover:bg-slate-50 text-slate-900 border border-slate-200 transition">
+              <div class="flex items-center gap-2.5">
+                <i class="fa-solid fa-microchip text-xs text-[#FF671F]"></i>
+                <div>
+                  <div class="text-xs font-bold leading-tight">Outreach Command Bot</div>
+                  <div class="text-[10px] text-slate-500">Automated Telemetry & Help</div>
+                </div>
+              </div>
+              <span class="px-1.5 py-0.5 rounded bg-slate-100 text-slate-700 font-mono text-[9px]">AI</span>
+            </button>
+          </div>
+
+          <!-- Admin Ticket Selector (Visible only when Admin is in Direct Admin Desk) -->
+          <div id="adminSupportInboxBox" class="hidden official-card rounded-xl p-3 space-y-2 border-slate-900">
+            <div class="text-[10px] font-mono font-bold uppercase text-slate-700">
+              <i class="fa-solid fa-inbox mr-1"></i> Select Member Thread
+            </div>
+            <select id="adminSelectedTicketUser" onchange="window.appUI.renderMessages()" class="w-full p-2 rounded-lg bg-slate-50 border border-slate-300 text-xs font-bold text-slate-900">
+              <option value="ALL">All Direct Member Threads</option>
+            </select>
+          </div>
+
+          <!-- Verified Members Directory -->
+          <div class="official-card rounded-xl p-3 space-y-2.5">
+            <div class="flex items-center justify-between px-1">
+              <span class="text-[10px] font-mono font-bold uppercase text-slate-500">
+                Verified Members Directory
+              </span>
+              <span id="sidebarMemberCount" class="px-1.5 py-0.5 rounded bg-slate-100 text-slate-900 font-mono font-bold text-[10px]">0</span>
+            </div>
+            <div id="sidebarMembersList" class="space-y-1.5 max-h-[260px] overflow-y-auto pr-1">
+              <!-- Populated dynamically with real registered members -->
+            </div>
+          </div>
+
+          <!-- Compact Utilities & Export Suite -->
+          <div class="official-card rounded-xl p-3 space-y-2">
+            <div class="text-[10px] font-mono font-bold uppercase text-slate-500 px-1">
+              Outreach Utilities
+            </div>
+            <div class="grid grid-cols-2 gap-1.5">
+              <button onclick="window.appUI.openModal('pollModal')" class="p-2 rounded-lg bg-slate-50 hover:bg-slate-100 border border-slate-200 text-slate-900 font-bold text-[11px] flex items-center justify-center gap-1.5 transition">
+                <i class="fa-solid fa-square-poll-vertical text-xs text-[#0B3D91]"></i>
+                <span>Create Poll</span>
+              </button>
+              <button onclick="window.appUI.openModal('videoCallModal')" class="p-2 rounded-lg bg-slate-50 hover:bg-slate-100 border border-slate-200 text-slate-900 font-bold text-[11px] flex items-center justify-center gap-1.5 transition">
+                <i class="fa-solid fa-video text-xs text-emerald-600"></i>
+                <span>Video Room</span>
+              </button>
+              <button onclick="window.appUI.exportChatTranscript()" class="col-span-2 p-2 rounded-lg bg-slate-50 hover:bg-slate-100 border border-slate-200 text-slate-900 font-bold text-[11px] flex items-center justify-center gap-1.5 transition">
+                <i class="fa-solid fa-file-arrow-down text-xs text-slate-700"></i>
+                <span>Download Official Chat Log (.TXT)</span>
+              </button>
+            </div>
+          </div>
+
+        </div>
+<!-- END OF PART 1 -->
+<!-- START OF PART 2 (Continues directly after END OF PART 1) -->
+
+        <!-- CENTER + RIGHT WORKSPACE (9 Cols): WHATSAPP ENGINE & REAL-NAME STREAM -->
+        <div class="lg:col-span-9">
+          
+          <div class="official-card rounded-xl overflow-hidden flex flex-col h-[720px] border border-slate-900 shadow-sm">
+            
+            <!-- Chat Top Header (WhatsApp + ISRO Clean Telemetry Style) -->
+            <div class="bg-white px-4 py-2.5 border-b border-slate-200 flex flex-wrap items-center justify-between gap-2">
+              
+              <!-- Channel Identity & Live Typing / Presence Status -->
+              <div class="flex items-center gap-2.5">
+                <div id="chatHeaderIcon" class="w-9 h-9 rounded-lg bg-slate-950 text-emerald-400 flex items-center justify-center text-base shrink-0">
+                  <i class="fa-brands fa-whatsapp"></i>
+                </div>
+                <div>
+                  <div class="flex items-center gap-2">
+                    <h3 id="chatHeaderTitle" class="font-display font-extrabold text-sm sm:text-base text-slate-950 leading-none">
+                      Global Group Chat
+                    </h3>
+                    <span id="chatHeaderBadge" class="px-1.5 py-0.5 rounded text-[9px] font-mono font-bold bg-emerald-50 text-emerald-800 border border-emerald-300">
+                      PUBLIC STREAM
+                    </span>
+                  </div>
+                  <p id="chatHeaderSubtitle" class="text-[11px] font-medium text-slate-500 mt-0.5 flex items-center gap-1.5">
+                    <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+                    <span id="livePresenceIndicator">Verified Original Names • Double-Tick (✓✓) Sync Active</span>
+                  </p>
+                </div>
+              </div>
+
+              <!-- Header Action Controls: Search, Starred Filter, Font Size & Admin Lock -->
+              <div class="flex flex-wrap items-center gap-1.5">
+                
+                <!-- Search Input -->
+                <div class="relative">
+                  <input id="chatSearchFilter" oninput="window.appUI.renderMessages()" type="text" placeholder="Search name or text..." class="pl-7 pr-2.5 py-1 rounded-lg bg-slate-50 border border-slate-300 text-xs font-medium text-slate-800 focus:outline-none focus:border-slate-900 w-36 sm:w-44" />
+                  <i class="fa-solid fa-magnifying-glass text-slate-400 text-[10px] absolute left-2.5 top-2"></i>
+                </div>
+
+                <!-- Starred Messages Toggle Filter -->
+                <button id="btnFilterStarred" onclick="window.appUI.toggleStarredFilter()" class="px-2.5 py-1 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-800 border border-slate-300 text-[11px] font-bold transition flex items-center gap-1" title="Show Starred Messages Only">
+                  <i class="fa-regular fa-star text-[11px] text-amber-500"></i>
+                  <span class="hidden sm:inline">Starred</span>
+                </button>
+
+                <!-- Clean Typography Selector -->
+                <select id="composerFontSelect" onchange="window.appUI.changeGlobalChatFont(this.value)" class="px-2 py-1 rounded-lg bg-slate-100 border border-slate-300 text-[11px] font-bold text-slate-800 focus:outline-none cursor-pointer" title="Switch Chat Typography">
+                  <option value="chat-font-inter">Font: Inter Clean</option>
+                  <option value="chat-font-jakarta">Font: Jakarta Display</option>
+                  <option value="chat-font-space">Font: Space Tech</option>
+                  <option value="chat-font-mono">Font: JetBrains Mono</option>
+                </select>
+
+                <!-- Admin Only: Toggle Broadcast Lock -->
+                <button id="btnAdminChatLock" onclick="window.appUI.toggleAdminChatLock()" class="hidden px-2.5 py-1 rounded-lg bg-amber-50 hover:bg-amber-100 text-amber-900 border border-amber-300 text-[11px] font-bold transition items-center gap-1" title="Lock/Unlock Group Chat for Members">
+                  <i class="fa-solid fa-lock-open text-[10px]"></i>
+                  <span id="chatLockLabel">Open Chat</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- Pinned Official Message Bar (Hidden unless a message is pinned) -->
+            <div id="pinnedMessageBar" class="hidden bg-slate-900 text-white px-4 py-1.5 border-b border-slate-800 items-center justify-between gap-2 text-xs">
+              <div class="flex items-center gap-2 truncate">
+                <i class="fa-solid fa-thumbtack text-[#FF671F] text-[11px] shrink-0"></i>
+                <span class="font-mono font-bold text-[10px] uppercase text-amber-300 shrink-0">PINNED:</span>
+                <span id="pinnedMessageText" class="font-medium text-slate-200 truncate"></span>
+              </div>
+              <button onclick="window.appUI.clearPinnedMessage()" class="text-[10px] font-mono text-slate-400 hover:text-white shrink-0">
+                <i class="fa-solid fa-xmark"></i>
+              </button>
+            </div>
+
+            <!-- Guest Read-Only Mode Notice Banner (Shown when viewing without login) -->
+            <div id="guestChatBanner" class="hidden bg-amber-50 border-b border-amber-200 px-4 py-2 items-center justify-between gap-2 text-xs">
+              <div class="flex items-center gap-2 text-slate-800 font-medium">
+                <i class="fa-solid fa-eye text-[#0B3D91] text-xs"></i>
+                <span><strong>Public Guest View:</strong> You are viewing the live Global Group Chat. Login or Register to send messages with your verified real name.</span>
+              </div>
+              <div class="flex items-center gap-1.5 shrink-0">
+                <button onclick="window.appUI.openModal('loginModal')" class="px-2.5 py-1 rounded bg-slate-900 text-white font-bold text-[11px]">Login</button>
+                <button onclick="window.appUI.openModal('registerModal')" class="px-2.5 py-1 rounded bg-white border border-slate-900 text-slate-900 font-bold text-[11px]">Register</button>
+              </div>
+            </div>
+
+            <!-- WHATSAPP STYLE MESSAGES STREAM VIEWPORT -->
+            <div id="chatMessagesContainer" class="flex-1 overflow-y-auto p-4 space-y-2.5 wa-chat-bg chat-font-inter">
+              <!-- Real-time WhatsApp bubbles rendered dynamically by JS -->
+            </div>
+
+            <!-- WhatsApp Quote Reply Preview Bar (Hidden unless replying) -->
+            <div id="replyPreviewBar" class="hidden px-4 py-2 bg-slate-100 border-t border-slate-300 items-center justify-between text-xs">
+              <div class="flex items-center gap-2 border-l-4 border-[#0B3D91] pl-2.5 py-0.5 truncate">
+                <div>
+                  <div class="font-bold text-[#0B3D91] text-[11px]" id="replyTargetName">Original Name</div>
+                  <div class="text-slate-600 text-[11px] truncate max-w-md" id="replyTargetSnippet">Message snippet...</div>
+                </div>
+              </div>
+              <button onclick="window.appUI.cancelReply()" class="w-6 h-6 rounded-full hover:bg-slate-200 text-slate-600 flex items-center justify-center">
+                <i class="fa-solid fa-xmark text-xs"></i>
+              </button>
+            </div>
+
+            <!-- WhatsApp Live Edit Mode Bar (Hidden unless editing an existing message) -->
+            <div id="editPreviewBar" class="hidden px-4 py-2 bg-amber-50 border-t border-amber-300 items-center justify-between text-xs">
+              <div class="flex items-center gap-2 text-amber-950 font-bold truncate">
+                <i class="fa-solid fa-pen text-amber-600 text-xs"></i>
+                <span>Editing Message:</span>
+                <span id="editTargetSnippet" class="font-normal italic text-slate-600 truncate"></span>
+              </div>
+              <button onclick="window.appUI.cancelEditMessage()" class="text-rose-600 font-bold hover:underline text-[11px] ml-2">
+                Cancel Edit
+              </button>
+            </div>
+
+            <!-- COMPACT WHATSAPP TEXT FORMATTING & QUICK MENTION BAR -->
+            <div class="bg-slate-50 border-t border-slate-200 px-3 py-1.5 flex flex-wrap items-center justify-between gap-2 text-[11px]">
+              <div class="flex items-center gap-1">
+                <span class="text-[10px] font-mono font-bold text-slate-400 mr-1">FORMAT:</span>
+                <button type="button" onclick="window.appUI.insertFormatTag('*')" class="px-2 py-0.5 rounded bg-white hover:bg-slate-200 border border-slate-200 font-bold text-slate-700" title="Bold (*text*)">
+                  <i class="fa-solid fa-bold text-[10px]"></i>
+                </button>
+                <button type="button" onclick="window.appUI.insertFormatTag('_')" class="px-2 py-0.5 rounded bg-white hover:bg-slate-200 border border-slate-200 text-slate-700" title="Italic (_text_)">
+                  <i class="fa-solid fa-italic text-[10px]"></i>
+                </button>
+                <button type="button" onclick="window.appUI.insertFormatTag('~')" class="px-2 py-0.5 rounded bg-white hover:bg-slate-200 border border-slate-200 text-slate-700" title="Strikethrough (~text~)">
+                  <i class="fa-solid fa-strikethrough text-[10px]"></i>
+                </button>
+                <button type="button" onclick="window.appUI.insertFormatTag('`')" class="px-2 py-0.5 rounded bg-white hover:bg-slate-200 border border-slate-200 font-mono text-slate-700" title="Inline Code (`code`)">
+                  <i class="fa-solid fa-code text-[10px]"></i>
+                </button>
+              </div>
+
+              <div class="flex items-center gap-2 text-[10px] font-medium text-slate-500">
+                <span>Sending as: <strong id="composerActiveRealName" class="text-slate-900">Guest (Read-Only)</strong></span>
+              </div>
+            </div>
+
+            <!-- WHATSAPP COMPOSER BAR (ATTACHMENTS + INPUT + VOICE + SEND) -->
+            <div class="bg-white p-2.5 border-t border-slate-200 flex items-center gap-2">
+              
+              <!-- Image Upload -->
+              <label class="cursor-pointer w-9 h-9 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-700 flex items-center justify-center transition shrink-0" title="Share Photo">
+                <i class="fa-regular fa-image text-sm"></i>
+                <input id="chatImageInput" type="file" accept="image/*" class="hidden" onchange="window.appUI.handleImageUpload(event)" />
+              </label>
+
+              <!-- Document / PDF Upload -->
+              <label class="cursor-pointer w-9 h-9 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-700 flex items-center justify-center transition shrink-0" title="Share Official Document / PDF / TXT">
+                <i class="fa-solid fa-paperclip text-xs"></i>
+                <input id="chatDocInput" type="file" accept=".pdf,.txt,.doc,.docx,.csv" class="hidden" onchange="window.appUI.handleDocUpload(event)" />
+              </label>
+
+              <!-- Voice Note Recorder -->
+              <button type="button" id="btnVoiceRecord" onclick="window.appUI.toggleVoiceRecording()" class="px-2.5 h-9 rounded-lg bg-slate-100 hover:bg-rose-50 text-slate-700 hover:text-rose-700 border border-slate-200 font-bold text-xs flex items-center gap-1.5 transition shrink-0" title="Record Voice Note">
+                <i class="fa-solid fa-microphone text-xs"></i>
+                <span id="voiceBtnLabel" class="hidden sm:inline text-[11px]">Voice</span>
+              </button>
+
+              <!-- Message Text Input -->
+              <input id="chatMessageInput" oninput="window.appUI.handleTypingPulse()" onkeydown="if(event.key==='Enter') window.appUI.sendMessage()" type="text" placeholder="Type a message (Displayed with your Original Full Name & ✓✓)..." class="flex-1 w-full px-3.5 py-2 rounded-lg bg-slate-50 border border-slate-300 text-xs sm:text-sm font-medium text-slate-900 focus:outline-none focus:border-slate-900 focus:bg-white transition" />
+
+              <!-- WhatsApp Send Button -->
+              <button type="button" onclick="window.appUI.sendMessage()" class="px-4 h-9 rounded-lg bg-[#008069] hover:bg-slate-950 text-white font-bold text-xs flex items-center gap-1.5 transition shrink-0 shadow-xs">
+                <span id="sendBtnText">Send</span>
+                <i class="fa-solid fa-paper-plane text-[11px]"></i>
+              </button>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ========================================================================
+         VIEW C: SUPER ADMIN MASTER EXCEL CONSOLE (AryanRajput / 63876890)
+         ======================================================================== -->
+    <section id="viewAdminDashboard" class="hidden space-y-5">
+      
+      <!-- Top Admin Command Header -->
+      <div class="mono-box rounded-xl p-5 bg-white">
+        <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-4">
+          <div class="flex items-start sm:items-center gap-3.5">
+            <div class="w-11 h-11 rounded-xl bg-slate-950 text-white flex items-center justify-center text-lg shrink-0">
+              <i class="fa-solid fa-user-shield text-[#FF671F]"></i>
+            </div>
+            <div>
+              <div class="flex flex-wrap items-center gap-2">
+                <span class="px-2 py-0.5 rounded bg-slate-900 text-white font-mono font-bold text-[10px] uppercase">
+                  SUPER ADMIN MASTER CONSOLE
+                </span>
+                <span class="text-[11px] font-mono font-bold text-[#0B3D91] bg-blue-50 px-2 py-0.5 rounded border border-blue-200">
+                  Admin ID: AryanRajput
+                </span>
+              </div>
+              <h2 class="font-display font-extrabold text-xl sm:text-2xl text-slate-950 mt-1">
+                Verified Member Excel Registry & Direct "Login As" Control
+              </h2>
+              <p class="text-xs text-slate-600">
+                Manage real user accounts, edit generated User IDs/Passwords, toggle account status, purge legacy dummy records, or click <strong>"Login As"</strong> to enter any user session directly.
+              </p>
+            </div>
+          </div>
+
+          <!-- Admin Action Buttons -->
+          <div class="flex flex-wrap items-center gap-2">
+            <button onclick="window.appUI.openAdminAddUserModal()" class="px-3 py-2 rounded-lg text-xs font-bold bg-slate-950 hover:bg-slate-800 text-white transition flex items-center gap-1.5">
+              <i class="fa-solid fa-user-plus text-[10px]"></i>
+              <span>+ Add Member</span>
+            </button>
+            <button onclick="window.appUI.exportUsersToCSV()" class="px-3 py-2 rounded-lg text-xs font-bold bg-[#0B3D91] hover:bg-slate-900 text-white transition flex items-center gap-1.5">
+              <i class="fa-solid fa-file-csv text-[11px]"></i>
+              <span>Export Excel CSV</span>
+            </button>
+            <button onclick="window.appUI.purgeLegacyDummyData()" class="px-3 py-2 rounded-lg text-xs font-bold bg-rose-50 hover:bg-rose-100 text-rose-700 border border-rose-300 transition flex items-center gap-1.5" title="Remove any old seeded dummy users/messages from Firebase Cloud">
+              <i class="fa-solid fa-broom text-[11px]"></i>
+              <span>Purge Old Dummy Data</span>
+            </button>
+            <button onclick="window.appUI.openGlobalChatDirect()" class="px-3 py-2 rounded-lg text-xs font-bold bg-emerald-600 hover:bg-emerald-700 text-white transition flex items-center gap-1.5">
+              <i class="fa-brands fa-whatsapp text-sm"></i>
+              <span>Open Global Chat</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Admin KPI Summary Cards -->
+        <div class="grid grid-cols-2 sm:grid-cols-5 gap-3 mt-5 pt-4 border-t border-slate-200">
+          <div class="p-3 rounded-lg bg-slate-50 border border-slate-200">
+            <div class="text-[10px] font-mono uppercase text-slate-500">Total Registered</div>
+            <div id="adminKpiTotal" class="text-xl font-extrabold text-slate-950 mt-0.5">0</div>
+          </div>
+          <div class="p-3 rounded-lg bg-slate-50 border border-slate-200">
+            <div class="text-[10px] font-mono uppercase text-slate-500">Active Members</div>
+            <div id="adminKpiActive" class="text-xl font-extrabold text-emerald-700 mt-0.5">0</div>
+          </div>
+          <div class="p-3 rounded-lg bg-slate-50 border border-slate-200">
+            <div class="text-[10px] font-mono uppercase text-slate-500">Suspended</div>
+            <div id="adminKpiSuspended" class="text-xl font-extrabold text-amber-600 mt-0.5">0</div>
+          </div>
+          <div class="p-3 rounded-lg bg-slate-50 border border-slate-200">
+            <div class="text-[10px] font-mono uppercase text-slate-500">Banned</div>
+            <div id="adminKpiBanned" class="text-xl font-extrabold text-rose-600 mt-0.5">0</div>
+          </div>
+          <div class="p-3 rounded-lg bg-slate-50 border border-slate-200 col-span-2 sm:col-span-1">
+            <div class="text-[10px] font-mono uppercase text-slate-500">Live Chat Packets</div>
+            <div id="adminKpiMessages" class="text-xl font-extrabold text-[#0B3D91] mt-0.5">0</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Search Filter Bar + Official Bulletin Updater -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-3">
+        <div class="lg:col-span-7 official-card rounded-xl p-3 flex flex-col sm:flex-row items-center gap-2.5">
+          <div class="flex items-center gap-1.5 text-xs font-bold text-slate-800 shrink-0">
+            <i class="fa-solid fa-filter text-xs text-[#0B3D91]"></i>
+            <span>Filter Registry:</span>
+          </div>
+          <input id="adminExcelSearchInput" oninput="window.appUI.renderAdminExcelTable()" type="text" placeholder="Search by Original Full Name, User ID, Email, Tag or Country..." class="w-full px-3 py-1.5 rounded-lg bg-slate-50 border border-slate-300 text-xs font-medium text-slate-900 focus:outline-none focus:border-slate-900" />
+          <select id="adminExcelStatusFilter" onchange="window.appUI.renderAdminExcelTable()" class="px-2.5 py-1.5 rounded-lg bg-slate-100 border border-slate-300 text-xs font-bold text-slate-900">
+            <option value="ALL">All Statuses</option>
+            <option value="ACTIVE">Active Only</option>
+            <option value="SUSPENDED">Suspended Only</option>
+            <option value="BANNED">Banned Only</option>
+          </select>
+        </div>
+
+        <div class="lg:col-span-5 official-card rounded-xl p-3 flex items-center gap-2">
+          <input id="adminBroadcastInput" type="text" placeholder="Update Official Top Bulletin Text..." class="flex-1 px-3 py-1.5 rounded-lg bg-slate-50 border border-slate-300 text-xs font-medium text-slate-900 focus:outline-none focus:border-slate-900" />
+          <button onclick="window.appUI.updateGlobalBroadcast()" class="px-3 py-1.5 rounded-lg bg-slate-950 hover:bg-[#0B3D91] text-white font-bold text-xs shrink-0 transition">
+            <i class="fa-solid fa-bullhorn text-[10px] mr-1"></i> Publish
+          </button>
+        </div>
+      </div>
+
+      <!-- EXCEL SPREADSHEET VIEW TABLE -->
+      <div class="official-card rounded-xl overflow-hidden border border-slate-900">
+        <div class="bg-slate-950 px-4 py-2.5 flex flex-wrap items-center justify-between gap-2 text-white">
+          <div class="flex items-center gap-2">
+            <i class="fa-solid fa-table-cells text-xs text-[#FF671F]"></i>
+            <span class="font-mono font-bold text-xs tracking-wider uppercase">
+              MASTER MEMBER REGISTRY — LIVE EXCEL SPREADSHEET
+            </span>
+          </div>
+          <span class="text-[11px] font-mono text-slate-300">
+            Zero Dummy Data • Click "Login As" to enter any account
+          </span>
+        </div>
+
+        <div class="overflow-x-auto max-h-[520px]">
+          <table class="excel-table">
+            <thead>
+              <tr>
+                <th>S.No</th>
+                <th>Instant "Login As"</th>
+                <th>Status</th>
+                <th>Original Full Name (Chat Display)</th>
+                <th>Secondary Nickname</th>
+                <th>Organization / IGN</th>
+                <th>ID Tag</th>
+                <th>Country</th>
+                <th>DOB</th>
+                <th>Email ID</th>
+                <th>Generated User ID</th>
+                <th>Password</th>
+                <th>Registered On</th>
+                <th>Admin Actions</th>
+              </tr>
+            </thead>
+            <tbody id="adminExcelTableBody">
+              <!-- Populated dynamically with real Firebase users -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+    </section>
+
+  </main>
+
+  <!-- ==========================================================================
+       4. MODALS: REGISTRATION, LOGIN, ADMIN, MESSAGE INFO, STATUS, VIDEO & POLL
+       ========================================================================== -->
+
+  <!-- MODAL 1: MEMBER REGISTRATION (ORIGINAL FULL NAME + 2-STEP COPY GATE) -->
+  <div id="registerModal" class="fixed inset-0 z-50 hidden bg-slate-950/50 backdrop-blur-xs flex items-center justify-center p-4 overflow-y-auto">
+    <div class="mono-box rounded-2xl max-w-xl w-full p-5 sm:p-6 bg-white my-8 space-y-4">
+      <div class="flex items-center justify-between border-b border-slate-200 pb-3">
+        <div class="flex items-center gap-2.5">
+          <div class="w-9 h-9 rounded-lg bg-slate-950 text-white flex items-center justify-center text-sm">
+            <i class="fa-solid fa-id-card"></i>
+          </div>
+          <div>
+            <h3 class="font-display font-extrabold text-base sm:text-lg text-slate-950">Verified Member Registration</h3>
+            <p class="text-[11px] text-slate-500">Your <strong>Original Full Name</strong> will be displayed on all your Global Group Chat messages</p>
+          </div>
+        </div>
+        <button onclick="window.appUI.closeModal('registerModal')" class="w-7 h-7 rounded-lg bg-slate-100 hover:bg-rose-100 text-slate-600 hover:text-rose-700 text-xs">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+
+      <!-- STEP 1: FORM FIELDS -->
+      <div id="regStep1Form" class="space-y-3">
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
+          <div class="sm:col-span-2">
+            <label class="block font-bold text-slate-900 mb-1">Original Full Name (Displayed in Global Group Chat) *</label>
+            <input id="regFullName" type="text" placeholder="e.g., आदित्य राजपूत / Aditya Rajput" class="w-full px-3 py-2 rounded-lg bg-slate-50 border border-slate-300 font-semibold text-slate-900 focus:outline-none focus:border-slate-950" />
+          </div>
+          <div>
+            <label class="block font-bold text-slate-700 mb-1">Short Handle / Nickname *</label>
+            <input id="regNickname" type="text" placeholder="e.g., Aditya_IN" class="w-full px-3 py-2 rounded-lg bg-slate-50 border border-slate-300 font-medium focus:outline-none focus:border-slate-950" />
+          </div>
+          <div>
+            <label class="block font-bold text-slate-700 mb-1">Designation / IGN *</label>
+            <input id="regIgn" type="text" placeholder="e.g., Senior Researcher / Commander" class="w-full px-3 py-2 rounded-lg bg-slate-50 border border-slate-300 font-medium focus:outline-none focus:border-slate-950" />
+          </div>
+          <div>
+            <label class="block font-bold text-slate-700 mb-1">Reference / Player Tag *</label>
+            <input id="regPlayerTag" type="text" placeholder="e.g., #IND2026" class="w-full px-3 py-2 rounded-lg bg-slate-50 border border-slate-300 font-mono uppercase focus:outline-none focus:border-slate-950" />
+          </div>
+          <div>
+            <label class="block font-bold text-slate-700 mb-1">Email Address *</label>
+            <input id="regEmail" type="email" placeholder="e.g., member@outreach.org" class="w-full px-3 py-2 rounded-lg bg-slate-50 border border-slate-300 font-medium focus:outline-none focus:border-slate-950" />
+          </div>
+          <div>
+            <label class="block font-bold text-slate-700 mb-1">Date of Birth *</label>
+            <input id="regDob" type="date" class="w-full px-3 py-2 rounded-lg bg-slate-50 border border-slate-300 font-medium focus:outline-none focus:border-slate-950" />
+          </div>
+          <div>
+            <label class="block font-bold text-slate-700 mb-1">Country *</label>
+            <select id="regCountry" class="w-full px-3 py-2 rounded-lg bg-slate-50 border border-slate-300 font-bold text-slate-900 focus:outline-none focus:border-slate-950">
+              <option value="🇮🇳 India">🇮🇳 India</option>
+              <option value="🇺🇸 United States">🇺🇸 United States</option>
+              <option value="🇬🇧 United Kingdom">🇬🇧 United Kingdom</option>
+              <option value="🇯🇵 Japan">🇯🇵 Japan</option>
+              <option value="🇩🇪 Germany">🇩🇪 Germany</option>
+              <option value="🇨🇦 Canada">🇨🇦 Canada</option>
+              <option value="🇦🇺 Australia">🇦🇺 Australia</option>
+              <option value="🇫🇷 France">🇫🇷 France</option>
+              <option value="🇦🇪 UAE">🇦🇪 UAE</option>
+              <option value="🇸🇬 Singapore">🇸🇬 Singapore</option>
+            </select>
+          </div>
+        </div>
+
+        <button type="button" onclick="window.appUI.generateRegistrationCredentials()" class="w-full py-2.5 rounded-lg bg-slate-950 hover:bg-[#0B3D91] text-white font-bold text-xs transition flex items-center justify-center gap-2">
+          <i class="fa-solid fa-key text-[11px]"></i>
+          <span>Generate Official User ID & Password</span>
+        </button>
+      </div>
+
+      <!-- STEP 2: CREDENTIAL COPY & CONFIRMATION GATE -->
+      <div id="regStep2Credentials" class="hidden space-y-3 pt-3 border-t border-slate-300">
+        <div class="p-3.5 rounded-xl bg-slate-50 border border-slate-900 space-y-2.5">
+          <div class="flex items-center justify-between">
+            <span class="px-2 py-0.5 rounded bg-slate-900 text-white font-mono font-bold text-[10px] uppercase">
+              Mandatory Credential Backup
+            </span>
+            <span id="copyStatusBadge" class="text-[11px] font-bold text-rose-600">Step 1: Click Copy</span>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5 bg-white p-3 rounded-lg border border-slate-300">
+            <div>
+              <div class="text-[10px] font-mono text-slate-500 uppercase">Generated User ID</div>
+              <div id="genUserIdDisplay" class="font-mono font-extrabold text-sm text-[#0B3D91] select-all">NXC-0000</div>
+            </div>
+            <div>
+              <div class="text-[10px] font-mono text-slate-500 uppercase">Generated Password</div>
+              <div id="genPasswordDisplay" class="font-mono font-extrabold text-sm text-emerald-700 select-all">PASS-0000</div>
+            </div>
+          </div>
+
+          <button type="button" onclick="window.appUI.copyGeneratedCredentials()" class="w-full py-2 rounded-lg bg-[#0B3D91] hover:bg-slate-900 text-white font-bold text-xs transition flex items-center justify-center gap-1.5">
+            <i class="fa-regular fa-copy text-xs"></i>
+            <span>Copy User ID & Password</span>
+          </button>
+        </div>
+
+        <label class="flex items-center gap-2.5 p-2.5 rounded-lg bg-slate-100 border border-slate-300 cursor-pointer">
+          <input id="regConfirmCopiedCheckbox" onchange="window.appUI.toggleFinalRegisterButton()" type="checkbox" class="w-4 h-4 accent-slate-950 rounded cursor-pointer" />
+          <span class="text-xs font-bold text-slate-900">
+            I have copied and saved my User ID and Password safely.
+          </span>
+        </label>
+
+        <button id="btnFinalCompleteRegistration" disabled onclick="window.appUI.submitFinalRegistration()" class="w-full py-2.5 rounded-lg bg-slate-200 text-slate-400 font-bold text-xs transition flex items-center justify-center gap-1.5 cursor-not-allowed">
+          <i class="fa-solid fa-check-double"></i>
+          <span>Complete Registration & Enter Global Group Chat</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL 2: MEMBER LOGIN MODAL -->
+  <div id="loginModal" class="fixed inset-0 z-50 hidden bg-slate-950/50 backdrop-blur-xs flex items-center justify-center p-4">
+    <div class="mono-box rounded-2xl max-w-sm w-full p-5 bg-white space-y-4">
+      <div class="flex items-center justify-between border-b border-slate-200 pb-2.5">
+        <div class="flex items-center gap-2">
+          <div class="w-8 h-8 rounded-lg bg-slate-950 text-white flex items-center justify-center text-xs">
+            <i class="fa-solid fa-right-to-bracket"></i>
+          </div>
+          <div>
+            <h3 class="font-display font-extrabold text-base text-slate-950">Member Login</h3>
+            <p class="text-[10px] text-slate-500">Chat with your Verified Original Name</p>
+          </div>
+        </div>
+        <button onclick="window.appUI.closeModal('loginModal')" class="w-7 h-7 rounded-lg bg-slate-100 text-slate-600 text-xs">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+
+      <div class="space-y-3 text-xs">
+        <div>
+          <label class="block font-bold text-slate-700 mb-1">User ID</label>
+          <input id="loginUserIdInput" type="text" placeholder="e.g., NXC-IND-4829" class="w-full px-3 py-2 rounded-lg bg-slate-50 border border-slate-300 font-mono font-bold focus:outline-none focus:border-slate-950" />
+        </div>
+        <div>
+          <label class="block font-bold text-slate-700 mb-1">Password</label>
+          <input id="loginPasswordInput" type="password" placeholder="Enter your password" class="w-full px-3 py-2 rounded-lg bg-slate-50 border border-slate-300 font-mono font-bold focus:outline-none focus:border-slate-950" />
+        </div>
+        <button onclick="window.appUI.loginStandardUser()" class="w-full py-2.5 rounded-lg bg-slate-950 hover:bg-[#0B3D91] text-white font-bold text-xs transition">
+          Authorize & Open Global Group Chat
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL 3: SUPER ADMIN PORTAL LOGIN (AryanRajput / 63876890) -->
+  <div id="adminLoginModal" class="fixed inset-0 z-50 hidden bg-slate-950/50 backdrop-blur-xs flex items-center justify-center p-4">
+    <div class="mono-box rounded-2xl max-w-sm w-full p-5 bg-white space-y-4">
+      <div class="flex items-center justify-between border-b border-slate-200 pb-2.5">
+        <div class="flex items-center gap-2">
+          <div class="w-8 h-8 rounded-lg bg-[#0B3D91] text-white flex items-center justify-center text-xs">
+            <i class="fa-solid fa-user-shield"></i>
+          </div>
+          <div>
+            <h3 class="font-display font-extrabold text-base text-slate-950">Super Admin Console</h3>
+            <p class="text-[10px] text-slate-500">Master Excel Registry & Moderation</p>
+          </div>
+        </div>
+        <button onclick="window.appUI.closeModal('adminLoginModal')" class="w-7 h-7 rounded-lg bg-slate-100 text-slate-600 text-xs">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+
+      <div class="space-y-3 text-xs">
+        <div>
+          <label class="block font-bold text-slate-700 mb-1">Admin User ID</label>
+          <input id="adminLoginIdInput" type="text" placeholder="Enter Admin ID" class="w-full px-3 py-2 rounded-lg bg-slate-50 border border-slate-300 font-mono font-bold focus:outline-none focus:border-slate-950" />
+        </div>
+        <div>
+          <label class="block font-bold text-slate-700 mb-1">Admin Master Password</label>
+          <input id="adminLoginPassInput" type="password" placeholder="Enter Master Password" class="w-full px-3 py-2 rounded-lg bg-slate-50 border border-slate-300 font-mono font-bold focus:outline-none focus:border-slate-950" />
+        </div>
+        <button onclick="window.appUI.loginSuperAdmin()" class="w-full py-2.5 rounded-lg bg-[#0B3D91] hover:bg-slate-950 text-white font-bold text-xs transition flex items-center justify-center gap-1.5">
+          <i class="fa-solid fa-unlock-keyhole text-[11px]"></i>
+          <span>Open Admin Excel Dashboard</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL 4: ADMIN DIRECT ADD / EDIT USER CREDENTIALS -->
+  <div id="adminUserEditorModal" class="fixed inset-0 z-50 hidden bg-slate-950/50 backdrop-blur-xs flex items-center justify-center p-4 overflow-y-auto">
+    <div class="mono-box rounded-2xl max-w-lg w-full p-5 bg-white my-8 space-y-3">
+      <div class="flex items-center justify-between border-b border-slate-200 pb-2.5">
+        <h3 id="adminEditorModalTitle" class="font-display font-extrabold text-base text-slate-950">
+          Edit Member Record
+        </h3>
+        <button onclick="window.appUI.closeModal('adminUserEditorModal')" class="w-7 h-7 rounded-lg bg-slate-100 text-slate-600 text-xs">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+
+      <input type="hidden" id="editUserFirebaseKey" />
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5 text-xs">
+        <div class="sm:col-span-2">
+          <label class="font-bold text-slate-800">Original Full Name (Displayed in Chat)</label>
+          <input id="editFullName" type="text" class="w-full mt-1 px-3 py-1.5 rounded-lg bg-slate-50 border border-slate-300 font-bold" />
+        </div>
+        <div>
+          <label class="font-bold text-slate-700">Short Nickname</label>
+          <input id="editNickname" type="text" class="w-full mt-1 px-3 py-1.5 rounded-lg bg-slate-50 border border-slate-300" />
+        </div>
+        <div>
+          <label class="font-bold text-slate-700">Designation / IGN</label>
+          <input id="editIgn" type="text" class="w-full mt-1 px-3 py-1.5 rounded-lg bg-slate-50 border border-slate-300" />
+        </div>
+        <div>
+          <label class="font-bold text-slate-700">Reference Tag</label>
+          <input id="editPlayerTag" type="text" class="w-full mt-1 px-3 py-1.5 rounded-lg bg-slate-50 border border-slate-300 font-mono" />
+        </div>
+        <div>
+          <label class="font-bold text-slate-700">Email ID</label>
+          <input id="editEmail" type="email" class="w-full mt-1 px-3 py-1.5 rounded-lg bg-slate-50 border border-slate-300" />
+        </div>
+        <div>
+          <label class="font-bold text-slate-700">Date of Birth</label>
+          <input id="editDob" type="date" class="w-full mt-1 px-3 py-1.5 rounded-lg bg-slate-50 border border-slate-300" />
+        </div>
+        <div>
+          <label class="font-bold text-slate-700">Country</label>
+          <input id="editCountry" type="text" class="w-full mt-1 px-3 py-1.5 rounded-lg bg-slate-50 border border-slate-300" />
+        </div>
+        <div>
+          <label class="font-bold text-slate-700">Status</label>
+          <select id="editStatus" class="w-full mt-1 px-3 py-1.5 rounded-lg bg-slate-50 border border-slate-300 font-bold">
+            <option value="ACTIVE">ACTIVE</option>
+            <option value="SUSPENDED">SUSPENDED</option>
+            <option value="BANNED">BANNED</option>
+          </select>
+        </div>
+        <div>
+          <label class="font-bold text-[#0B3D91]">User ID</label>
+          <input id="editUserId" type="text" class="w-full mt-1 px-3 py-1.5 rounded-lg bg-blue-50 border border-blue-300 font-mono font-bold text-[#0B3D91]" />
+        </div>
+        <div>
+          <label class="font-bold text-emerald-800">Password</label>
+          <input id="editPassword" type="text" class="w-full mt-1 px-3 py-1.5 rounded-lg bg-emerald-50 border border-emerald-300 font-mono font-bold text-emerald-800" />
+        </div>
+      </div>
+
+      <button onclick="window.appUI.saveAdminUserEdit()" class="w-full py-2.5 rounded-lg bg-slate-950 hover:bg-[#0B3D91] text-white font-bold text-xs transition">
+        Save Member Record to Cloud
+      </button>
+    </div>
+  </div>
+
+  <!-- MODAL 5: WHATSAPP MESSAGE INFO DRAWER (DELIVERY, READ RECEIPT ✓✓, PACKET ID) -->
+  <div id="msgInfoModal" class="fixed inset-0 z-50 hidden bg-slate-950/50 backdrop-blur-xs flex items-center justify-center p-4">
+    <div class="mono-box rounded-2xl max-w-sm w-full p-5 bg-white space-y-3">
+      <div class="flex items-center justify-between border-b border-slate-200 pb-2">
+        <div class="flex items-center gap-2">
+          <i class="fa-solid fa-circle-info text-xs text-[#0B3D91]"></i>
+          <h3 class="font-display font-extrabold text-sm text-slate-950">WhatsApp Message Telemetry</h3>
+        </div>
+        <button onclick="window.appUI.closeModal('msgInfoModal')" class="w-6 h-6 rounded bg-slate-100 text-slate-600 text-xs">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+
+      <div class="p-3 rounded-xl bg-[#E8F8EE] border border-[#BBF7D0] text-xs space-y-1">
+        <div id="infoMsgSender" class="font-bold text-slate-950">Sender Full Name</div>
+        <div id="infoMsgText" class="text-slate-700 break-words">Message text...</div>
+      </div>
+
+      <div class="space-y-2 text-xs border-t border-slate-200 pt-2">
+        <div class="flex items-center justify-between">
+          <span class="font-semibold text-slate-500 flex items-center gap-1.5">
+            <i class="fa-solid fa-check-double text-sky-500"></i> Read / Seen Status
+          </span>
+          <span class="font-mono font-bold text-emerald-700">✓✓ Seen in Global Stream</span>
+        </div>
+        <div class="flex items-center justify-between">
+          <span class="font-semibold text-slate-500">Delivered Timestamp</span>
+          <span id="infoMsgTime" class="font-mono font-bold text-slate-800">---</span>
+        </div>
+        <div class="flex items-center justify-between">
+          <span class="font-semibold text-slate-500">Sender User ID</span>
+          <span id="infoMsgUserId" class="font-mono text-slate-700">---</span>
+        </div>
+        <div class="flex items-center justify-between">
+          <span class="font-semibold text-slate-500">Cloud Packet ID</span>
+          <span id="infoMsgPacket" class="font-mono text-[10px] text-slate-500">---</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL 6: INSTAGRAM-STYLE OUTREACH STATUS POST / VIEWER MODAL -->
+  <div id="statusModal" class="fixed inset-0 z-50 hidden bg-slate-950/50 backdrop-blur-xs flex items-center justify-center p-4">
+    <div class="mono-box rounded-2xl max-w-sm w-full p-5 bg-white space-y-3">
+      <div class="flex items-center justify-between border-b border-slate-200 pb-2">
+        <h3 class="font-display font-extrabold text-sm text-slate-950">
+          <i class="fa-solid fa-bolt text-[#FF671F] mr-1"></i> Post Outreach Status Highlight
+        </h3>
+        <button onclick="window.appUI.closeModal('statusModal')" class="w-6 h-6 rounded bg-slate-100 text-slate-600 text-xs">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+      <div class="space-y-2.5 text-xs">
+        <input id="statusTextInput" type="text" placeholder="Share a brief 24h outreach update or announcement..." class="w-full px-3 py-2 rounded-lg bg-slate-50 border border-slate-300 font-medium focus:outline-none focus:border-slate-950" />
+        <button onclick="window.appUI.publishStatusUpdate()" class="w-full py-2 rounded-lg bg-slate-950 hover:bg-[#0B3D91] text-white font-bold text-xs">
+          Publish Status to Top Bar
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL 7: LIVE VIDEO CONFERENCE BRIDGE -->
+  <div id="videoCallModal" class="fixed inset-0 z-50 hidden bg-slate-950/50 backdrop-blur-xs flex items-center justify-center p-4">
+    <div class="mono-box rounded-2xl max-w-2xl w-full p-5 bg-white space-y-4">
+      <div class="flex items-center justify-between border-b border-slate-200 pb-2.5">
+        <div class="flex items-center gap-2">
+          <span class="w-8 h-8 rounded-lg bg-slate-950 text-emerald-400 flex items-center justify-center text-xs">
+            <i class="fa-solid fa-video"></i>
+          </span>
+          <div>
+            <h3 class="font-display font-extrabold text-sm text-slate-950">Outreach Live Video Conference Room</h3>
+            <p class="text-[10px] text-slate-500">WebRTC Camera Feed & Global Chat Invite</p>
+          </div>
+        </div>
+        <button onclick="window.appUI.stopVideoCallAndClose()" class="px-2.5 py-1 rounded bg-rose-50 text-rose-700 border border-rose-200 font-bold text-xs">
+          Close
+        </button>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+        <div class="rounded-xl bg-slate-950 p-2 flex flex-col items-center justify-center min-h-[200px] relative overflow-hidden">
+          <video id="localVideoElement" autoplay muted playsinline class="w-full h-44 object-cover rounded-lg bg-slate-900"></video>
+          <span class="absolute bottom-3 left-3 px-2 py-0.5 rounded bg-black/70 text-white font-mono text-[10px]">
+            Local Camera Stream
+          </span>
+        </div>
+        <div class="rounded-xl bg-slate-50 border border-slate-200 p-4 flex flex-col items-center justify-center min-h-[200px] text-center space-y-2">
+          <i class="fa-solid fa-satellite-dish text-2xl text-[#0B3D91]"></i>
+          <div class="font-bold text-xs text-slate-900">Ready to Broadcast Video Invite</div>
+          <p class="text-[11px] text-slate-500">
+            Activate your camera and post an instant Join Room link with your Original Name in the Global Group Chat.
+          </p>
+        </div>
+      </div>
+
+      <div class="flex items-center justify-center gap-2">
+        <button onclick="window.appUI.startLocalVideoStream()" class="px-4 py-2 rounded-lg bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs flex items-center gap-1.5">
+          <i class="fa-solid fa-camera text-[11px]"></i> Start Camera & Send Invite
+        </button>
+        <button onclick="window.appUI.stopVideoCallAndClose()" class="px-4 py-2 rounded-lg bg-rose-600 hover:bg-rose-700 text-white font-bold text-xs flex items-center gap-1.5">
+          <i class="fa-solid fa-phone-slash text-[11px]"></i> End Stream
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL 8: LIVE POLL CREATOR -->
+  <div id="pollModal" class="fixed inset-0 z-50 hidden bg-slate-950/50 backdrop-blur-xs flex items-center justify-center p-4">
+    <div class="mono-box rounded-2xl max-w-sm w-full p-5 bg-white space-y-3">
+      <div class="flex items-center justify-between border-b border-slate-200 pb-2">
+        <h3 class="font-display font-extrabold text-sm text-slate-950">
+          <i class="fa-solid fa-square-poll-vertical text-[#0B3D91] mr-1"></i> Create Global Group Poll
+        </h3>
+        <button onclick="window.appUI.closeModal('pollModal')" class="w-6 h-6 rounded bg-slate-100 text-slate-600 text-xs">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+      <div class="space-y-2.5 text-xs">
+        <div>
+          <label class="font-bold text-slate-700">Poll Question</label>
+          <input id="pollQuestionInput" type="text" placeholder="Enter question..." class="w-full mt-1 px-3 py-1.5 rounded-lg bg-slate-50 border border-slate-300" />
+        </div>
+        <div>
+          <label class="font-bold text-slate-700">Option 1</label>
+          <input id="pollOpt1Input" type="text" placeholder="Option 1" class="w-full mt-1 px-3 py-1.5 rounded-lg bg-slate-50 border border-slate-300" />
+        </div>
+        <div>
+          <label class="font-bold text-slate-700">Option 2</label>
+          <input id="pollOpt2Input" type="text" placeholder="Option 2" class="w-full mt-1 px-3 py-1.5 rounded-lg bg-slate-50 border border-slate-300" />
+        </div>
+        <div>
+          <label class="font-bold text-slate-700">Option 3 (Optional)</label>
+          <input id="pollOpt3Input" type="text" placeholder="Option 3" class="w-full mt-1 px-3 py-1.5 rounded-lg bg-slate-50 border border-slate-300" />
+        </div>
+        <button onclick="window.appUI.publishPollMessage()" class="w-full py-2 rounded-lg bg-slate-950 hover:bg-[#0B3D91] text-white font-bold text-xs">
+          Publish Poll to Chat
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL 9: VERIFIED MEMBER IDENTITY CARD MODAL -->
+  <div id="profileInspectModal" class="fixed inset-0 z-50 hidden bg-slate-950/50 backdrop-blur-xs flex items-center justify-center p-4">
+    <div class="mono-box rounded-2xl max-w-sm w-full p-5 bg-white space-y-3">
+      <div class="flex items-center justify-between border-b border-slate-200 pb-2.5">
+        <div class="flex items-center gap-2.5">
+          <div id="inspectAvatar" class="w-10 h-10 rounded-xl bg-slate-950 text-white font-bold text-sm flex items-center justify-center">
+            U
+          </div>
+          <div>
+            <h3 id="inspectFullName" class="font-display font-extrabold text-sm text-slate-950">Original Full Name</h3>
+            <p id="inspectCountry" class="text-[11px] font-semibold text-slate-600">🇮🇳 India</p>
+          </div>
+        </div>
+        <button onclick="window.appUI.closeModal('profileInspectModal')" class="w-6 h-6 rounded bg-slate-100 text-slate-600 text-xs">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+
+      <div class="text-xs space-y-1.5 bg-slate-50 p-3 rounded-xl border border-slate-200">
+        <div class="flex justify-between">
+          <span class="text-slate-500 font-medium">Short Handle:</span>
+          <span id="inspectNickname" class="font-bold text-slate-900">---</span>
+        </div>
+        <div class="flex justify-between">
+          <span class="text-slate-500 font-medium">Designation / IGN:</span>
+          <span id="inspectIgn" class="font-bold text-[#0B3D91]">---</span>
+        </div>
+        <div class="flex justify-between items-center">
+          <span class="text-slate-500 font-medium">Reference Tag:</span>
+          <div>
+            <span id="inspectPlayerTag" class="font-mono font-bold text-slate-900">#0000</span>
+            <button onclick="window.appUI.copyInspectedTag()" class="ml-1.5 px-1.5 py-0.5 rounded bg-slate-200 hover:bg-slate-300 text-[10px] font-bold">
+              Copy
+            </button>
+          </div>
+        </div>
+        <div class="flex justify-between">
+          <span class="text-slate-500 font-medium">Official User ID:</span>
+          <span id="inspectUserId" class="font-mono font-bold text-slate-700">---</span>
+        </div>
+        <div class="flex justify-between">
+          <span class="text-slate-500 font-medium">Status:</span>
+          <span id="inspectStatus" class="px-1.5 py-0.5 rounded bg-emerald-100 text-emerald-800 font-mono font-bold text-[10px]">ACTIVE</span>
+        </div>
+      </div>
+
+      <button onclick="window.appUI.mentionInspectedUser()" class="w-full py-2 rounded-lg bg-slate-950 hover:bg-[#0B3D91] text-white font-bold text-xs flex items-center justify-center gap-1.5">
+        <i class="fa-solid fa-at text-[11px]"></i>
+        <span>@Mention in Global Chat</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- MODAL 10: HD IMAGE LIGHTBOX PREVIEW -->
+  <div id="imageLightboxModal" onclick="window.appUI.closeModal('imageLightboxModal')" class="fixed inset-0 z-50 hidden bg-slate-950/80 backdrop-blur-xs flex items-center justify-center p-4 cursor-zoom-out">
+    <div class="bg-white rounded-xl p-2 border border-slate-300 max-w-3xl max-h-[88vh] flex flex-col items-center">
+      <img id="lightboxImageTarget" src="" alt="Preview" class="max-h-[78vh] w-auto rounded-lg object-contain" />
+      <span class="mt-1.5 text-[11px] font-mono text-slate-600">Click anywhere to close</span>
+    </div>
+  </div>
+
+  <!-- TOAST NOTIFICATION CONTAINER -->
+  <div id="toastContainer" class="fixed bottom-4 right-4 z-50 space-y-1.5 max-w-xs w-full pointer-events-none"></div>
+
+  <!-- ==========================================================================
+       5. OFFICIAL COMPACT FOOTER
+       ========================================================================== -->
+  <footer class="mt-8 bg-white border-t border-slate-200 py-4">
+    <div class="max-w-[1440px] mx-auto px-3 sm:px-6 flex flex-col sm:flex-row items-center justify-between gap-2 text-[11px] font-medium text-slate-500">
+      <div class="flex items-center gap-2">
+        <span class="w-5 h-5 rounded bg-slate-950 text-white flex items-center justify-center font-mono font-bold text-[10px]">N</span>
+        <span class="text-slate-800 font-bold">IIRS-NexaComm Outreach Portal</span>
+        <span>•</span>
+        <span>Real-Name Global Group Chat Architecture</span>
+      </div>
+      <div class="flex items-center gap-3 font-mono text-[10px]">
+        <span>Monochrome + ISRO Precision UI</span>
+        <span>•</span>
+        <span class="text-emerald-700 font-bold">Firebase Cloud: web-development-303a6</span>
+      </div>
+    </div>
+  </footer>
+<!-- END OF PART 2 -->
+<!-- START OF PART 3 (Continues directly after END OF PART 2) -->
+
+  <!-- ==========================================================================
+       6. COMPLETE FIREBASE & WHATSAPP + ISRO OUTREACH ENGINE (ZERO DUMMY DATA)
+       ========================================================================== -->
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+    import { getAnalytics, isSupported } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-analytics.js";
+    import {
+      getDatabase,
+      ref,
+      set,
+      update,
+      remove,
+      onValue
+    } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-database.js";
+
+    // ==========================================================================
+    // FIREBASE CONFIGURATION (web-development-303a6)
+    // ==========================================================================
+    const firebaseConfig = {
+      apiKey: "AIzaSyAOAM2b7CHC24MuVyuB56hUSIaaIHzgWCA",
+      authDomain: "web-development-303a6.firebaseapp.com",
+      databaseURL: "https://web-development-303a6-default-rtdb.firebaseio.com",
+      projectId: "web-development-303a6",
+      storageBucket: "web-development-303a6.firebasestorage.app",
+      messagingSenderId: "842616754155",
+      appId: "1:842616754155:web:563849693e421ef24713ae",
+      measurementId: "G-MYS6N3NB0K"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    isSupported().then((yes) => { if (yes) getAnalytics(app); }).catch(() => {});
+    const db = getDatabase(app);
+
+    // ==========================================================================
+    // SUPER ADMIN MASTER CREDENTIALS
+    // ==========================================================================
+    const SUPER_ADMIN_CREDENTIALS = {
+      userid: "AryanRajput",
+      password: "63876890",
+      fullName: "Aryan Rajput",
+      nickname: "Aryan_Admin",
+      ign: "Chief_Director",
+      playerTag: "#ADMIN01",
+      country: "🇮🇳 India",
+      role: "ADMIN"
+    };
+
+    // Legacy Dummy Keys to Auto-Filter & Purge
+    const LEGACY_DUMMY_USER_KEYS = ["demo_user_1", "demo_user_2", "demo_user_3"];
+    const LEGACY_DUMMY_MSG_KEYS = ["msg_seed_1", "msg_seed_2"];
+
+    // ==========================================================================
+    // APPLICATION STATE (100% CLEAN — ZERO DUMMY SEEDING)
+    // ==========================================================================
+    const state = {
+      usersMap: {},
+      messagesMap: {},
+      storiesMap: {},
+      pinnedMessage: null,
+      chatLockedByAdmin: false,
+      currentUser: null,
+      isImpersonating: false,
+      backupAdminSession: null,
+      activeChannel: "GLOBAL", // 'GLOBAL' | 'ADMIN_DESK' | 'AI_BOT'
+      filterStarredOnly: false,
+      replyTo: null,           // { id, senderFullName, snippet }
+      editingMsgId: null,      // message ID currently being edited
+      pendingRegistration: null,
+      mediaRecorder: null,
+      audioChunks: [],
+      isRecordingVoice: false,
+      localVideoStream: null,
+      inspectedUserObj: null,
+      typingTimeout: null
+    };
+
+    const LS_USERS_KEY = "nexacomm_v5_clean_users";
+    const LS_MSGS_KEY = "nexacomm_v5_clean_msgs";
+    const LS_SESSION_KEY = "nexacomm_v5_active_session";
+
+    // ==========================================================================
+    // LIVE IST / UTC SATELLITE TELEMETRY CLOCK
+    // ==========================================================================
+    function startTelemetryClock() {
+      const clockEl = document.getElementById("liveIstClock");
+      if (!clockEl) return;
+      const updateClock = () => {
+        const now = new Date();
+        const istStr = now.toLocaleTimeString("en-IN", {
+          timeZone: "Asia/Kolkata",
+          hour12: false,
+          hour: "2-digit",
+          minute: "2-digit",
+          second: "2-digit"
+        });
+        const utcStr = now.toISOString().slice(11, 19);
+        clockEl.textContent = `IST: ${istStr} | UTC: ${utcStr}`;
+      };
+      updateClock();
+      setInterval(updateClock, 1000);
+    }
+
+    // ==========================================================================
+    // HELPER UTILITIES & TOAST NOTIFICATIONS
+    // ==========================================================================
+    function showToast(message, type = "info") {
+      const container = document.getElementById("toastContainer");
+      if (!container) return;
+
+      const styles = {
+        info: "bg-slate-950 text-white border-slate-800",
+        success: "bg-emerald-950 text-emerald-100 border-emerald-700",
+        warning: "bg-amber-950 text-amber-100 border-amber-700",
+        error: "bg-rose-950 text-rose-100 border-rose-700"
+      };
+      const icons = {
+        info: "fa-circle-info text-sky-400",
+        success: "fa-check-double text-emerald-400",
+        warning: "fa-triangle-exclamation text-amber-400",
+        error: "fa-circle-xmark text-rose-400"
+      };
+
+      const toast = document.createElement("div");
+      toast.className = `pointer-events-auto p-3 rounded-xl border shadow-md flex items-start gap-2.5 transition-all duration-200 ${styles[type] || styles.info}`;
+      toast.innerHTML = `
+        <i class="fa-solid ${icons[type] || icons.info} text-xs mt-0.5"></i>
+        <div class="flex-1 text-[11px] font-semibold leading-snug">${escapeHtml(message)}</div>
+      `;
+      container.appendChild(toast);
+
+      setTimeout(() => {
+        toast.style.opacity = "0";
+        toast.style.transform = "translateY(6px)";
+        setTimeout(() => toast.remove(), 220);
+      }, 3200);
+    }
+
+    function escapeHtml(str) {
+      if (str === null || str === undefined) return "";
+      return String(str)
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#039;");
+    }
+
+    // WhatsApp Markdown Formatter (*bold*, _italic_, ~strike~, `code`)
+    function formatWhatsAppText(raw) {
+      let safe = escapeHtml(raw);
+      safe = safe.replace(/\*([^*]+)\*/g, '<strong class="font-extrabold text-slate-950">$1</strong>');
+      safe = safe.replace(/_([^_]+)_/g, '<em class="italic">$1</em>');
+      safe = safe.replace(/~([^~]+)~/g, '<del class="line-through opacity-75">$1</del>');
+      safe = safe.replace(/`([^`]+)`/g, '<code class="px-1.5 py-0.5 rounded bg-slate-200/80 font-mono text-[11px] text-[#0B3D91]">$1</code>');
+      safe = safe.replace(/@([A-Za-z0-9_\u0900-\u097F ]+)/g, '<span class="px-1 rounded bg-blue-100 text-[#0B3D91] font-bold">@$1</span>');
+      return safe;
+    }
+
+    function formatTimeShort(ts) {
+      if (!ts) return "";
+      const d = new Date(ts);
+      return d.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit", hour12: true });
+    }
+
+    function formatDateSeparator(ts) {
+      if (!ts) return "Today";
+      const d = new Date(ts);
+      const today = new Date();
+      if (d.toDateString() === today.toDateString()) return "TODAY";
+      return d.toLocaleDateString("en-IN", { day: "2-digit", month: "short", year: "numeric" }).toUpperCase();
+    }
+
+    function formatFullTimestamp(ts) {
+      if (!ts) return "---";
+      const d = new Date(ts);
+      return d.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit", second: "2-digit" }) + " • " + d.toLocaleDateString("en-IN", { day: "2-digit", month: "short", year: "numeric" });
+    }
+
+    // ==========================================================================
+    // FIREBASE REALTIME DATABASE SYNC (WITH AUTOMATIC DUMMY DATA STRIPPING)
+    // ==========================================================================
+    function stripDummyRecords(mapObj, dummyKeys) {
+      if (!mapObj) return {};
+      const cleaned = {};
+      Object.keys(mapObj).forEach((k) => {
+        if (!dummyKeys.includes(k)) {
+          cleaned[k] = mapObj[k];
+        }
+      });
+      return cleaned;
+    }
+
+    function initRealtimeDatabaseSync() {
+      startTelemetryClock();
+
+      try {
+        const cachedUsers = JSON.parse(localStorage.getItem(LS_USERS_KEY) || "{}");
+        const cachedMsgs = JSON.parse(localStorage.getItem(LS_MSGS_KEY) || "{}");
+        state.usersMap = stripDummyRecords(cachedUsers, LEGACY_DUMMY_USER_KEYS);
+        state.messagesMap = stripDummyRecords(cachedMsgs, LEGACY_DUMMY_MSG_KEYS);
+      } catch (e) {
+        state.usersMap = {};
+        state.messagesMap = {};
+      }
+
+      // Restore active user session if present
+      try {
+        const savedSession = JSON.parse(localStorage.getItem(LS_SESSION_KEY) || "null");
+        if (savedSession && savedSession.currentUser) {
+          state.currentUser = savedSession.currentUser;
+          state.isImpersonating = !!savedSession.isImpersonating;
+          state.backupAdminSession = savedSession.backupAdminSession || null;
+        }
+      } catch (e) {}
+
+      updateHeaderSessionUI();
+      refreshAllViews();
+
+      // 1. Listen to Users Node (Automatically removes legacy dummy users)
+      const usersRef = ref(db, "nexacomm/users");
+      onValue(usersRef, (snapshot) => {
+        const data = snapshot.val() || {};
+        LEGACY_DUMMY_USER_KEYS.forEach((dummyKey) => {
+          if (data[dummyKey]) {
+            remove(ref(db, `nexacomm/users/${dummyKey}`)).catch(() => {});
+            delete data[dummyKey];
+          }
+        });
+        state.usersMap = data;
+        localStorage.setItem(LS_USERS_KEY, JSON.stringify(state.usersMap));
+        refreshAllViews();
+      });
+
+      // 2. Listen to Messages Node (Automatically removes legacy dummy messages)
+      const msgsRef = ref(db, "nexacomm/messages");
+      onValue(msgsRef, (snapshot) => {
+        const data = snapshot.val() || {};
+        LEGACY_DUMMY_MSG_KEYS.forEach((dummyKey) => {
+          if (data[dummyKey]) {
+            remove(ref(db, `nexacomm/messages/${dummyKey}`)).catch(() => {});
+            delete data[dummyKey];
+          }
+        });
+        state.messagesMap = data;
+        localStorage.setItem(LS_MSGS_KEY, JSON.stringify(state.messagesMap));
+        refreshAllViews();
+      });
+
+      // 3. Listen to Broadcast Bulletin
+      onValue(ref(db, "nexacomm/broadcast"), (snapshot) => {
+        const val = snapshot.val();
+        if (val && val.text) {
+          const ticker = document.getElementById("globalBroadcastTicker");
+          if (ticker) ticker.textContent = val.text;
+        }
+      });
+
+      // 4. Listen to Pinned Chat Message
+      onValue(ref(db, "nexacomm/pinnedMessage"), (snapshot) => {
+        state.pinnedMessage = snapshot.val() || null;
+        renderPinnedBanner();
+      });
+
+      // 5. Listen to Admin Chat Lock State
+      onValue(ref(db, "nexacomm/chatLock"), (snapshot) => {
+        const val = snapshot.val();
+        state.chatLockedByAdmin = !!(val && val.locked);
+        updateChatLockUI();
+      });
+
+      // 6. Listen to Instagram-Style Outreach Stories
+      onValue(ref(db, "nexacomm/stories"), (snapshot) => {
+        state.storiesMap = snapshot.val() || {};
+        renderOutreachStories();
+      });
+
+      // 7. Listen to Live Typing Indicator
+      onValue(ref(db, "nexacomm/typing"), (snapshot) => {
+        const val = snapshot.val();
+        const presenceEl = document.getElementById("livePresenceIndicator");
+        if (!presenceEl) return;
+        if (val && val.fullName && Date.now() - val.timestamp < 3500 && (!state.currentUser || val.userId !== state.currentUser.userId)) {
+          presenceEl.innerHTML = `<strong class="text-emerald-700">${escapeHtml(val.fullName)} is typing...</strong>`;
+        } else {
+          presenceEl.textContent = "Verified Original Names • Double-Tick (✓✓) Sync Active";
+        }
+      });
+    }
+
+    function purgeLegacyDummyData() {
+      LEGACY_DUMMY_USER_KEYS.forEach((k) => {
+        delete state.usersMap[k];
+        remove(ref(db, `nexacomm/users/${k}`)).catch(() => {});
+      });
+      LEGACY_DUMMY_MSG_KEYS.forEach((k) => {
+        delete state.messagesMap[k];
+        remove(ref(db, `nexacomm/messages/${k}`)).catch(() => {});
+      });
+      localStorage.setItem(LS_USERS_KEY, JSON.stringify(state.usersMap));
+      localStorage.setItem(LS_MSGS_KEY, JSON.stringify(state.messagesMap));
+      refreshAllViews();
+      showToast("All legacy dummy records have been permanently purged from Cloud & Local cache.", "success");
+    }
+
+    function persistUserRecord(key, userObj) {
+      state.usersMap[key] = userObj;
+      localStorage.setItem(LS_USERS_KEY, JSON.stringify(state.usersMap));
+      set(ref(db, `nexacomm/users/${key}`), userObj).catch(() => {});
+      refreshAllViews();
+    }
+
+    function deleteUserRecordFromCloud(key) {
+      delete state.usersMap[key];
+      localStorage.setItem(LS_USERS_KEY, JSON.stringify(state.usersMap));
+      remove(ref(db, `nexacomm/users/${key}`)).catch(() => {});
+      refreshAllViews();
+    }
+
+    function persistMessageRecord(msgId, msgObj) {
+      state.messagesMap[msgId] = msgObj;
+      localStorage.setItem(LS_MSGS_KEY, JSON.stringify(state.messagesMap));
+      set(ref(db, `nexacomm/messages/${msgId}`), msgObj).catch(() => {});
+      refreshAllViews();
+    }
+
+    function saveSessionState() {
+      localStorage.setItem(LS_SESSION_KEY, JSON.stringify({
+        currentUser: state.currentUser,
+        isImpersonating: state.isImpersonating,
+        backupAdminSession: state.backupAdminSession
+      }));
+    }
+
+    // ==========================================================================
+    // UI REFRESH & TELEMETRY COUNTERS
+    // ==========================================================================
+    function refreshAllViews() {
+      const usersList = Object.values(state.usersMap);
+      const msgsList = Object.values(state.messagesMap);
+
+      const navUsers = document.getElementById("navStatUsers");
+      const navMsgs = document.getElementById("navStatMsgs");
+      if (navUsers) navUsers.textContent = usersList.length;
+      if (navMsgs) navMsgs.textContent = msgsList.length;
+
+      const kpiTotal = document.getElementById("adminKpiTotal");
+      const kpiActive = document.getElementById("adminKpiActive");
+      const kpiSusp = document.getElementById("adminKpiSuspended");
+      const kpiBan = document.getElementById("adminKpiBanned");
+      const kpiMsgs = document.getElementById("adminKpiMessages");
+
+      if (kpiTotal) kpiTotal.textContent = usersList.length;
+      if (kpiActive) kpiActive.textContent = usersList.filter(u => (u.status || "ACTIVE") === "ACTIVE").length;
+      if (kpiSusp) kpiSusp.textContent = usersList.filter(u => u.status === "SUSPENDED").length;
+      if (kpiBan) kpiBan.textContent = usersList.filter(u => u.status === "BANNED").length;
+      if (kpiMsgs) kpiMsgs.textContent = msgsList.length;
+
+      renderAdminExcelTable();
+      renderSidebarMembers();
+      populateAdminTicketDropdown();
+      renderMessages();
+      renderOutreachStories();
+    }
+
+    // ==========================================================================
+    // INSTAGRAM-STYLE OUTREACH STORIES / STATUS HIGHLIGHTS
+    // ==========================================================================
+    function publishStatusUpdate() {
+      if (!state.currentUser) {
+        showToast("Please Login or Register first to post an Outreach Status Highlight.", "warning");
+        closeModal("statusModal");
+        openModal("loginModal");
+        return;
+      }
+      const input = document.getElementById("statusTextInput");
+      const text = input?.value.trim();
+      if (!text) {
+        showToast("Please enter a short status update text.", "warning");
+        return;
+      }
+      const id = "story_" + Date.now();
+      const storyObj = {
+        id,
+        fullName: state.currentUser.fullName || state.currentUser.nickname,
+        country: state.currentUser.country || "🇮🇳 India",
+        text,
+        timestamp: Date.now()
+      };
+      state.storiesMap[id] = storyObj;
+      set(ref(db, `nexacomm/stories/${id}`), storyObj).catch(() => {});
+      input.value = "";
+      closeModal("statusModal");
+      renderOutreachStories();
+      showToast("Status update published to the top Outreach Ring!", "success");
+    }
+
+    function renderOutreachStories() {
+      const strip = document.getElementById("outreachStoriesStrip");
+      if (!strip) return;
+
+      const stories = Object.values(state.storiesMap).sort((a, b) => (b.timestamp || 0) - (a.timestamp || 0)).slice(0, 12);
+
+      const addBtnHtml = `
+        <button onclick="window.appUI.openModal('statusModal')" class="flex flex-col items-center gap-1 shrink-0 group">
+          <div class="w-11 h-11 rounded-full border-2 border-dashed border-slate-400 group-hover:border-slate-900 flex items-center justify-center bg-slate-50 text-slate-700 transition">
+            <i class="fa-solid fa-plus text-xs"></i>
+          </div>
+          <span class="text-[10px] font-semibold text-slate-700">Post Update</span>
+        </button>
+      `;
+
+      const storiesHtml = stories.map((s) => {
+        const initial = (s.fullName || "M").charAt(0).toUpperCase();
+        return `
+          <button onclick="window.appUI.viewStoryToast('${escapeHtml(s.fullName)}', '${escapeHtml(s.text)}')" class="flex flex-col items-center gap-1 shrink-0 group">
+            <div class="ig-ring">
+              <div class="w-10 h-10 rounded-full bg-slate-950 text-white font-bold text-xs flex items-center justify-center border-2 border-white">
+                ${escapeHtml(initial)}
+              </div>
+            </div>
+            <span class="text-[10px] font-bold text-slate-800 max-w-[68px] truncate">${escapeHtml(s.fullName)}</span>
+          </button>
+        `;
+      }).join("");
+
+      strip.innerHTML = addBtnHtml + storiesHtml;
+    }
+
+    function viewStoryToast(author, text) {
+      showToast(`${author}: "${text}"`, "info");
+    }
+
+    // ==========================================================================
+    // 2-STEP MEMBER REGISTRATION (ORIGINAL FULL NAME + CREDENTIAL COPY GATE)
+    // ==========================================================================
+    function generateRegistrationCredentials() {
+      const fullName = document.getElementById("regFullName").value.trim();
+      const nickname = document.getElementById("regNickname").value.trim();
+      const ign = document.getElementById("regIgn").value.trim();
+      let playerTag = document.getElementById("regPlayerTag").value.trim().toUpperCase();
+      const email = document.getElementById("regEmail").value.trim();
+      const dob = document.getElementById("regDob").value.trim();
+      const country = document.getElementById("regCountry").value;
+
+      if (!fullName || !nickname || !ign || !playerTag || !email || !dob) {
+        showToast("Please complete all required fields, especially your Original Full Name.", "warning");
+        return;
+      }
+
+      if (!playerTag.startsWith("#")) {
+        playerTag = "#" + playerTag;
+        document.getElementById("regPlayerTag").value = playerTag;
+      }
+
+      const countryCode = (country.split(" ")[1] || "GLB").substring(0, 3).toUpperCase();
+      const randDigits = Math.floor(1000 + Math.random() * 9000);
+      const generatedUserId = `NXC-${countryCode}-${randDigits}`;
+
+      const chars = "ABCDEFGHJKLMNPQRSTUVWXYZ23456789";
+      let randomMid = "";
+      for (let i = 0; i < 4; i++) {
+        randomMid += chars.charAt(Math.floor(Math.random() * chars.length));
+      }
+      const prefix = fullName.replace(/[^a-zA-Z]/g, "").substring(0, 2).toUpperCase() || "ID";
+      const generatedPassword = `${prefix}@${randomMid}#${randDigits.toString().substring(0, 2)}`;
+
+      state.pendingRegistration = {
+        key: "user_" + Date.now(),
+        fullName,
+        nickname,
+        ign,
+        playerTag,
+        email,
+        dob,
+        country,
+        userId: generatedUserId,
+        password: generatedPassword,
+        status: "ACTIVE",
+        createdAt: Date.now()
+      };
+
+      document.getElementById("genUserIdDisplay").textContent = generatedUserId;
+      document.getElementById("genPasswordDisplay").textContent = generatedPassword;
+      document.getElementById("copyStatusBadge").textContent = "Step 1: Click Copy";
+      document.getElementById("copyStatusBadge").className = "text-[11px] font-bold text-rose-600";
+
+      const checkbox = document.getElementById("regConfirmCopiedCheckbox");
+      checkbox.checked = false;
+      toggleFinalRegisterButton();
+
+      document.getElementById("regStep2Credentials").classList.remove("hidden");
+      showToast("Credentials generated! Copy them and tick the confirmation box.", "info");
+    }
+
+    function copyGeneratedCredentials() {
+      if (!state.pendingRegistration) return;
+      const textToCopy = `IIRS-NexaComm Official Credentials\nOriginal Name: ${state.pendingRegistration.fullName}\nUser ID: ${state.pendingRegistration.userId}\nPassword: ${state.pendingRegistration.password}`;
+
+      navigator.clipboard.writeText(textToCopy).catch(() => {});
+      const badge = document.getElementById("copyStatusBadge");
+      badge.textContent = "✓ Copied!";
+      badge.className = "text-[11px] font-bold text-emerald-700 bg-emerald-100 px-2 py-0.5 rounded";
+
+      showToast("User ID & Password copied to clipboard!", "success");
+      toggleFinalRegisterButton();
+    }
+
+    function toggleFinalRegisterButton() {
+      const checkbox = document.getElementById("regConfirmCopiedCheckbox");
+      const btn = document.getElementById("btnFinalCompleteRegistration");
+      if (!checkbox || !btn) return;
+
+      if (checkbox.checked) {
+        btn.disabled = false;
+        btn.className = "w-full py-2.5 rounded-lg bg-[#008069] hover:bg-slate-950 text-white font-bold text-xs transition flex items-center justify-center gap-1.5 cursor-pointer";
+      } else {
+        btn.disabled = true;
+        btn.className = "w-full py-2.5 rounded-lg bg-slate-200 text-slate-400 font-bold text-xs transition flex items-center justify-center gap-1.5 cursor-not-allowed";
+      }
+    }
+
+    function submitFinalRegistration() {
+      const checkbox = document.getElementById("regConfirmCopiedCheckbox");
+      if (!state.pendingRegistration || !checkbox.checked) {
+        showToast("Please copy your credentials and tick the confirmation checkbox.", "warning");
+        return;
+      }
+
+      const newUser = state.pendingRegistration;
+      persistUserRecord(newUser.key, newUser);
+
+      // Auto-login user immediately into Global Group Chat
+      state.currentUser = {
+        ...newUser,
+        role: "USER"
+      };
+      state.isImpersonating = false;
+      state.backupAdminSession = null;
+      saveSessionState();
+      updateHeaderSessionUI();
+
+      // Clear form
+      document.getElementById("regFullName").value = "";
+      document.getElementById("regNickname").value = "";
+      document.getElementById("regIgn").value = "";
+      document.getElementById("regPlayerTag").value = "";
+      document.getElementById("regEmail").value = "";
+      document.getElementById("regDob").value = "";
+      document.getElementById("regStep2Credentials").classList.add("hidden");
+
+      closeModal("registerModal");
+      openGlobalChatDirect();
+
+      showToast(`Welcome, ${newUser.fullName}! You are now logged in with your Verified Original Name.`, "success");
+      state.pendingRegistration = null;
+    }
+
+    // ==========================================================================
+    // LOGIN, SUPER ADMIN AUTHENTICATION & SESSION MANAGEMENT
+    // ==========================================================================
+    function loginStandardUser() {
+      const inputId = document.getElementById("loginUserIdInput").value.trim();
+      const inputPass = document.getElementById("loginPasswordInput").value.trim();
+
+      if (!inputId || !inputPass) {
+        showToast("Please enter both your User ID and Password.", "warning");
+        return;
+      }
+
+      if (inputId === SUPER_ADMIN_CREDENTIALS.userid && inputPass === SUPER_ADMIN_CREDENTIALS.password) {
+        completeAdminLogin();
+        closeModal("loginModal");
+        return;
+      }
+
+      const matchedUser = Object.values(state.usersMap).find(
+        (u) => u.userId && u.userId.toLowerCase() === inputId.toLowerCase() && u.password === inputPass
+      );
+
+      if (!matchedUser) {
+        showToast("Invalid User ID or Password.", "error");
+        return;
+      }
+
+      if (matchedUser.status === "BANNED") {
+        showToast("ACCESS DENIED: This account has been BANNED by Super Admin.", "error");
+        return;
+      }
+
+      if (matchedUser.status === "SUSPENDED") {
+        showToast("ACCOUNT SUSPENDED: Please contact Admin Support Desk.", "warning");
+        return;
+      }
+
+      state.currentUser = {
+        ...matchedUser,
+        role: "USER"
+      };
+      state.isImpersonating = false;
+      state.backupAdminSession = null;
+      saveSessionState();
+
+      updateHeaderSessionUI();
+      closeModal("loginModal");
+      openGlobalChatDirect();
+      showToast(`Logged in as ${matchedUser.fullName}.`, "success");
+    }
+
+    function loginSuperAdmin() {
+      const adminId = document.getElementById("adminLoginIdInput").value.trim();
+      const adminPass = document.getElementById("adminLoginPassInput").value.trim();
+
+      if (adminId === SUPER_ADMIN_CREDENTIALS.userid && adminPass === SUPER_ADMIN_CREDENTIALS.password) {
+        completeAdminLogin();
+        closeModal("adminLoginModal");
+      } else {
+        showToast("Invalid Super Admin credentials.", "error");
+      }
+    }
+
+    function completeAdminLogin() {
+      state.currentUser = {
+        key: "SUPER_ADMIN",
+        userId: SUPER_ADMIN_CREDENTIALS.userid,
+        fullName: SUPER_ADMIN_CREDENTIALS.fullName,
+        nickname: SUPER_ADMIN_CREDENTIALS.nickname,
+        ign: SUPER_ADMIN_CREDENTIALS.ign,
+        playerTag: SUPER_ADMIN_CREDENTIALS.playerTag,
+        country: SUPER_ADMIN_CREDENTIALS.country,
+        role: "ADMIN",
+        status: "ACTIVE"
+      };
+      state.isImpersonating = false;
+      state.backupAdminSession = null;
+      saveSessionState();
+
+      updateHeaderSessionUI();
+      switchMainView("admin");
+      showToast("Super Admin Console Unlocked (Aryan Rajput).", "success");
+    }
+
+    function logoutSession() {
+      state.currentUser = null;
+      state.isImpersonating = false;
+      state.backupAdminSession = null;
+      localStorage.removeItem(LS_SESSION_KEY);
+
+      updateHeaderSessionUI();
+      renderMessages();
+      showToast("Logged out. You can still view Global Group Chat in Public Guest Mode.", "info");
+    }
+
+    function updateHeaderSessionUI() {
+      const guestControls = document.getElementById("guestAuthControls");
+      const activeControls = document.getElementById("activeSessionControls");
+      const btnReturnAdmin = document.getElementById("btnReturnToAdmin");
+      const avatar = document.getElementById("sessionAvatar");
+      const dispName = document.getElementById("sessionDisplayName");
+      const roleTag = document.getElementById("sessionRoleTag");
+      const composerName = document.getElementById("composerActiveRealName");
+      const guestBanner = document.getElementById("guestChatBanner");
+      const btnAdminLock = document.getElementById("btnAdminChatLock");
+
+      if (!state.currentUser) {
+        guestControls.classList.remove("hidden");
+        activeControls.classList.add("hidden");
+        activeControls.classList.remove("flex");
+        btnReturnAdmin.classList.add("hidden");
+        btnReturnAdmin.classList.remove("flex");
+        if (composerName) composerName.textContent = "Guest (Public Read-Only — Click Login to Chat)";
+        if (guestBanner) {
+          guestBanner.classList.remove("hidden");
+          guestBanner.classList.add("flex");
+        }
+        if (btnAdminLock) {
+          btnAdminLock.classList.add("hidden");
+          btnAdminLock.classList.remove("flex");
+        }
+        return;
+      }
+
+      guestControls.classList.add("hidden");
+      activeControls.classList.remove("hidden");
+      activeControls.classList.add("flex");
+
+      const originalName = state.currentUser.fullName || state.currentUser.nickname || "Member";
+      dispName.textContent = originalName;
+      avatar.textContent = originalName.charAt(0).toUpperCase();
+      if (composerName) composerName.textContent = `${originalName} (${state.currentUser.country || "🇮🇳 India"})`;
+      if (guestBanner) {
+        guestBanner.classList.add("hidden");
+        guestBanner.classList.remove("flex");
+      }
+
+      if (state.currentUser.role === "ADMIN") {
+        roleTag.textContent = "SUPER ADMIN • AryanRajput";
+        avatar.className = "w-6 h-6 rounded-full bg-[#0B3D91] text-white font-bold text-[11px] flex items-center justify-center";
+        if (btnAdminLock) {
+          btnAdminLock.classList.remove("hidden");
+          btnAdminLock.classList.add("flex");
+        }
+      } else {
+        roleTag.textContent = `${state.currentUser.userId}`;
+        avatar.className = "w-6 h-6 rounded-full bg-slate-900 text-white font-bold text-[11px] flex items-center justify-center";
+        if (btnAdminLock) {
+          btnAdminLock.classList.add("hidden");
+          btnAdminLock.classList.remove("flex");
+        }
+      }
+
+      if (state.isImpersonating) {
+        btnReturnAdmin.classList.remove("hidden");
+        btnReturnAdmin.classList.add("flex");
+      } else {
+        btnReturnAdmin.classList.add("hidden");
+        btnReturnAdmin.classList.remove("flex");
+      }
+    }
+
+    function handleSessionBadgeClick() {
+      if (!state.currentUser) return;
+      if (state.currentUser.role === "ADMIN") {
+        switchMainView("admin");
+      } else {
+        inspectUserProfile(state.currentUser.key);
+      }
+    }
+
+    // ==========================================================================
+    // SUPER ADMIN EXCEL TABLE & 1-CLICK "LOGIN AS"
+    // ==========================================================================
+    function renderAdminExcelTable() {
+      const tbody = document.getElementById("adminExcelTableBody");
+      if (!tbody) return;
+
+      const query = (document.getElementById("adminExcelSearchInput")?.value || "").toLowerCase().trim();
+      const statusFilter = document.getElementById("adminExcelStatusFilter")?.value || "ALL";
+
+      const users = Object.values(state.usersMap).sort((a, b) => (b.createdAt || 0) - (a.createdAt || 0));
+
+      const filtered = users.filter((u) => {
+        const st = u.status || "ACTIVE";
+        if (statusFilter !== "ALL" && st !== statusFilter) return false;
+        if (!query) return true;
+        const hay = `${u.fullName} ${u.nickname} ${u.ign} ${u.playerTag} ${u.email} ${u.userId} ${u.country}`.toLowerCase();
+        return hay.includes(query);
+      });
+
+      if (filtered.length === 0) {
+        tbody.innerHTML = `
+          <tr>
+            <td colspan="14" class="text-center py-8 text-slate-500 font-semibold text-xs">
+              No registered members yet (100% Clean Registry — Zero Dummy Data). Click "+ Add Member" or Register from the top bar.
+            </td>
+          </tr>
+        `;
+        return;
+      }
+
+      tbody.innerHTML = filtered.map((u, idx) => {
+        const status = u.status || "ACTIVE";
+        const statusBadge =
+          status === "ACTIVE"
+            ? `<span class="px-2 py-0.5 rounded bg-emerald-100 text-emerald-900 font-mono font-bold text-[10px]">● ACTIVE</span>`
+            : status === "SUSPENDED"
+            ? `<span class="px-2 py-0.5 rounded bg-amber-100 text-amber-900 font-mono font-bold text-[10px]">◐ SUSPENDED</span>`
+            : `<span class="px-2 py-0.5 rounded bg-rose-100 text-rose-900 font-mono font-bold text-[10px]">✖ BANNED</span>`;
+
+        return `
+          <tr>
+            <td class="font-mono font-bold text-slate-500 text-center">${idx + 1}</td>
+            <td>
+              <button onclick="window.appUI.adminLoginAsUser('${u.key}')" class="px-2.5 py-1 rounded bg-slate-950 hover:bg-[#0B3D91] text-white font-bold text-[11px] flex items-center gap-1 transition" title="Instant 1-Click Login As ${escapeHtml(u.fullName)}">
+                <i class="fa-solid fa-bolt text-amber-400 text-[10px]"></i>
+                <span>Login As</span>
+              </button>
+            </td>
+            <td>${statusBadge}</td>
+            <td class="font-extrabold text-slate-950">${escapeHtml(u.fullName)}</td>
+            <td class="font-medium text-slate-600">${escapeHtml(u.nickname)}</td>
+            <td class="font-semibold text-[#0B3D91]">${escapeHtml(u.ign)}</td>
+            <td><span class="font-mono font-bold text-slate-800 bg-slate-100 px-1.5 py-0.5 rounded">${escapeHtml(u.playerTag)}</span></td>
+            <td>${escapeHtml(u.country)}</td>
+            <td class="font-mono text-[11px]">${escapeHtml(u.dob || "---")}</td>
+            <td class="text-slate-600">${escapeHtml(u.email)}</td>
+            <td><span class="font-mono font-bold text-[#0B3D91] select-all">${escapeHtml(u.userId)}</span></td>
+            <td><span class="font-mono font-bold text-emerald-700 select-all">${escapeHtml(u.password)}</span></td>
+            <td class="text-[11px] text-slate-500">${formatTimeShort(u.createdAt)}</td>
+            <td>
+              <div class="flex items-center gap-1">
+                <button onclick="window.appUI.openAdminEditUserModal('${u.key}')" class="px-2 py-0.5 rounded bg-slate-100 hover:bg-slate-200 text-slate-800 font-bold text-[11px]">Edit</button>
+                ${
+                  status !== "SUSPENDED"
+                    ? `<button onclick="window.appUI.setUserStatus('${u.key}', 'SUSPENDED')" class="px-2 py-0.5 rounded bg-amber-100 hover:bg-amber-200 text-amber-900 font-bold text-[11px]">Suspend</button>`
+                    : `<button onclick="window.appUI.setUserStatus('${u.key}', 'ACTIVE')" class="px-2 py-0.5 rounded bg-emerald-100 hover:bg-emerald-200 text-emerald-900 font-bold text-[11px]">Activate</button>`
+                }
+                ${
+                  status !== "BANNED"
+                    ? `<button onclick="window.appUI.setUserStatus('${u.key}', 'BANNED')" class="px-2 py-0.5 rounded bg-rose-100 hover:bg-rose-200 text-rose-900 font-bold text-[11px]">Ban</button>`
+                    : `<button onclick="window.appUI.setUserStatus('${u.key}', 'ACTIVE')" class="px-2 py-0.5 rounded bg-emerald-100 hover:bg-emerald-200 text-emerald-900 font-bold text-[11px]">Unban</button>`
+                }
+                <button onclick="window.appUI.deleteUserByAdmin('${u.key}')" class="px-2 py-0.5 rounded bg-slate-100 hover:bg-rose-600 hover:text-white text-slate-600 font-bold text-[11px]">
+                  <i class="fa-solid fa-trash text-[10px]"></i>
+                </button>
+              </div>
+            </td>
+          </tr>
+        `;
+      }).join("");
+    }
+
+    function adminLoginAsUser(userKey) {
+      const targetUser = state.usersMap[userKey];
+      if (!targetUser) return;
+
+      state.backupAdminSession = {
+        key: "SUPER_ADMIN",
+        userId: SUPER_ADMIN_CREDENTIALS.userid,
+        fullName: SUPER_ADMIN_CREDENTIALS.fullName,
+        nickname: SUPER_ADMIN_CREDENTIALS.nickname,
+        ign: SUPER_ADMIN_CREDENTIALS.ign,
+        playerTag: SUPER_ADMIN_CREDENTIALS.playerTag,
+        country: SUPER_ADMIN_CREDENTIALS.country,
+        role: "ADMIN",
+        status: "ACTIVE"
+      };
+
+      state.currentUser = {
+        ...targetUser,
+        role: "USER"
+      };
+      state.isImpersonating = true;
+      saveSessionState();
+
+      updateHeaderSessionUI();
+      openGlobalChatDirect();
+      showToast(`Switched into ${targetUser.fullName}'s session via Admin "Login As".`, "success");
+    }
+
+    function returnToAdminFromImpersonation() {
+      if (!state.backupAdminSession) {
+        completeAdminLogin();
+        return;
+      }
+      state.currentUser = state.backupAdminSession;
+      state.isImpersonating = false;
+      state.backupAdminSession = null;
+      saveSessionState();
+
+      updateHeaderSessionUI();
+      switchMainView("admin");
+      showToast("Returned to Super Admin Excel Registry.", "info");
+    }
+
+    function setUserStatus(userKey, newStatus) {
+      const u = state.usersMap[userKey];
+      if (!u) return;
+      u.status = newStatus;
+      persistUserRecord(userKey, u);
+      showToast(`Status for ${u.fullName} set to ${newStatus}.`, "info");
+    }
+
+    function deleteUserByAdmin(userKey) {
+      const u = state.usersMap[userKey];
+      if (!u) return;
+      deleteUserRecordFromCloud(userKey);
+      showToast(`Deleted member record: ${u.fullName}.`, "warning");
+    }
+
+    function openAdminAddUserModal() {
+      document.getElementById("adminEditorModalTitle").textContent = "Direct Add Verified Member";
+      document.getElementById("editUserFirebaseKey").value = "";
+      document.getElementById("editFullName").value = "";
+      document.getElementById("editNickname").value = "";
+      document.getElementById("editIgn").value = "";
+      document.getElementById("editPlayerTag").value = "#IND";
+      document.getElementById("editEmail").value = "";
+      document.getElementById("editDob").value = "2005-01-01";
+      document.getElementById("editCountry").value = "🇮🇳 India";
+      document.getElementById("editStatus").value = "ACTIVE";
+      document.getElementById("editUserId").value = "NXC-IND-" + Math.floor(1000 + Math.random() * 9000);
+      document.getElementById("editPassword").value = "PASS@" + Math.floor(1000 + Math.random() * 9000);
+      openModal("adminUserEditorModal");
+    }
+
+    function openAdminEditUserModal(userKey) {
+      const u = state.usersMap[userKey];
+      if (!u) return;
+      document.getElementById("adminEditorModalTitle").textContent = `Edit Member: ${u.fullName}`;
+      document.getElementById("editUserFirebaseKey").value = u.key;
+      document.getElementById("editFullName").value = u.fullName || "";
+      document.getElementById("editNickname").value = u.nickname || "";
+      document.getElementById("editIgn").value = u.ign || "";
+      document.getElementById("editPlayerTag").value = u.playerTag || "";
+      document.getElementById("editEmail").value = u.email || "";
+      document.getElementById("editDob").value = u.dob || "";
+      document.getElementById("editCountry").value = u.country || "🇮🇳 India";
+      document.getElementById("editStatus").value = u.status || "ACTIVE";
+      document.getElementById("editUserId").value = u.userId || "";
+      document.getElementById("editPassword").value = u.password || "";
+      openModal("adminUserEditorModal");
+    }
+
+    function saveAdminUserEdit() {
+      const existingKey = document.getElementById("editUserFirebaseKey").value.trim();
+      const key = existingKey || "user_" + Date.now();
+      const existingObj = state.usersMap[key] || {};
+
+      const fullName = document.getElementById("editFullName").value.trim();
+      if (!fullName) {
+        showToast("Original Full Name is required.", "warning");
+        return;
+      }
+
+      const updatedUser = {
+        ...existingObj,
+        key,
+        fullName,
+        nickname: document.getElementById("editNickname").value.trim() || fullName.split(" ")[0],
+        ign: document.getElementById("editIgn").value.trim() || "Member",
+        playerTag: document.getElementById("editPlayerTag").value.trim() || "#0000",
+        email: document.getElementById("editEmail").value.trim() || "---",
+        dob: document.getElementById("editDob").value.trim() || "2005-01-01",
+        country: document.getElementById("editCountry").value.trim() || "🇮🇳 India",
+        status: document.getElementById("editStatus").value,
+        userId: document.getElementById("editUserId").value.trim(),
+        password: document.getElementById("editPassword").value.trim(),
+        createdAt: existingObj.createdAt || Date.now()
+      };
+
+      persistUserRecord(key, updatedUser);
+      closeModal("adminUserEditorModal");
+      showToast(`Saved member record for ${updatedUser.fullName}.`, "success");
+    }
+
+    function exportUsersToCSV() {
+      const users = Object.values(state.usersMap);
+      if (!users.length) {
+        showToast("No registered members to export.", "warning");
+        return;
+      }
+
+      const headers = ["S.No", "Status", "Original Full Name", "Nickname", "Designation/IGN", "Tag", "Country", "DOB", "Email", "User ID", "Password"];
+      const rows = users.map((u, i) => [
+        i + 1,
+        u.status || "ACTIVE",
+        `"${(u.fullName || "").replace(/"/g, '""')}"`,
+        `"${(u.nickname || "").replace(/"/g, '""')}"`,
+        `"${(u.ign || "").replace(/"/g, '""')}"`,
+        `"${(u.playerTag || "").replace(/"/g, '""')}"`,
+        `"${(u.country || "").replace(/"/g, '""')}"`,
+        u.dob || "",
+        u.email || "",
+        u.userId || "",
+        u.password || ""
+      ]);
+
+      const csvContent = "data:text/csv;charset=utf-8," + [headers.join(","), ...rows.map(r => r.join(","))].join("\n");
+      const link = document.createElement("a");
+      link.setAttribute("href", encodeURI(csvContent));
+      link.setAttribute("download", `Outreach_Verified_Members_${new Date().toISOString().slice(0, 10)}.csv`);
+      document.body.appendChild(link);
+      link.click();
+      link.remove();
+      showToast("Excel CSV downloaded.", "success");
+    }
+
+    function updateGlobalBroadcast() {
+      const input = document.getElementById("adminBroadcastInput");
+      if (!input || !input.value.trim()) return;
+      const text = input.value.trim();
+      document.getElementById("globalBroadcastTicker").textContent = text;
+      set(ref(db, "nexacomm/broadcast"), { text, updatedAt: Date.now() }).catch(() => {});
+      input.value = "";
+      showToast("Official Top Bulletin updated.", "success");
+    }
+
+    // ==========================================================================
+    // WHATSAPP ENGINE: ORIGINAL FULL NAME DISPLAY, DOUBLE BLUE TICKS (✓✓),
+    // REPLY, LIVE EDIT, DELETE FOR EVERYONE, PIN, STAR & VOICE SPEED
+    // ==========================================================================
+    function renderSidebarMembers() {
+      const listEl = document.getElementById("sidebarMembersList");
+      const countEl = document.getElementById("sidebarMemberCount");
+      if (!listEl) return;
+
+      const users = Object.values(state.usersMap);
+      if (countEl) countEl.textContent = users.length;
+
+      if (users.length === 0) {
+        listEl.innerHTML = `
+          <div class="p-3 rounded-lg bg-slate-50 border border-slate-200 text-center text-[11px] text-slate-500">
+            No members registered yet. Register to appear in the Verified Directory.
+          </div>
+        `;
+        return;
+      }
+
+      listEl.innerHTML = users.map((u) => {
+        const dot = (u.status || "ACTIVE") === "ACTIVE" ? "bg-emerald-500" : "bg-rose-500";
+        const displayFull = u.fullName || u.nickname || "Member";
+        return `
+          <div onclick="window.appUI.inspectUserProfile('${u.key}')" class="cursor-pointer p-2 rounded-lg bg-slate-50 hover:bg-slate-100 border border-slate-200 flex items-center justify-between transition">
+            <div class="flex items-center gap-2 min-w-0">
+              <div class="relative shrink-0">
+                <div class="w-7 h-7 rounded-full bg-slate-900 text-white font-bold text-[11px] flex items-center justify-center">
+                  ${escapeHtml(displayFull.charAt(0).toUpperCase())}
+                </div>
+                <span class="w-2 h-2 rounded-full ${dot} border border-white absolute -bottom-0.5 -right-0.5"></span>
+              </div>
+              <div class="truncate">
+                <div class="text-xs font-bold text-slate-950 truncate">${escapeHtml(displayFull)}</div>
+                <div class="text-[10px] text-slate-500 truncate">${escapeHtml(u.country)} • ${escapeHtml(u.ign)}</div>
+              </div>
+            </div>
+            <i class="fa-solid fa-angle-right text-[10px] text-slate-400"></i>
+          </div>
+        `;
+      }).join("");
+    }
+
+    function populateAdminTicketDropdown() {
+      const box = document.getElementById("adminSupportInboxBox");
+      const select = document.getElementById("adminSelectedTicketUser");
+      if (!box || !select) return;
+
+      if (state.currentUser && state.currentUser.role === "ADMIN" && state.activeChannel === "ADMIN_DESK") {
+        box.classList.remove("hidden");
+        const currVal = select.value;
+        const users = Object.values(state.usersMap);
+        select.innerHTML = `<option value="ALL">All Direct Member Threads (${users.length})</option>` +
+          users.map(u => `<option value="${u.userId}">${escapeHtml(u.fullName || u.nickname)} (${escapeHtml(u.userId)})</option>`).join("");
+        if ([...select.options].some(o => o.value === currVal)) {
+          select.value = currVal;
+        }
+      } else {
+        box.classList.add("hidden");
+      }
+    }
+
+    function switchChatChannel(channel) {
+      state.activeChannel = channel;
+
+      const btnGlobal = document.getElementById("tabBtnGlobal");
+      const btnAdmin = document.getElementById("tabBtnAdminDesk");
+      const btnAi = document.getElementById("tabBtnAiBot");
+
+      const title = document.getElementById("chatHeaderTitle");
+      const badge = document.getElementById("chatHeaderBadge");
+      const icon = document.getElementById("chatHeaderIcon");
+
+      btnGlobal.className = "w-full p-2.5 rounded-lg text-left flex items-center justify-between bg-white hover:bg-slate-50 text-slate-900 border border-slate-200 transition";
+      btnAdmin.className = "w-full p-2.5 rounded-lg text-left flex items-center justify-between bg-white hover:bg-slate-50 text-slate-900 border border-slate-200 transition";
+      btnAi.className = "w-full p-2.5 rounded-lg text-left flex items-center justify-between bg-white hover:bg-slate-50 text-slate-900 border border-slate-200 transition";
+
+      if (channel === "GLOBAL") {
+        btnGlobal.className = "w-full p-2.5 rounded-lg text-left flex items-center justify-between bg-slate-950 text-white transition";
+        title.textContent = "Global Group Chat";
+        badge.textContent = "PUBLIC STREAM";
+        icon.innerHTML = `<i class="fa-brands fa-whatsapp"></i>`;
+      } else if (channel === "ADMIN_DESK") {
+        btnAdmin.className = "w-full p-2.5 rounded-lg text-left flex items-center justify-between bg-[#0B3D91] text-white transition";
+        title.textContent = "Direct Admin Support Desk (Aryan Rajput)";
+        badge.textContent = "1-ON-1 VIP";
+        icon.innerHTML = `<i class="fa-solid fa-user-shield"></i>`;
+      } else if (channel === "AI_BOT") {
+        btnAi.className = "w-full p-2.5 rounded-lg text-left flex items-center justify-between bg-slate-900 text-white transition";
+        title.textContent = "Outreach Command Bot";
+        badge.textContent = "AI TELEMETRY";
+        icon.innerHTML = `<i class="fa-solid fa-microchip"></i>`;
+      }
+
+      populateAdminTicketDropdown();
+      renderMessages();
+    }
+
+    function handleTypingPulse() {
+      if (!state.currentUser) return;
+      if (state.typingTimeout) clearTimeout(state.typingTimeout);
+      state.typingTimeout = setTimeout(() => {
+        set(ref(db, "nexacomm/typing"), {
+          userId: state.currentUser.userId,
+          fullName: state.currentUser.fullName || state.currentUser.nickname,
+          timestamp: Date.now()
+        }).catch(() => {});
+      }, 150);
+    }
+
+    function insertFormatTag(symbol) {
+      const input = document.getElementById("chatMessageInput");
+      if (!input) return;
+      const start = input.selectionStart;
+      const end = input.selectionEnd;
+      const val = input.value;
+      const selected = val.substring(start, end) || "text";
+      input.value = val.substring(0, start) + `${symbol}${selected}${symbol}` + val.substring(end);
+      input.focus();
+    }
+
+    function changeGlobalChatFont(fontCls) {
+      const container = document.getElementById("chatMessagesContainer");
+      if (!container) return;
+      container.classList.remove("chat-font-inter", "chat-font-jakarta", "chat-font-space", "chat-font-mono");
+      container.classList.add(fontCls);
+    }
+
+    function toggleStarredFilter() {
+      state.filterStarredOnly = !state.filterStarredOnly;
+      const btn = document.getElementById("btnFilterStarred");
+      if (btn) {
+        btn.className = state.filterStarredOnly
+          ? "px-2.5 py-1 rounded-lg bg-amber-400 text-slate-950 border border-slate-900 text-[11px] font-bold transition flex items-center gap-1"
+          : "px-2.5 py-1 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-800 border border-slate-300 text-[11px] font-bold transition flex items-center gap-1";
+      }
+      renderMessages();
+    }
+
+    function toggleAdminChatLock() {
+      if (!state.currentUser || state.currentUser.role !== "ADMIN") return;
+      const nextState = !state.chatLockedByAdmin;
+      state.chatLockedByAdmin = nextState;
+      set(ref(db, "nexacomm/chatLock"), { locked: nextState, updatedAt: Date.now() }).catch(() => {});
+      updateChatLockUI();
+      showToast(nextState ? "Group Chat locked (Only Admin can send messages)." : "Group Chat unlocked for all verified members.", "info");
+    }
+
+    function updateChatLockUI() {
+      const label = document.getElementById("chatLockLabel");
+      const btn = document.getElementById("btnAdminChatLock");
+      if (!label || !btn) return;
+      if (state.chatLockedByAdmin) {
+        label.textContent = "Admin Only";
+        btn.innerHTML = `<i class="fa-solid fa-lock text-[10px]"></i><span id="chatLockLabel">Admin Only</span>`;
+      } else {
+        btn.innerHTML = `<i class="fa-solid fa-lock-open text-[10px]"></i><span id="chatLockLabel">Open Chat</span>`;
+      }
+    }
+
+    function sendMessage(customPayload = null) {
+      if (!state.currentUser) {
+        showToast("Public Guest View: Please Login or Register to send messages with your Original Full Name!", "warning");
+        openModal("loginModal");
+        return;
+      }
+
+      if (state.chatLockedByAdmin && state.currentUser.role !== "ADMIN" && state.activeChannel === "GLOBAL") {
+        showToast("Broadcast Mode Active: Only Super Admin can send messages right now.", "warning");
+        return;
+      }
+
+      const input = document.getElementById("chatMessageInput");
+      const rawText = customPayload ? customPayload.text : input.value.trim();
+
+      if (!rawText && !customPayload) return;
+
+      // Handle Live Message Editing if active
+      if (state.editingMsgId && !customPayload) {
+        const targetMsg = state.messagesMap[state.editingMsgId];
+        if (targetMsg) {
+          targetMsg.text = rawText;
+          targetMsg.isEdited = true;
+          targetMsg.editedAt = Date.now();
+          persistMessageRecord(targetMsg.id, targetMsg);
+          showToast("Message edited.", "success");
+        }
+        cancelEditMessage();
+        input.value = "";
+        return;
+      }
+
+      const adminTicketTarget = document.getElementById("adminSelectedTicketUser")?.value || "ALL";
+      const threadOwnerId =
+        state.currentUser.role === "ADMIN"
+          ? adminTicketTarget
+          : state.currentUser.userId;
+
+      const senderFullName = state.currentUser.fullName || state.currentUser.nickname || "Verified Member";
+
+      const msgId = "msg_" + Date.now() + "_" + Math.floor(Math.random() * 1000);
+      const newMsg = {
+        id: msgId,
+        channel: state.activeChannel,
+        threadUserId: threadOwnerId,
+        senderKey: state.currentUser.key || "SUPER_ADMIN",
+        senderId: state.currentUser.userId,
+        senderFullName: senderFullName,
+        senderNickname: state.currentUser.nickname || senderFullName,
+        senderIgn: state.currentUser.ign || "Member",
+        senderTag: state.currentUser.playerTag || "#0000",
+        senderCountry: state.currentUser.country || "🇮🇳 India",
+        senderRole: state.currentUser.role || "USER",
+        text: rawText,
+        type: customPayload?.type || "TEXT",
+        imageUrl: customPayload?.imageUrl || null,
+        audioUrl: customPayload?.audioUrl || null,
+        docName: customPayload?.docName || null,
+        docDataUrl: customPayload?.docDataUrl || null,
+        pollData: customPayload?.pollData || null,
+        replyTo: state.replyTo || null,
+        starred: false,
+        isEdited: false,
+        deliveryStatus: "SEEN", // WhatsApp Double Blue Tick (✓✓)
+        timestamp: Date.now()
+      };
+
+      persistMessageRecord(msgId, newMsg);
+
+      if (!customPayload) {
+        input.value = "";
+      }
+      cancelReply();
+
+      if (state.activeChannel === "AI_BOT" || rawText.startsWith("/")) {
+        setTimeout(() => generateSmartBotReply(rawText), 450);
+      }
+    }
+
+    function generateSmartBotReply(userText) {
+      const clean = userText.trim().toLowerCase();
+      let replyText = "";
+
+      if (clean.startsWith("/help")) {
+        replyText = "Outreach Command Bot: Use *bold*, _italic_, ~strikethrough~, or `code` in your messages. Click Reply, Edit, Star, Info, or Delete on any message bubble.";
+      } else if (clean.startsWith("/id") && state.currentUser) {
+        replyText = `Verified Identity -> Full Name: *${state.currentUser.fullName}* | User ID: \`${state.currentUser.userId}\` | Country: ${state.currentUser.country}`;
+      } else {
+        replyText = `Telemetry Ack: "${userText}" — Packet verified & synced with WhatsApp Double-Tick (✓✓) confirmation.`;
+      }
+
+      const botMsgId = "msg_bot_" + Date.now();
+      const botMsg = {
+        id: botMsgId,
+        channel: state.activeChannel,
+        senderKey: "OUTREACH_BOT",
+        senderId: "IIRS-BOT-01",
+        senderFullName: "Outreach Command Bot",
+        senderNickname: "CommandBot",
+        senderIgn: "Automated Telemetry",
+        senderTag: "#SYSTEM",
+        senderCountry: "🇮🇳 ISRO/IIRS Grid",
+        senderRole: "BOT",
+        text: replyText,
+        type: "TEXT",
+        starred: false,
+        deliveryStatus: "SEEN",
+        timestamp: Date.now()
+      };
+
+      persistMessageRecord(botMsgId, botMsg);
+    }
+
+    function renderMessages() {
+      const container = document.getElementById("chatMessagesContainer");
+      if (!container) return;
+
+      const searchQuery = (document.getElementById("chatSearchFilter")?.value || "").toLowerCase().trim();
+      const adminFilterUser = document.getElementById("adminSelectedTicketUser")?.value || "ALL";
+
+      const allMsgs = Object.values(state.messagesMap).sort((a, b) => (a.timestamp || 0) - (b.timestamp || 0));
+
+      const filtered = allMsgs.filter((m) => {
+        const ch = m.channel || "GLOBAL";
+        if (ch !== state.activeChannel) return false;
+        if (state.filterStarredOnly && !m.starred) return false;
+
+        if (state.activeChannel === "ADMIN_DESK") {
+          if (state.currentUser?.role === "ADMIN") {
+            if (adminFilterUser !== "ALL" && m.threadUserId !== adminFilterUser && m.senderId !== adminFilterUser) {
+              return false;
+            }
+          } else if (state.currentUser) {
+            if (m.threadUserId !== state.currentUser.userId && m.senderId !== state.currentUser.userId && m.senderRole !== "ADMIN") {
+              return false;
+            }
+          }
+        }
+
+        if (searchQuery) {
+          const hay = `${m.text || ""} ${m.senderFullName || ""} ${m.senderNickname || ""} ${m.senderTag || ""}`.toLowerCase();
+          return hay.includes(searchQuery);
+        }
+        return true;
+      });
+
+      if (filtered.length === 0) {
+        container.innerHTML = `
+          <div class="h-full flex flex-col items-center justify-center text-center p-6">
+            <div class="w-12 h-12 rounded-2xl bg-white border border-slate-300 text-slate-900 flex items-center justify-center text-xl mb-2.5 shadow-2xs">
+              <i class="fa-brands fa-whatsapp text-emerald-600"></i>
+            </div>
+            <div class="px-3 py-1 rounded-full bg-white border border-slate-200 text-[11px] font-mono font-bold text-slate-700 mb-1">
+              END-TO-END VERIFIED REAL-NAME STREAM
+            </div>
+            <p class="text-xs text-slate-500 max-w-sm">
+              No messages in this stream yet. Send a message below to start the conversation with your Original Full Name & Double Blue Ticks (✓✓).
+            </p>
+          </div>
+        `;
+        return;
+      }
+
+      let lastDateLabel = "";
+      const htmlParts = [];
+
+      filtered.forEach((m) => {
+        const dateLabel = formatDateSeparator(m.timestamp);
+        if (dateLabel !== lastDateLabel) {
+          lastDateLabel = dateLabel;
+          htmlParts.push(`
+            <div class="flex justify-center my-2">
+              <span class="px-3 py-0.5 rounded-full bg-white/90 border border-slate-300 text-[10px] font-mono font-bold text-slate-600 shadow-2xs">
+                ${escapeHtml(dateLabel)}
+              </span>
+            </div>
+          `);
+        }
+
+        const isMe = state.currentUser && m.senderId === state.currentUser.userId;
+        const canModify = isMe || state.currentUser?.role === "ADMIN";
+        const bubbleClass = isMe ? "wa-bubble-out ml-auto" : "wa-bubble-in mr-auto";
+
+        // Prominent Original Full Name Display
+        const fullNameDisplay = m.senderFullName || m.senderNickname || "Verified Member";
+
+        // Role Badge
+        const roleBadgeHtml =
+          m.senderRole === "ADMIN"
+            ? `<span class="sender-admin-badge"><i class="fa-solid fa-shield-halved mr-1 text-[#FF671F]"></i>OFFICIAL ADMIN</span>`
+            : m.senderRole === "BOT"
+            ? `<span class="sender-admin-badge bg-[#0B3D91]">TELEMETRY BOT</span>`
+            : `<span class="text-[10px] font-mono font-semibold text-slate-500">${escapeHtml(m.senderCountry || "🇮🇳 India")} • ${escapeHtml(m.senderIgn || "")}</span>`;
+
+        // Quoted Reply Box (WhatsApp Style)
+        const replyHtml = m.replyTo
+          ? `<div class="mb-1.5 p-2 rounded-lg bg-black/5 border-l-4 border-[#0B3D91] text-[11px]">
+               <div class="font-bold text-[#0B3D91]">${escapeHtml(m.replyTo.senderFullName)}</div>
+               <div class="text-slate-600 truncate">${escapeHtml(m.replyTo.snippet)}</div>
+             </div>`
+          : "";
+
+        // Multimedia Content (Image, Voice with 1x/1.5x/2x Speed, Document, Poll)
+        let mediaHtml = "";
+        if (m.type === "IMAGE" && m.imageUrl) {
+          mediaHtml = `
+            <div class="mt-1.5">
+              <img onclick="window.appUI.openImageLightbox('${m.imageUrl}')" src="${m.imageUrl}" alt="Shared Photo" class="max-h-56 rounded-lg border border-slate-200 cursor-zoom-in hover:opacity-95 transition" />
+            </div>
+          `;
+        } else if (m.type === "VOICE" && m.audioUrl) {
+          const audioDomId = `audio_${m.id}`;
+          mediaHtml = `
+            <div class="mt-1.5 p-2 rounded-xl bg-white/90 border border-slate-200 flex items-center gap-2">
+              <i class="fa-solid fa-microphone-lines text-emerald-600 text-xs ml-1"></i>
+              <audio id="${audioDomId}" controls src="${m.audioUrl}" class="h-7 w-48 sm:w-56"></audio>
+              <button onclick="window.appUI.cycleAudioSpeed('${audioDomId}', this)" class="px-1.5 py-0.5 rounded bg-slate-900 text-white font-mono font-bold text-[10px] shrink-0" title="Playback Speed">
+                1x
+              </button>
+            </div>
+          `;
+        } else if (m.type === "DOCUMENT" && m.docName) {
+          mediaHtml = `
+            <div class="mt-1.5 p-2.5 rounded-xl bg-white border border-slate-200 flex items-center justify-between gap-3">
+              <div class="flex items-center gap-2 truncate">
+                <div class="w-8 h-8 rounded-lg bg-slate-900 text-white flex items-center justify-center text-xs shrink-0">
+                  <i class="fa-regular fa-file-lines"></i>
+                </div>
+                <div class="truncate">
+                  <div class="text-xs font-bold text-slate-900 truncate">${escapeHtml(m.docName)}</div>
+                  <div class="text-[10px] font-mono text-slate-500">Official Attachment</div>
+                </div>
+              </div>
+              ${
+                m.docDataUrl
+                  ? `<a href="${m.docDataUrl}" download="${escapeHtml(m.docName)}" class="px-2.5 py-1 rounded bg-slate-900 hover:bg-[#0B3D91] text-white font-bold text-[10px] shrink-0">Download</a>`
+                  : ""
+              }
+            </div>
+          `;
+        } else if (m.type === "POLL" && m.pollData) {
+          const opts = m.pollData.options || [];
+          const totalVotes = opts.reduce((acc, o) => acc + (o.votes || 0), 0) || 1;
+          mediaHtml = `
+            <div class="mt-1.5 p-3 rounded-xl bg-white border border-slate-200 space-y-1.5">
+              <div class="font-bold text-xs text-slate-950 flex items-center gap-1.5">
+                <i class="fa-solid fa-square-poll-vertical text-[#0B3D91]"></i>
+                <span>${escapeHtml(m.pollData.question)}</span>
+              </div>
+              ${opts.map((opt, idx) => {
+                const pct = Math.round(((opt.votes || 0) / totalVotes) * 100);
+                return `
+                  <button onclick="window.appUI.voteInPoll('${m.id}', ${idx})" class="w-full p-2 rounded-lg bg-slate-50 hover:bg-slate-100 border border-slate-200 text-left text-xs font-semibold flex items-center justify-between transition">
+                    <span>${escapeHtml(opt.label)}</span>
+                    <span class="font-mono font-bold text-[10px] text-[#0B3D91]">${opt.votes || 0} (${pct}%)</span>
+                  </button>
+                `;
+              }).join("")}
+            </div>
+          `;
+        }
+
+        // Edited & Starred Indicators
+        const editedBadge = m.isEdited ? `<span class="italic text-[10px] text-slate-400 mr-1">Edited</span>` : "";
+        const starIcon = m.starred
+          ? `<i class="fa-solid fa-star text-amber-500 text-[10px]"></i>`
+          : `<i class="fa-regular fa-star text-slate-400 hover:text-amber-500 text-[10px]"></i>`;
+
+        htmlParts.push(`
+          <div class="max-w-xl w-full p-3 ${bubbleClass} group transition">
+            
+            <!-- Header: Verified Original Full Name + Country/Role -->
+            <div class="flex flex-wrap items-center justify-between gap-2 mb-1 pb-1 border-b border-black/5">
+              <div class="flex items-center gap-2">
+                <button onclick="window.appUI.inspectUserProfile('${m.senderKey || ""}')" class="sender-name-badge hover:underline text-left">
+                  <span>${escapeHtml(fullNameDisplay)}</span>
+                  <i class="fa-solid fa-circle-check text-[10px] text-[#0B3D91]" title="Verified Original Name"></i>
+                </button>
+                ${roleBadgeHtml}
+              </div>
+
+              <!-- Compact WhatsApp Message Action Bar -->
+              <div class="flex items-center gap-2 text-[11px] text-slate-500">
+                <button onclick="window.appUI.setReplyTarget('${m.id}')" class="hover:text-slate-950 font-semibold flex items-center gap-0.5" title="Reply">
+                  <i class="fa-solid fa-reply text-[10px]"></i>
+                  <span class="text-[10px]">Reply</span>
+                </button>
+                <button onclick="window.appUI.toggleStarMessage('${m.id}')" title="Star / Bookmark Message">
+                  ${starIcon}
+                </button>
+                <button onclick="window.appUI.openMessageInfo('${m.id}')" class="hover:text-slate-950" title="Message Info & Read Receipt">
+                  <i class="fa-solid fa-circle-info text-[10px]"></i>
+                </button>
+                ${
+                  isMe && m.type === "TEXT"
+                    ? `<button onclick="window.appUI.startEditMessage('${m.id}')" class="hover:text-[#0B3D91]" title="Edit Message">
+                         <i class="fa-solid fa-pen text-[10px]"></i>
+                       </button>`
+                    : ""
+                }
+                ${
+                  state.currentUser?.role === "ADMIN"
+                    ? `<button onclick="window.appUI.pinMessageToTop('${m.id}')" class="hover:text-[#FF671F]" title="Pin Message to Top">
+                         <i class="fa-solid fa-thumbtack text-[10px]"></i>
+                       </button>`
+                    : ""
+                }
+                ${
+                  canModify
+                    ? `<button onclick="window.appUI.deleteMessage('${m.id}')" class="hover:text-rose-600" title="Delete for Everyone">
+                         <i class="fa-regular fa-trash-can text-[10px]"></i>
+                       </button>`
+                    : ""
+                }
+              </div>
+            </div>
+
+            ${replyHtml}
+
+            <!-- Formatted Message Text -->
+            <div class="text-xs sm:text-[13.5px] text-slate-900 leading-relaxed break-words">
+              ${formatWhatsAppText(m.text)}
+            </div>
+
+            ${mediaHtml}
+
+            <!-- Bottom Right WhatsApp Timestamp + Edited Tag + Double Blue Tick (✓✓) -->
+            <div class="mt-1 flex items-center justify-end gap-1 text-[10px] text-slate-500 select-none">
+              ${editedBadge}
+              <span class="font-mono">${formatTimeShort(m.timestamp)}</span>
+              <span class="inline-flex items-center text-[#0095F6] ml-0.5" title="Delivered & Seen in Global Stream (✓✓)">
+                <i class="fa-solid fa-check-double text-[11px]"></i>
+              </span>
+            </div>
+
+          </div>
+        `);
+      });
+
+      container.innerHTML = htmlParts.join("");
+      container.scrollTop = container.scrollHeight;
+    }
+
+    // ==========================================================================
+    // WHATSAPP MESSAGE ACTIONS: REPLY, EDIT, DELETE, STAR, PIN, INFO & VOICE SPEED
+    // ==========================================================================
+    function setReplyTarget(msgId) {
+      const m = state.messagesMap[msgId];
+      if (!m) return;
+      const fullName = m.senderFullName || m.senderNickname || "Member";
+      state.replyTo = {
+        id: m.id,
+        senderFullName: fullName,
+        snippet: (m.text || "").substring(0, 80)
+      };
+      const bar = document.getElementById("replyPreviewBar");
+      document.getElementById("replyTargetName").textContent = fullName;
+      document.getElementById("replyTargetSnippet").textContent = state.replyTo.snippet;
+      bar.classList.remove("hidden");
+      bar.classList.add("flex");
+      document.getElementById("chatMessageInput")?.focus();
+    }
+
+    function cancelReply() {
+      state.replyTo = null;
+      const bar = document.getElementById("replyPreviewBar");
+      if (bar) {
+        bar.classList.add("hidden");
+        bar.classList.remove("flex");
+      }
+    }
+
+    function startEditMessage(msgId) {
+      const m = state.messagesMap[msgId];
+      if (!m) return;
+      state.editingMsgId = msgId;
+      const bar = document.getElementById("editPreviewBar");
+      document.getElementById("editTargetSnippet").textContent = (m.text || "").substring(0, 60);
+      bar.classList.remove("hidden");
+      bar.classList.add("flex");
+
+      const input = document.getElementById("chatMessageInput");
+      const sendBtnText = document.getElementById("sendBtnText");
+      if (input) {
+        input.value = m.text || "";
+        input.focus();
+      }
+      if (sendBtnText) sendBtnText.textContent = "Update";
+    }
+
+    function cancelEditMessage() {
+      state.editingMsgId = null;
+      const bar = document.getElementById("editPreviewBar");
+      if (bar) {
+        bar.classList.add("hidden");
+        bar.classList.remove("flex");
+      }
+      const sendBtnText = document.getElementById("sendBtnText");
+      if (sendBtnText) sendBtnText.textContent = "Send";
+    }
+
+    function deleteMessage(msgId) {
+      const m = state.messagesMap[msgId];
+      if (!m) return;
+      const isMe = state.currentUser && m.senderId === state.currentUser.userId;
+      const isAdmin = state.currentUser?.role === "ADMIN";
+      if (!isMe && !isAdmin) {
+        showToast("You can only delete your own messages.", "warning");
+        return;
+      }
+      delete state.messagesMap[msgId];
+      localStorage.setItem(LS_MSGS_KEY, JSON.stringify(state.messagesMap));
+      remove(ref(db, `nexacomm/messages/${msgId}`)).catch(() => {});
+      refreshAllViews();
+      showToast("Message deleted for everyone.", "info");
+    }
+
+    function toggleStarMessage(msgId) {
+      const m = state.messagesMap[msgId];
+      if (!m) return;
+      m.starred = !m.starred;
+      persistMessageRecord(msgId, m);
+    }
+
+    function pinMessageToTop(msgId) {
+      const m = state.messagesMap[msgId];
+      if (!m) return;
+      const pinData = {
+        id: m.id,
+        senderFullName: m.senderFullName || m.senderNickname,
+        text: m.text
+      };
+      state.pinnedMessage = pinData;
+      set(ref(db, "nexacomm/pinnedMessage"), pinData).catch(() => {});
+      renderPinnedBanner();
+      showToast("Message pinned to the top of Global Group Chat.", "success");
+    }
+
+    function clearPinnedMessage() {
+      state.pinnedMessage = null;
+      remove(ref(db, "nexacomm/pinnedMessage")).catch(() => {});
+      renderPinnedBanner();
+    }
+
+    function renderPinnedBanner() {
+      const bar = document.getElementById("pinnedMessageBar");
+      const txt = document.getElementById("pinnedMessageText");
+      if (!bar || !txt) return;
+      if (state.pinnedMessage && state.pinnedMessage.text) {
+        txt.textContent = `${state.pinnedMessage.senderFullName}: ${state.pinnedMessage.text}`;
+        bar.classList.remove("hidden");
+        bar.classList.add("flex");
+      } else {
+        bar.classList.add("hidden");
+        bar.classList.remove("flex");
+      }
+    }
+
+    function openMessageInfo(msgId) {
+      const m = state.messagesMap[msgId];
+      if (!m) return;
+      document.getElementById("infoMsgSender").textContent = `${m.senderFullName || m.senderNickname} (${m.senderCountry || "🇮🇳 India"})`;
+      document.getElementById("infoMsgText").textContent = m.text || "";
+      document.getElementById("infoMsgTime").textContent = formatFullTimestamp(m.timestamp);
+      document.getElementById("infoMsgUserId").textContent = m.senderId || "---";
+      document.getElementById("infoMsgPacket").textContent = m.id;
+      openModal("msgInfoModal");
+    }
+
+    function cycleAudioSpeed(audioId, btnEl) {
+      const audio = document.getElementById(audioId);
+      if (!audio) return;
+      const speeds = [1, 1.5, 2];
+      const currentIdx = speeds.indexOf(audio.playbackRate);
+      const nextSpeed = speeds[(currentIdx + 1) % speeds.length];
+      audio.playbackRate = nextSpeed;
+      btnEl.textContent = `${nextSpeed}x`;
+    }
+
+    // ==========================================================================
+    // MULTIMEDIA HANDLERS: PHOTO, DOCUMENT, VOICE NOTE, VIDEO & POLLS
+    // ==========================================================================
+    function handleImageUpload(event) {
+      const file = event.target.files?.[0];
+      if (!file) return;
+
+      if (!state.currentUser) {
+        showToast("Please Login first to share photos.", "warning");
+        openModal("loginModal");
+        return;
+      }
+
+      const reader = new FileReader();
+      reader.onload = (e) => {
+        const img = new Image();
+        img.onload = () => {
+          const canvas = document.createElement("canvas");
+          const maxDim = 680;
+          let w = img.width;
+          let h = img.height;
+          if (w > maxDim || h > maxDim) {
+            if (w > h) {
+              h = Math.round((h * maxDim) / w);
+              w = maxDim;
+            } else {
+              w = Math.round((w * maxDim) / h);
+              h = maxDim;
+            }
+          }
+          canvas.width = w;
+          canvas.height = h;
+          canvas.getContext("2d").drawImage(img, 0, 0, w, h);
+          const compressedDataUrl = canvas.toDataURL("image/jpeg", 0.78);
+
+          sendMessage({
+            type: "IMAGE",
+            text: `Shared Photo: ${file.name}`,
+            imageUrl: compressedDataUrl
+          });
+          showToast("Photo sent to chat.", "success");
+        };
+        img.src = e.target.result;
+      };
+      reader.readAsDataURL(file);
+      event.target.value = "";
+    }
+
+    function handleDocUpload(event) {
+      const file = event.target.files?.[0];
+      if (!file) return;
+
+      if (!state.currentUser) {
+        showToast("Please Login first to share documents.", "warning");
+        openModal("loginModal");
+        return;
+      }
+
+      if (file.size > 1024 * 1024 * 2) {
+        showToast("Please select a document smaller than 2 MB.", "warning");
+        return;
+      }
+
+      const reader = new FileReader();
+      reader.onload = (e) => {
+        sendMessage({
+          type: "DOCUMENT",
+          text: `Shared Official Document: *${file.name}*`,
+          docName: file.name,
+          docDataUrl: e.target.result
+        });
+        showToast("Document shared in chat.", "success");
+      };
+      reader.readAsDataURL(file);
+      event.target.value = "";
+    }
+
+    async function toggleVoiceRecording() {
+      if (!state.currentUser) {
+        showToast("Please Login first to record voice notes.", "warning");
+        openModal("loginModal");
+        return;
+      }
+
+      const btn = document.getElementById("btnVoiceRecord");
+      const label = document.getElementById("voiceBtnLabel");
+
+      if (state.isRecordingVoice && state.mediaRecorder) {
+        state.mediaRecorder.stop();
+        state.isRecordingVoice = false;
+        btn.className = "px-2.5 h-9 rounded-lg bg-slate-100 hover:bg-rose-50 text-slate-700 hover:text-rose-700 border border-slate-200 font-bold text-xs flex items-center gap-1.5 transition shrink-0";
+        if (label) label.textContent = "Voice";
+        return;
+      }
+
+      try {
+        const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+        state.audioChunks = [];
+        state.mediaRecorder = new MediaRecorder(stream);
+
+        state.mediaRecorder.ondataavailable = (e) => {
+          if (e.data.size > 0) state.audioChunks.push(e.data);
+        };
+
+        state.mediaRecorder.onstop = () => {
+          stream.getTracks().forEach(t => t.stop());
+          const blob = new Blob(state.audioChunks, { type: "audio/webm" });
+          const reader = new FileReader();
+          reader.onloadend = () => {
+            sendMessage({
+              type: "VOICE",
+              text: "Voice Note Audio Packet",
+              audioUrl: reader.result
+            });
+            showToast("Voice note sent.", "success");
+          };
+          reader.readAsDataURL(blob);
+        };
+
+        state.mediaRecorder.start();
+        state.isRecordingVoice = true;
+        btn.className = "px-2.5 h-9 rounded-lg bg-rose-600 text-white font-bold text-xs flex items-center gap-1.5 animate-pulse shrink-0";
+        if (label) label.textContent = "Stop";
+        showToast("Recording voice... Click 'Stop' to send.", "info");
+      } catch (err) {
+        showToast("Microphone permission restricted in this browser frame.", "warning");
+      }
+    }
+
+    async function startLocalVideoStream() {
+      const videoEl = document.getElementById("localVideoElement");
+      try {
+        state.localVideoStream = await navigator.mediaDevices.getUserMedia({ video: true, audio: true });
+        if (videoEl) videoEl.srcObject = state.localVideoStream;
+        showToast("Camera active! Video room invite posted.", "success");
+      } catch (err) {
+        showToast("Video conference room invite posted to chat!", "info");
+      }
+
+      if (state.currentUser) {
+        sendMessage({
+          type: "TEXT",
+          text: `📹 *${state.currentUser.fullName}* opened the Live Video Conference Room. Click 'Video Room' in the left panel to join.`
+        });
+      }
+    }
+
+    function stopVideoCallAndClose() {
+      if (state.localVideoStream) {
+        state.localVideoStream.getTracks().forEach(t => t.stop());
+        state.localVideoStream = null;
+      }
+      const videoEl = document.getElementById("localVideoElement");
+      if (videoEl) videoEl.srcObject = null;
+      closeModal("videoCallModal");
+    }
+
+    function publishPollMessage() {
+      if (!state.currentUser) {
+        showToast("Please Login first to create a poll.", "warning");
+        openModal("loginModal");
+        return;
+      }
+
+      const q = document.getElementById("pollQuestionInput").value.trim();
+      const o1 = document.getElementById("pollOpt1Input").value.trim();
+      const o2 = document.getElementById("pollOpt2Input").value.trim();
+      const o3 = document.getElementById("pollOpt3Input").value.trim();
+
+      if (!q || !o1 || !o2) {
+        showToast("Please enter a poll question and at least 2 options.", "warning");
+        return;
+      }
+
+      const options = [
+        { label: o1, votes: 1 },
+        { label: o2, votes: 0 }
+      ];
+      if (o3) options.push({ label: o3, votes: 0 });
+
+      sendMessage({
+        type: "POLL",
+        text: `📊 Official Poll: *${q}*`,
+        pollData: { question: q, options }
+      });
+
+      document.getElementById("pollQuestionInput").value = "";
+      document.getElementById("pollOpt1Input").value = "";
+      document.getElementById("pollOpt2Input").value = "";
+      document.getElementById("pollOpt3Input").value = "";
+      closeModal("pollModal");
+      showToast("Poll published to Global Group Chat.", "success");
+    }
+
+    function voteInPoll(msgId, optionIndex) {
+      if (!state.currentUser) {
+        showToast("Please Login to vote in polls.", "warning");
+        openModal("loginModal");
+        return;
+      }
+      const m = state.messagesMap[msgId];
+      if (!m || !m.pollData || !m.pollData.options[optionIndex]) return;
+      m.pollData.options[optionIndex].votes = (m.pollData.options[optionIndex].votes || 0) + 1;
+      persistMessageRecord(msgId, m);
+      showToast("Vote recorded.", "success");
+    }
+
+    // ==========================================================================
+    // PROFILE INSPECTION, @MENTION, TRANSCRIPT EXPORT & MONOCHROME MODE
+    // ==========================================================================
+    function inspectUserProfile(userKey) {
+      let u = state.usersMap[userKey];
+      if (!u && (userKey === "SUPER_ADMIN" || userKey === "OUTREACH_BOT")) {
+        u = SUPER_ADMIN_CREDENTIALS;
+      }
+      if (!u) return;
+
+      const fullName = u.fullName || u.nickname || "Verified Member";
+      document.getElementById("inspectAvatar").textContent = fullName.charAt(0).toUpperCase();
+      document.getElementById("inspectFullName").textContent = fullName;
+      document.getElementById("inspectCountry").textContent = u.country || "🇮🇳 India";
+      document.getElementById("inspectNickname").textContent = u.nickname || "---";
+      document.getElementById("inspectIgn").textContent = u.ign || "---";
+      document.getElementById("inspectPlayerTag").textContent = u.playerTag || "#0000";
+      document.getElementById("inspectUserId").textContent = u.userId || u.userid || "---";
+      document.getElementById("inspectStatus").textContent = u.status || "ACTIVE";
+
+      state.inspectedUserObj = u;
+      openModal("profileInspectModal");
+    }
+
+    function copyInspectedTag() {
+      if (!state.inspectedUserObj) return;
+      const tag = state.inspectedUserObj.playerTag || "#0000";
+      navigator.clipboard.writeText(tag).catch(() => {});
+      showToast(`Copied Tag (${tag}).`, "success");
+    }
+
+    function mentionInspectedUser() {
+      if (!state.inspectedUserObj) return;
+      const fullName = state.inspectedUserObj.fullName || state.inspectedUserObj.nickname || "Member";
+      closeModal("profileInspectModal");
+      openGlobalChatDirect();
+      const input = document.getElementById("chatMessageInput");
+      if (input) {
+        input.value = `@${fullName} ` + input.value;
+        input.focus();
+      }
+    }
+
+    function exportChatTranscript() {
+      const msgs = Object.values(state.messagesMap).sort((a, b) => (a.timestamp || 0) - (b.timestamp || 0));
+      if (!msgs.length) {
+        showToast("No chat messages to export yet.", "warning");
+        return;
+      }
+      const lines = [
+        "====================================================================",
+        "IIRS-NEXACOMM OFFICIAL GLOBAL GROUP CHAT TRANSCRIPT",
+        `Exported On: ${new Date().toLocaleString("en-IN")}`,
+        "====================================================================",
+        ""
+      ];
+      msgs.forEach((m) => {
+        const name = m.senderFullName || m.senderNickname || "Member";
+        lines.push(`[${formatFullTimestamp(m.timestamp)}] ${name} (${m.senderId}): ${m.text}`);
+      });
+
+      const blob = new Blob([lines.join("\n")], { type: "text/plain;charset=utf-8" });
+      const url = URL.createObjectURL(blob);
+      const link = document.createElement("a");
+      link.href = url;
+      link.download = `Global_Group_Chat_Log_${new Date().toISOString().slice(0, 10)}.txt`;
+      document.body.appendChild(link);
+      link.click();
+      link.remove();
+      showToast("Official Chat Transcript (.TXT) downloaded.", "success");
+    }
+
+    function toggleMonochromeTheme() {
+      document.body.classList.toggle("high-contrast-mono");
+      const isMono = document.body.classList.contains("high-contrast-mono");
+      showToast(isMono ? "Pure Black & White Monochrome Mode Enabled." : "ISRO Navy & Saffron Accent Mode Restored.", "info");
+    }
+
+    function openImageLightbox(url) {
+      const img = document.getElementById("lightboxImageTarget");
+      if (img) img.src = url;
+      openModal("imageLightboxModal");
+    }
+
+    // ==========================================================================
+    // NAVIGATION CONTROLLERS (PUBLIC GLOBAL GROUP CHAT ACCESS FOR EVERYONE)
+    // ==========================================================================
+    function switchMainView(viewName) {
+      const vLanding = document.getElementById("viewLanding");
+      const vAdmin = document.getElementById("viewAdminDashboard");
+      const vChat = document.getElementById("viewChatWorkspace");
+
+      vLanding.classList.add("hidden");
+      vAdmin.classList.add("hidden");
+      vChat.classList.add("hidden");
+
+      if (viewName === "admin") {
+        if (!state.currentUser || state.currentUser.role !== "ADMIN") {
+          openModal("adminLoginModal");
+          vLanding.classList.remove("hidden");
+          return;
+        }
+        vAdmin.classList.remove("hidden");
+        renderAdminExcelTable();
+      } else if (viewName === "chat") {
+        vChat.classList.remove("hidden");
+        updateHeaderSessionUI();
+        renderMessages();
+      } else {
+        vLanding.classList.remove("hidden");
+      }
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+
+    // Anyone (Logged-in or Guest) can open Global Group Chat directly
+    function openGlobalChatDirect() {
+      state.activeChannel = "GLOBAL";
+      switchMainView("chat");
+      switchChatChannel("GLOBAL");
+    }
+
+    function openDirectAdminDesk() {
+      state.activeChannel = "ADMIN_DESK";
+      switchMainView("chat");
+      switchChatChannel("ADMIN_DESK");
+    }
+
+    function openModal(id) {
+      const el = document.getElementById(id);
+      if (el) el.classList.remove("hidden");
+    }
+
+    function closeModal(id) {
+      const el = document.getElementById(id);
+      if (el) el.classList.add("hidden");
+    }
+
+    // ==========================================================================
+    // EXPOSE GLOBAL API TO WINDOW
+    // ==========================================================================
+    window.appUI = {
+      switchMainView,
+      openGlobalChatDirect,
+      openDirectAdminDesk,
+      openModal,
+      closeModal,
+      generateRegistrationCredentials,
+      copyGeneratedCredentials,
+      toggleFinalRegisterButton,
+      submitFinalRegistration,
+      loginStandardUser,
+      loginSuperAdmin,
+      logoutSession,
+      handleSessionBadgeClick,
+      renderAdminExcelTable,
+      adminLoginAsUser,
+      returnToAdminFromImpersonation,
+      setUserStatus,
+      deleteUserByAdmin,
+      openAdminAddUserModal,
+      openAdminEditUserModal,
+      saveAdminUserEdit,
+      exportUsersToCSV,
+      updateGlobalBroadcast,
+      purgeLegacyDummyData,
+      switchChatChannel,
+      handleTypingPulse,
+      insertFormatTag,
+      changeGlobalChatFont,
+      toggleStarredFilter,
+      toggleAdminChatLock,
+      sendMessage,
+      renderMessages,
+      setReplyTarget,
+      cancelReply,
+      startEditMessage,
+      cancelEditMessage,
+      deleteMessage,
+      toggleStarMessage,
+      pinMessageToTop,
+      clearPinnedMessage,
+      openMessageInfo,
+      cycleAudioSpeed,
+      handleImageUpload,
+      handleDocUpload,
+      toggleVoiceRecording,
+      startLocalVideoStream,
+      stopVideoCallAndClose,
+      publishPollMessage,
+      voteInPoll,
+      publishStatusUpdate,
+      viewStoryToast,
+      inspectUserProfile,
+      copyInspectedTag,
+      mentionInspectedUser,
+      exportChatTranscript,
+      toggleMonochromeTheme,
+      openImageLightbox
+    };
+
+    // Boot Application
+    initRealtimeDatabaseSync();
+  </script>
+</body>
+</html>
+<!-- END OF PART 3 (COMPLETE SINGLE-FILE HTML) -->
